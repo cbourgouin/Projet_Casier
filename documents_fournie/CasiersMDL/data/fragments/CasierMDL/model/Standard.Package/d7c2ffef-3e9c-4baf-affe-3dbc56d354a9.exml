@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="casiers_mdl" version="4">
+  <OBJECT>
+    <ID name="casiers_mdl" mc="Standard.Package" uid="d7c2ffef-3e9c-4baf-affe-3dbc56d354a9"/>
+    <PID name="CasierMDL" mc="Standard.Project" uid="7e59d942-be91-4b97-b0a5-29a572283956"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[casiers_mdl]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Website" mc="Standard.Package" uid="4702ea33-8066-4422-b7f2-92ea56157013"/>
+        <COMPID name="Locker Controller" mc="Standard.Package" uid="f726bc16-6ddd-4a33-8771-b9a3f4ba2349"/>
+        <COMPID name="Member" mc="Standard.Actor" uid="3f904393-54ca-4309-83fe-100377ee8d35"/>
+        <COMPID name="MDL Manager" mc="Standard.Actor" uid="1c3a40c1-0709-406c-ac7c-92f66d497a2e"/>
+        <COMPID name=" Raspberry Pi   Contrôleur casiers" mc="Standard.Node" uid="58ece843-1696-47b7-a61a-b1cbaea2b46e"/>
+        <COMPID name="Serveur" mc="Standard.Node" uid="c1192051-fc7f-4cbc-9be4-4319ce0d7e66"/>
+        <COMPID name="Ordinateur" mc="Standard.Node" uid="52db1b15-907c-447e-adab-81050823b04b"/>
+        <COMPID name="Caméra" mc="Standard.Node" uid="701865d4-89eb-4327-bfb9-6dc5ff6b0316"/>
+        <COMPID name="Lecteur de carte" mc="Standard.Node" uid="b916ec80-bb1b-4a6a-adc2-56935d9c745a"/>
+        <COMPID name="Carte de commande" mc="Standard.Node" uid="82a2c1d7-f97d-4812-ac0c-e9f237bd3482"/>
+        <COMPID name="Gache" mc="Standard.Node" uid="56e5cd97-576a-456a-ac01-ed04a7a65a7a"/>
+        <COMPID name="Watch dog" mc="Standard.Actor" uid="2f3f1280-16da-4ff6-9436-e4e6aa8b6931"/>
+        <COMPID name="Raspi SMS" mc="Standard.Package" uid="e18e46b1-6919-4d51-a2be-e929d8ddb1b1"/>
+        <COMPID name="Raspberry Pi        Raspi SMS" mc="Standard.Node" uid="5491c5ba-cdfa-479e-b48c-81062a149bdd"/>
+        <COMPID name="Modem GSM" mc="Standard.Node" uid="c9440fe5-a31c-4c2b-8f89-6d21571aa65c"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="casiermdl Use Case diagram" mc="Standard.UseCaseDiagram" uid="0dd124be-7daf-4ddf-ad96-3bcc422dbbdf"/>
+        <COMPID name="casiers_mdl Deployment diagram" mc="Standard.DeploymentDiagram" uid="d7064364-9b2f-44f5-b196-08dc84db28bb"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

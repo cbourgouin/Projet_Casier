@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Application déportée" version="4">
+  <OBJECT>
+    <ID name="Application déportée" mc="Standard.Node" uid="e0b68554-870d-4051-ab7b-dd38bd539ad9"/>
+    <PID name="Raspberry Pi" mc="Standard.Node" uid="58ece843-1696-47b7-a61a-b1cbaea2b46e"/>
+    <ATTRIBUTES>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Application déportée]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="CasierMDL" version="4">
+  <OBJECT>
+    <ID name="CasierMDL" mc="Infrastructure.DiagramSet" uid="7401aac7-634c-4f0b-b232-d192e50a87f4"/>
+    <PID name="CasierMDL" mc="Standard.Project" uid="7e59d942-be91-4b97-b0a5-29a572283956"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[CasierMDL]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

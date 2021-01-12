@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Serveur BDD" version="4">
+  <OBJECT>
+    <ID name="Serveur BDD" mc="Standard.Node" uid="c4be27a9-44f1-494e-b1c9-1d9113c85ac3"/>
+    <PID name="Serveur" mc="Standard.Node" uid="c1192051-fc7f-4cbc-9be4-4319ce0d7e66"/>
+    <ATTRIBUTES>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Serveur BDD]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
