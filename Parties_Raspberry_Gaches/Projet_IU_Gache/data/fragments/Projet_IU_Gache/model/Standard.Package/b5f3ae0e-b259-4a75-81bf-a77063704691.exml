@@ -25,6 +25,7 @@
         <COMPID name="Adhérent" mc="Standard.Class" uid="da2f48df-42e3-4d12-a401-0e80c1071f45"/>
         <COMPID name="Adhérent" mc="Standard.Actor" uid="fae4bcbc-537f-4869-b52c-53b527c26b01"/>
         <COMPID name="HautParleur" mc="Standard.Class" uid="286b7581-67ac-4767-b4ed-b331e4f2b18a"/>
+        <COMPID name="CarteDeControle" mc="Standard.Class" uid="eb8ab58f-93ba-4db0-9c3e-786c2be3ac4b"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
