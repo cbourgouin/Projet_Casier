@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="projet_iu_gache" version="4">
+  <OBJECT>
+    <ID name="projet_iu_gache" mc="Standard.Package" uid="b5f3ae0e-b259-4a75-81bf-a77063704691"/>
+    <PID name="Projet_IU_Gache" mc="Standard.Project" uid="d73f9535-bbb1-44a6-8d61-f2b05d2bb3eb"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[projet_iu_gache]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="113bc597-439b-4392-aebb-112f670a3c32"/>
+        <COMPID name="Interaction1" mc="Standard.Interaction" uid="b927bf34-89bb-4aa2-ae91-a2e1eaf687c0"/>
+        <COMPID name="State Machine" mc="Standard.StateMachine" uid="a03202cb-93ea-4b2a-9fd3-17f6f19ef102"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="UI" mc="Standard.Class" uid="bae43b14-ca98-4cf8-a192-f7f603920d36"/>
+        <COMPID name="BDD" mc="Standard.Class" uid="7835a5e7-d6c8-4036-a20f-b46ced4960ae"/>
+        <COMPID name="Controleur" mc="Standard.Class" uid="ca3b5a0a-49f5-4e4c-9a30-68bd4bd88ea3"/>
+        <COMPID name="Gache" mc="Standard.Class" uid="371e834b-c1e3-489c-be07-5dca37a40789"/>
+        <COMPID name="Adhérent" mc="Standard.Actor" uid="fae4bcbc-537f-4869-b52c-53b527c26b01"/>
+        <COMPID name="HautParleur" mc="Standard.Class" uid="286b7581-67ac-4767-b4ed-b331e4f2b18a"/>
+        <COMPID name="CarteDeControle" mc="Standard.Class" uid="eb8ab58f-93ba-4db0-9c3e-786c2be3ac4b"/>
+        <COMPID name="CarteDexpension" mc="Standard.Class" uid="1888b73d-333d-49fc-8309-90c51acb0908"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de classe projet_iu_gache" mc="Standard.ClassDiagram" uid="c2bfa9a7-94e7-4870-9f17-13f7b674b873"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
