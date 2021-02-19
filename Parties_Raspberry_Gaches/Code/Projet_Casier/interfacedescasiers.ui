@@ -40,7 +40,7 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>240</x>
      <y>10</y>
      <width>321</width>
      <height>451</height>
@@ -49,7 +49,7 @@
    <property name="title">
     <string>GroupBox</string>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>

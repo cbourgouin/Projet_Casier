@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="IoPi" version="4">
+  <OBJECT>
+    <ID name="IoPi" mc="Standard.DataType" uid="8f5a055c-8072-4727-b260-298ee173c4a3"/>
+    <PID name="ABE_IoPi" mc="Standard.Class" uid="1294dd68-9d3e-4172-8c9a-72352e29dbf8"/>
+    <ATTRIBUTES>
+      <ATT name="IsElementary">true</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[IoPi]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
