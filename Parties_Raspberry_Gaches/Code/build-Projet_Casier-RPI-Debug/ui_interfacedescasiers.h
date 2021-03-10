@@ -24,18 +24,19 @@ public:
     QGroupBox *groupBox;
     QWidget *layoutWidget;
     QGridLayout *gridLayout_2;
-    QPushButton *pushButton;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_9;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_6;
+    QPushButton *pushButton_01;
+    QPushButton *pushButton_02;
+    QPushButton *pushButton_03;
+    QPushButton *pushButton_04;
+    QPushButton *pushButton_Ecran;
+    QPushButton *pushButton_05;
+    QPushButton *pushButton_06;
+    QPushButton *pushButton_07;
+    QPushButton *pushButton_08;
+    QPushButton *pushButton_09;
     QPushButton *pushButton_10;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_7;
-    QPushButton *pushButton_11;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_8;
     QPushButton *pushButton_12;
+    QPushButton *Deconnexion;
 
     void setupUi(QWidget *InterfaceDesCasiers)
     {
@@ -60,86 +61,86 @@ public:
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         gridLayout_2->setSizeConstraint(QLayout::SetMaximumSize);
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(layoutWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton_01 = new QPushButton(layoutWidget);
+        pushButton_01->setObjectName(QStringLiteral("pushButton_01"));
         QSizePolicy sizePolicy1(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
-        pushButton->setSizePolicy(sizePolicy1);
-        pushButton->setFocusPolicy(Qt::StrongFocus);
+        sizePolicy1.setHeightForWidth(pushButton_01->sizePolicy().hasHeightForWidth());
+        pushButton_01->setSizePolicy(sizePolicy1);
+        pushButton_01->setFocusPolicy(Qt::StrongFocus);
 
-        gridLayout_2->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout_2->addWidget(pushButton_01, 0, 0, 1, 1);
 
-        pushButton_5 = new QPushButton(layoutWidget);
-        pushButton_5->setObjectName(QStringLiteral("pushButton_5"));
-        sizePolicy1.setHeightForWidth(pushButton_5->sizePolicy().hasHeightForWidth());
-        pushButton_5->setSizePolicy(sizePolicy1);
+        pushButton_02 = new QPushButton(layoutWidget);
+        pushButton_02->setObjectName(QStringLiteral("pushButton_02"));
+        sizePolicy1.setHeightForWidth(pushButton_02->sizePolicy().hasHeightForWidth());
+        pushButton_02->setSizePolicy(sizePolicy1);
 
-        gridLayout_2->addWidget(pushButton_5, 0, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton_02, 0, 1, 1, 1);
 
-        pushButton_9 = new QPushButton(layoutWidget);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        sizePolicy1.setHeightForWidth(pushButton_9->sizePolicy().hasHeightForWidth());
-        pushButton_9->setSizePolicy(sizePolicy1);
+        pushButton_03 = new QPushButton(layoutWidget);
+        pushButton_03->setObjectName(QStringLiteral("pushButton_03"));
+        sizePolicy1.setHeightForWidth(pushButton_03->sizePolicy().hasHeightForWidth());
+        pushButton_03->setSizePolicy(sizePolicy1);
 
-        gridLayout_2->addWidget(pushButton_9, 0, 2, 1, 1);
+        gridLayout_2->addWidget(pushButton_03, 0, 2, 1, 1);
 
-        pushButton_2 = new QPushButton(layoutWidget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        sizePolicy1.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
-        pushButton_2->setSizePolicy(sizePolicy1);
+        pushButton_04 = new QPushButton(layoutWidget);
+        pushButton_04->setObjectName(QStringLiteral("pushButton_04"));
+        sizePolicy1.setHeightForWidth(pushButton_04->sizePolicy().hasHeightForWidth());
+        pushButton_04->setSizePolicy(sizePolicy1);
 
-        gridLayout_2->addWidget(pushButton_2, 1, 0, 1, 1);
+        gridLayout_2->addWidget(pushButton_04, 1, 0, 1, 1);
 
-        pushButton_6 = new QPushButton(layoutWidget);
-        pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
-        sizePolicy1.setHeightForWidth(pushButton_6->sizePolicy().hasHeightForWidth());
-        pushButton_6->setSizePolicy(sizePolicy1);
+        pushButton_Ecran = new QPushButton(layoutWidget);
+        pushButton_Ecran->setObjectName(QStringLiteral("pushButton_Ecran"));
+        sizePolicy1.setHeightForWidth(pushButton_Ecran->sizePolicy().hasHeightForWidth());
+        pushButton_Ecran->setSizePolicy(sizePolicy1);
 
-        gridLayout_2->addWidget(pushButton_6, 1, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton_Ecran, 1, 1, 1, 1);
+
+        pushButton_05 = new QPushButton(layoutWidget);
+        pushButton_05->setObjectName(QStringLiteral("pushButton_05"));
+        sizePolicy1.setHeightForWidth(pushButton_05->sizePolicy().hasHeightForWidth());
+        pushButton_05->setSizePolicy(sizePolicy1);
+
+        gridLayout_2->addWidget(pushButton_05, 1, 2, 1, 1);
+
+        pushButton_06 = new QPushButton(layoutWidget);
+        pushButton_06->setObjectName(QStringLiteral("pushButton_06"));
+        sizePolicy1.setHeightForWidth(pushButton_06->sizePolicy().hasHeightForWidth());
+        pushButton_06->setSizePolicy(sizePolicy1);
+
+        gridLayout_2->addWidget(pushButton_06, 2, 0, 1, 1);
+
+        pushButton_07 = new QPushButton(layoutWidget);
+        pushButton_07->setObjectName(QStringLiteral("pushButton_07"));
+        sizePolicy1.setHeightForWidth(pushButton_07->sizePolicy().hasHeightForWidth());
+        pushButton_07->setSizePolicy(sizePolicy1);
+
+        gridLayout_2->addWidget(pushButton_07, 2, 1, 1, 1);
+
+        pushButton_08 = new QPushButton(layoutWidget);
+        pushButton_08->setObjectName(QStringLiteral("pushButton_08"));
+        sizePolicy1.setHeightForWidth(pushButton_08->sizePolicy().hasHeightForWidth());
+        pushButton_08->setSizePolicy(sizePolicy1);
+
+        gridLayout_2->addWidget(pushButton_08, 2, 2, 1, 1);
+
+        pushButton_09 = new QPushButton(layoutWidget);
+        pushButton_09->setObjectName(QStringLiteral("pushButton_09"));
+        sizePolicy1.setHeightForWidth(pushButton_09->sizePolicy().hasHeightForWidth());
+        pushButton_09->setSizePolicy(sizePolicy1);
+
+        gridLayout_2->addWidget(pushButton_09, 3, 0, 1, 1);
 
         pushButton_10 = new QPushButton(layoutWidget);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
         sizePolicy1.setHeightForWidth(pushButton_10->sizePolicy().hasHeightForWidth());
         pushButton_10->setSizePolicy(sizePolicy1);
 
-        gridLayout_2->addWidget(pushButton_10, 1, 2, 1, 1);
-
-        pushButton_3 = new QPushButton(layoutWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        sizePolicy1.setHeightForWidth(pushButton_3->sizePolicy().hasHeightForWidth());
-        pushButton_3->setSizePolicy(sizePolicy1);
-
-        gridLayout_2->addWidget(pushButton_3, 2, 0, 1, 1);
-
-        pushButton_7 = new QPushButton(layoutWidget);
-        pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
-        sizePolicy1.setHeightForWidth(pushButton_7->sizePolicy().hasHeightForWidth());
-        pushButton_7->setSizePolicy(sizePolicy1);
-
-        gridLayout_2->addWidget(pushButton_7, 2, 1, 1, 1);
-
-        pushButton_11 = new QPushButton(layoutWidget);
-        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
-        sizePolicy1.setHeightForWidth(pushButton_11->sizePolicy().hasHeightForWidth());
-        pushButton_11->setSizePolicy(sizePolicy1);
-
-        gridLayout_2->addWidget(pushButton_11, 2, 2, 1, 1);
-
-        pushButton_4 = new QPushButton(layoutWidget);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        sizePolicy1.setHeightForWidth(pushButton_4->sizePolicy().hasHeightForWidth());
-        pushButton_4->setSizePolicy(sizePolicy1);
-
-        gridLayout_2->addWidget(pushButton_4, 3, 0, 1, 1);
-
-        pushButton_8 = new QPushButton(layoutWidget);
-        pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
-        sizePolicy1.setHeightForWidth(pushButton_8->sizePolicy().hasHeightForWidth());
-        pushButton_8->setSizePolicy(sizePolicy1);
-
-        gridLayout_2->addWidget(pushButton_8, 3, 1, 1, 1);
+        gridLayout_2->addWidget(pushButton_10, 3, 1, 1, 1);
 
         pushButton_12 = new QPushButton(layoutWidget);
         pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
@@ -148,9 +149,12 @@ public:
 
         gridLayout_2->addWidget(pushButton_12, 3, 2, 1, 1);
 
+        Deconnexion = new QPushButton(InterfaceDesCasiers);
+        Deconnexion->setObjectName(QStringLiteral("Deconnexion"));
+        Deconnexion->setGeometry(QRect(640, 410, 141, 51));
 
         retranslateUi(InterfaceDesCasiers);
-        QObject::connect(pushButton, SIGNAL(clicked()), InterfaceDesCasiers, SLOT(close()));
+        QObject::connect(pushButton_01, SIGNAL(clicked()), InterfaceDesCasiers, SLOT(close()));
 
         QMetaObject::connectSlotsByName(InterfaceDesCasiers);
     } // setupUi
@@ -159,18 +163,19 @@ public:
     {
         InterfaceDesCasiers->setWindowTitle(QApplication::translate("InterfaceDesCasiers", "InterfaceDesCasiers", nullptr));
         groupBox->setTitle(QApplication::translate("InterfaceDesCasiers", "GroupBox", nullptr));
-        pushButton->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_5->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_9->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_2->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_6->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_10->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_3->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_7->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_11->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_4->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_8->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
-        pushButton_12->setText(QApplication::translate("InterfaceDesCasiers", "PushButton", nullptr));
+        pushButton_01->setText(QString());
+        pushButton_02->setText(QString());
+        pushButton_03->setText(QString());
+        pushButton_04->setText(QString());
+        pushButton_Ecran->setText(QString());
+        pushButton_05->setText(QString());
+        pushButton_06->setText(QString());
+        pushButton_07->setText(QString());
+        pushButton_08->setText(QString());
+        pushButton_09->setText(QString());
+        pushButton_10->setText(QString());
+        pushButton_12->setText(QString());
+        Deconnexion->setText(QApplication::translate("InterfaceDesCasiers", "Deconnexion", nullptr));
     } // retranslateUi
 
 };

@@ -15,6 +15,29 @@ public:
     InterfaceDesCasiers(QWidget *parent = nullptr);
     ~InterfaceDesCasiers();
 
+private slots:
+    void on_pushButton_01_clicked();
+
+    void on_pushButton_02_clicked();
+
+    void on_pushButton_03_clicked();
+
+    void on_pushButton_04_clicked();
+
+    void on_pushButton_05_clicked();
+
+    void on_pushButton_06_clicked();
+
+    void on_pushButton_07_clicked();
+
+    void on_pushButton_08_clicked();
+
+    void on_pushButton_09_clicked();
+
+    void on_pushButton_10_clicked();
+
+    void on_pushButton_11_clicked();
+
 private:
     Ui::InterfaceDesCasiers *ui;
 };

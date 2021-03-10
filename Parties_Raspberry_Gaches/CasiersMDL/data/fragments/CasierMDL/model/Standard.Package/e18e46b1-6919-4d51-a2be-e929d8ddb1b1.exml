@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Raspi SMS" version="4">
+  <OBJECT>
+    <ID name="Raspi SMS" mc="Standard.Package" uid="e18e46b1-6919-4d51-a2be-e929d8ddb1b1"/>
+    <PID name="casiers_mdl" mc="Standard.Package" uid="d7c2ffef-3e9c-4baf-affe-3dbc56d354a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Raspi SMS]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Envoyer un SMS de rappel" mc="Standard.UseCase" uid="1f2e78d2-2231-41f1-9d7b-fe5eb4dc530a"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
