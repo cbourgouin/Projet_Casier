@@ -1,0 +1,16 @@
+- senario
+  -> choisir un materiel a empreinter present
+  -> choisir un materiel a empreinter non present
+  -> rendre un materiel
+  
+- a verifier
+  -> ouverture des gache
+  -> mise a jour BDD
+  -> effet sonore
+
+
+
+
+
+
+- liste du materiel a commander

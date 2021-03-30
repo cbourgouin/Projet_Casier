@@ -1,7 +1,15 @@
 #ifndef INTERFACEDESCASIERS_H
 #define INTERFACEDESCASIERS_H
 
+#define NBDECASIERS 11
+#define NBDETAGE 4
+#define NBDECOLONNE 3
+
 #include <QWidget>
+#include <QPushButton>
+#include <QGridLayout>
+
+#include "bdd.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InterfaceDesCasiers; }
@@ -15,30 +23,18 @@ public:
     InterfaceDesCasiers(QWidget *parent = nullptr);
     ~InterfaceDesCasiers();
 
+    int getValue() const;
+    void setValue(int value);
+    
 private slots:
-    void on_pushButton_01_clicked();
-
-    void on_pushButton_02_clicked();
-
-    void on_pushButton_03_clicked();
-
-    void on_pushButton_04_clicked();
-
-    void on_pushButton_05_clicked();
-
-    void on_pushButton_06_clicked();
-
-    void on_pushButton_07_clicked();
-
-    void on_pushButton_08_clicked();
-
-    void on_pushButton_09_clicked();
-
-    void on_pushButton_10_clicked();
-
-    void on_pushButton_11_clicked();
+    void onpushButtonMaterielsclicked();
 
 private:
     Ui::InterfaceDesCasiers *ui;
+    QPushButton* lesBoutons[NBDECASIERS];
+    QGridLayout* grille;
+    QWidget* gridLayoutWidget;
+    int value;
+
 };
 #endif // INTERFACEDESCASIERS_H

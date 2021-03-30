@@ -1,11 +1,38 @@
 #include "interfacedescasiers.h"
 #include "ui_interfacedescasiers.h"
 
+
 InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::InterfaceDesCasiers)
 {
     ui->setupUi(this);
+    grille = new QGridLayout();
+    gridLayoutWidget = new QWidget();
+    gridLayoutWidget->setGeometry(250, 10, 371, 461);
+    gridLayoutWidget->setLayout(grille);
+
+    for(int i=0; i<NBDECASIERS; i++){
+        lesBoutons[i] = new QPushButton(this);
+        connect(lesBoutons[i], &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
+        lesBoutons[i]->setFixedSize(100, 100);
+    }
+    int compteur = 0;
+    for(int etage=0; etage<4; etage++){
+        for(int colonne=0; colonne<3; colonne++){
+            if(etage != 1 || colonne != 1){
+                grille->addWidget(lesBoutons[compteur], etage, colonne);
+                compteur++;
+            }
+        }
+    }
+    //gridLayoutWidget->setParent(this);
+    BDD* maBaseDeDonnee;
+    maBaseDeDonnee = new BDD();
+    bool reponse = maBaseDeDonnee->VerifAdherent(11667);
+    qDebug() << reponse;
+    Materiel materiel = maBaseDeDonnee->VerifObjetNonRendu(78965);
+    qDebug()<<materiel.getNom();
 }
 
 InterfaceDesCasiers::~InterfaceDesCasiers()
@@ -13,57 +40,17 @@ InterfaceDesCasiers::~InterfaceDesCasiers()
     delete ui;
 }
 
-void InterfaceDesCasiers::on_pushButton_01_clicked()
+void InterfaceDesCasiers::onpushButtonMaterielsclicked()
 {
 
 }
 
-void InterfaceDesCasiers::on_pushButton_02_clicked()
+int InterfaceDesCasiers::getValue() const
 {
-
+    return value;
 }
 
-void InterfaceDesCasiers::on_pushButton_03_clicked()
+void InterfaceDesCasiers::setValue(int value)
 {
-
-}
-
-void InterfaceDesCasiers::on_pushButton_04_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_05_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_06_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_07_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_08_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_09_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_10_clicked()
-{
-
-}
-
-void InterfaceDesCasiers::on_pushButton_11_clicked()
-{
-
+    value = value;
 }
