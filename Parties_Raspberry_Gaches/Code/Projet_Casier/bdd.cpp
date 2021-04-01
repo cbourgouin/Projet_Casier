@@ -92,3 +92,73 @@ Materiel BDD::VerifObjetNonRendu(int _numCarte)
     }
     return *dernierMaterielEmpreinter;
 }
+
+void BDD::MajBDDObjetRendu(int _idObjet)
+{
+    if(!accesBdd.open())
+    {
+        qDebug()<<"MajBDDObjetRendu : pb acces bd"<<accesBdd.lastError();
+    }
+    else
+    {
+        QSqlQuery requete;
+
+        requete.prepare("update CASIER set CASIER.rendu=1 where CASIER.idmateriel like :im ;");
+        requete.bindValue(":im", _idObjet);
+        if(!requete.exec()){
+            qDebug()<<"MajBDDObjetRendu : pb requete "<<requete.lastError();
+        }
+    }
+}
+
+Materiel *BDD::ListeMaterielEmpreintable()
+{
+    Materiel *listeMateriel;
+    if(!accesBdd.open())
+    {
+        qDebug()<<"ListeMaterielEmpreintable : pb acces bd"<<accesBdd.lastError();
+    }
+    else
+    {
+        QSqlQuery requete("select MATERIEL.idMateriel, MATERIEL.nom, CASIER.positionx, CASIER.positiony"
+                            " from MATERIEL, CASIER where CASIER.rendu = 1");
+        if(!requete.exec()){
+            qDebug()<<"ListeMaterielEmpreintable : pb requete "<<requete.lastError();
+        }
+        listeMateriel = new Materiel[requete.size()];
+        int com=0;
+        while(requete.next()){
+            listeMateriel[com].setIdMateriel(requete.value("idMateriel").toInt());
+            listeMateriel[com].setNom(requete.value("nom").toString());
+            listeMateriel[com].setPositionCasierX(requete.value("positionx").toInt());
+            listeMateriel[com].setPositionCasierY(requete.value("positiony").toInt());
+            com++;
+        }
+    }
+    return listeMateriel;
+}
+
+void BDD::MajBDDObjetEmpreinter(Materiel _objet)
+{
+    if(!accesBdd.open())
+    {
+        qDebug()<<"MajBDDObjetRendu : pb acces bd"<<accesBdd.lastError();
+    }
+    else
+    {
+        QSqlQuery requeteMajCasierRendu;
+        requeteMajCasierRendu.prepare("update CASIER set CASIER.rendu=0 where CASIER.idmateriel like :im ;");
+        requeteMajCasierRendu.bindValue(":im", _objet.getIdMateriel());
+        if(!requeteMajCasierRendu.exec()){
+            qDebug()<<"MajBDDObjetRendu : pb requete "<<requeteMajCasierRendu.lastError();
+        }
+
+        QSqlQuery requeteRecIdAdherent;
+        requeteMajCasierRendu.prepare("update CASIER set CASIER.rendu=0 where CASIER.idmateriel like :im ;");
+        requeteMajCasierRendu.bindValue(":im", _objet.getIdMateriel());
+        if(!requeteMajCasierRendu.exec()){
+             qDebug()<<"MajBDDObjetRendu : pb requete "<<requeteMajCasierRendu.lastError();
+        }
+    }
+}
+

@@ -18,7 +18,7 @@ public:
     ~BDD();
     bool VerifAdherent(int _numCarte);
     Materiel VerifObjetNonRendu(int _numCarte);
-    void MajBDDObjetRendu(int _idObjet, int _numCarte);
+    void MajBDDObjetRendu(int _idObjet);
     Materiel* ListeMaterielEmpreintable();
     void MajBDDObjetEmpreinter(Materiel _objet);
 private:
