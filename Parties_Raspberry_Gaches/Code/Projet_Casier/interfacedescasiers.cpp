@@ -23,6 +23,14 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
             if(etage != 1 || colonne != 1){
                 grille->addWidget(lesBoutons[compteur], etage, colonne);
                 compteur++;
+                BDD* maBaseDeDonnee;
+                maBaseDeDonnee = new BDD();
+
+                for(int etage=0; etage<4; etage++){
+                    for(int colonne=0; colonne<3; colonne++){
+
+                    }
+                }
             }
         }
     }

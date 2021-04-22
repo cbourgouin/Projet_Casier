@@ -138,11 +138,14 @@ Materiel *BDD::ListeMaterielEmpreintable()
     return listeMateriel;
 }
 
-void BDD::MajBDDObjetEmpreinter(Materiel _objet)
+void BDD::MajBDDObjetEmpreinter(Materiel _objet, int _numCarte)
 {
+
+    int idAdherent;
+
     if(!accesBdd.open())
     {
-        qDebug()<<"MajBDDObjetRendu : pb acces bd"<<accesBdd.lastError();
+        qDebug()<<"MajBDDObjetEmpreinter : pb acces bd"<<accesBdd.lastError();
     }
     else
     {
@@ -150,15 +153,26 @@ void BDD::MajBDDObjetEmpreinter(Materiel _objet)
         requeteMajCasierRendu.prepare("update CASIER set CASIER.rendu=0 where CASIER.idmateriel like :im ;");
         requeteMajCasierRendu.bindValue(":im", _objet.getIdMateriel());
         if(!requeteMajCasierRendu.exec()){
-            qDebug()<<"MajBDDObjetRendu : pb requete "<<requeteMajCasierRendu.lastError();
+            qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteMajCasierRendu.lastError();
         }
 
         QSqlQuery requeteRecIdAdherent;
-        requeteMajCasierRendu.prepare("update CASIER set CASIER.rendu=0 where CASIER.idmateriel like :im ;");
-        requeteMajCasierRendu.bindValue(":im", _objet.getIdMateriel());
-        if(!requeteMajCasierRendu.exec()){
-             qDebug()<<"MajBDDObjetRendu : pb requete "<<requeteMajCasierRendu.lastError();
+        requeteRecIdAdherent.prepare("select idadherent from ADHERENTS where ADHERENTS.numcarte like :nc ;");
+        requeteRecIdAdherent.bindValue(":nc", _numCarte);
+        if(!requeteRecIdAdherent.exec()){
+             qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteRecIdAdherent.lastError();
+        }
+
+        idAdherent = requeteRecIdAdherent.value("idadherent").toInt();
+
+        QSqlQuery requeteAjoutLignePreterA;
+        requeteAjoutLignePreterA.prepare("insert into PRETERA(idadherent, idmateriel) values( :ia, :im ) ;");
+        requeteAjoutLignePreterA.bindValue(":ia", idAdherent);
+        requeteAjoutLignePreterA.bindValue(":im", _objet.getIdMateriel());
+        if(!requeteAjoutLignePreterA.exec()){
+             qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteAjoutLignePreterA.lastError();
         }
     }
 }
 
+z

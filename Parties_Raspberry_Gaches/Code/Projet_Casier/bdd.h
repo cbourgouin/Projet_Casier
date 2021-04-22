@@ -20,7 +20,7 @@ public:
     Materiel VerifObjetNonRendu(int _numCarte);
     void MajBDDObjetRendu(int _idObjet);
     Materiel* ListeMaterielEmpreintable();
-    void MajBDDObjetEmpreinter(Materiel _objet);
+    void MajBDDObjetEmpreinter(Materiel _objet, int _numCarte);
 private:
     QSqlDatabase accesBdd;
 };
