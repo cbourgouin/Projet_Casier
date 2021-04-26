@@ -13,7 +13,7 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     gridLayoutWidget->setLayout(grille);
 
     for(int i=0; i<NBDECASIERS; i++){
-        lesBoutons[i] = new QPushButton(this);
+        lesBoutons[i] = new QPushButton();
         connect(lesBoutons[i], &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
         lesBoutons[i]->setFixedSize(100, 100);
     }
@@ -23,24 +23,11 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
             if(etage != 1 || colonne != 1){
                 grille->addWidget(lesBoutons[compteur], etage, colonne);
                 compteur++;
-                BDD* maBaseDeDonnee;
-                maBaseDeDonnee = new BDD();
-
-                for(int etage=0; etage<4; etage++){
-                    for(int colonne=0; colonne<3; colonne++){
-
-                    }
                 }
             }
         }
     }
-    //gridLayoutWidget->setParent(this);
-    BDD* maBaseDeDonnee;
-    maBaseDeDonnee = new BDD();
-    bool reponse = maBaseDeDonnee->VerifAdherent(11667);
-    qDebug() << reponse;
-    Materiel materiel = maBaseDeDonnee->VerifObjetNonRendu(78965);
-    qDebug()<<materiel.getNom();
+    gridLayoutWidget->setParent(this);
 }
 
 InterfaceDesCasiers::~InterfaceDesCasiers()

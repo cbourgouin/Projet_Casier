@@ -174,5 +174,3 @@ void BDD::MajBDDObjetEmpreinter(Materiel _objet, int _numCarte)
         }
     }
 }
-
-z
