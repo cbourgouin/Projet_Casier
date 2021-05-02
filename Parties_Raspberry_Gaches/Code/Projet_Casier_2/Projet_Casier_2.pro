@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql multimedia
 
 CONFIG += c++11
 
@@ -16,21 +16,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ABE_IoPi.cpp \
     bdd.cpp \
-    interfacenumcasier.cpp \
-    main.cpp \
+    fenetredeswitch.cpp \
+    gache.cpp \
     interfacedescasiers.cpp \
+    interfacenumcarte.cpp \
+    main.cpp \
     materiel.cpp
 
 HEADERS += \
+    ABE_IoPi.h \
     bdd.h \
+    fenetredeswitch.h \
+    gache.h \
     interfacedescasiers.h \
-    interfacenumcasier.h \
+    interfacenumcarte.h \
     materiel.h
 
 FORMS += \
+    fenetredeswitch.ui \
     interfacedescasiers.ui \
-    interfacenumcasier.ui
+    interfacenumcarte.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

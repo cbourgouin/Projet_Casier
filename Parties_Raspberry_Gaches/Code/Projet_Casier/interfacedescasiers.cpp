@@ -7,11 +7,6 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     , ui(new Ui::InterfaceDesCasiers)
 {
     ui->setupUi(this);
-    grille = new QGridLayout();
-    gridLayoutWidget = new QWidget();
-    gridLayoutWidget->setGeometry(250, 10, 371, 461);
-    gridLayoutWidget->setLayout(grille);
-
     for(int i=0; i<NBDECASIERS; i++){
         lesBoutons[i] = new QPushButton();
         connect(lesBoutons[i], &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
@@ -21,13 +16,14 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     for(int etage=0; etage<4; etage++){
         for(int colonne=0; colonne<3; colonne++){
             if(etage != 1 || colonne != 1){
-                grille->addWidget(lesBoutons[compteur], etage, colonne);
+                ui->gridLayout->addWidget(lesBoutons[compteur], etage, colonne);
                 compteur++;
-                }
             }
         }
     }
-    gridLayoutWidget->setParent(this);
+    //gridLayoutWidget->setParent(this);
+    gridLayoutWidget->setGeometry(QRect(200, 60, 160, 80));
+
 }
 
 InterfaceDesCasiers::~InterfaceDesCasiers()
