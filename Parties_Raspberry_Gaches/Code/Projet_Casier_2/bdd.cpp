@@ -120,8 +120,8 @@ std::vector<Materiel> BDD::ListeMaterielEmpreintable()
     }
     else
     {
-        QSqlQuery requete("select MATERIEL.idMateriel, MATERIEL.nom, CASIER.positionx, CASIER.positiony, MATERIEL.localisationimage"
-                            " from MATERIEL, CASIER where CASIER.rendu = 1 and MATERIEL.idmateriel like CASIER.idmateriel");
+        QSqlQuery requete("select MATERIEL.idmateriel, MATERIEL.nom, CASIER.positionx, CASIER.positiony, TYPE.localisationimage"
+                            " from MATERIEL, CASIER, TYPE where CASIER.rendu = 1 and MATERIEL.idmateriel like CASIER.idmateriel and MATERIEL.idtype like TYPE.idtype");
         if(!requete.exec()){
             qDebug()<<"ListeMaterielEmpreintable : pb requete "<<requete.lastError();
         }
@@ -132,6 +132,7 @@ std::vector<Materiel> BDD::ListeMaterielEmpreintable()
             materiel.setPositionCasierX(requete.value("positionx").toInt());
             materiel.setPositionCasierY(requete.value("positiony").toInt());
             materiel.setLocalisationImage(requete.value("localisationimage").toString());
+            qDebug()<<requete.value("localisationimage").toString();
             listeMateriel.push_back(materiel);
         }
     }
@@ -174,4 +175,3 @@ void BDD::MajBDDObjetEmpreinter(Materiel _objet, int _numCarte)
         }
     }
 }
-

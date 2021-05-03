@@ -10,6 +10,7 @@
 #include <QGridLayout>
 #include <QLayoutItem>
 #include <vector>
+#include <QWebEngineView>
 
 #include "bdd.h"
 #include "gache.h"

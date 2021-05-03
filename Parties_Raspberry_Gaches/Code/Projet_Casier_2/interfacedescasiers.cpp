@@ -92,3 +92,18 @@ void InterfaceDesCasiers::setValue(int _value)
 {
     value = _value;
 }
+
+void InterfaceDesCasiers::ouvrirCasier(int _x, int _y)
+{
+    int numCasier;
+    QLayoutItem *item = ui->gridLayout->itemAtPosition(_y, _x);
+    QWidget *wBouton = item->widget();
+    QPushButton *bouton = ((QPushButton*) wBouton);
+    for(int i=0; i<NBDECASIERS;i++){
+        if(lesBoutons[i] == bouton){
+            numCasier = i+1;
+        }
+    }
+    lesGache->ouvrirCasier(numCasier);
+
+}
