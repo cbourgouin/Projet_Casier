@@ -1,5 +1,12 @@
-#include "bdd.h"
+/**
+  @file bdd.cpp
+  @brief Implémentation de la classe BDD
+  @author Charly Bourgouin
+  @date 05/05/2020
+  @details Classe d'accés a la base de donnée
+  */
 
+#include "bdd.h"
 
 BDD::BDD()
 {

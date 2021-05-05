@@ -1,3 +1,10 @@
+/**
+  @file interfacenumcarte.h
+  @brief Déclaration de la classe visuel InterfaceNumCarte
+  @author Charly Bourgouin
+  @date 05/05/2020
+  */
+
 #ifndef INTERFACENUMCARTE_H
 #define INTERFACENUMCARTE_H
 

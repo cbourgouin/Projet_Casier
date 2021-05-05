@@ -1,3 +1,10 @@
+/**
+  @file fenetredeswitch.h
+  @brief Déclaration de la classe visuel fenetreDeSwitch
+  @author Charly Bourgouin
+  @date 05/05/2020
+  */
+
 #ifndef FENETREDESWITCH_H
 #define FENETREDESWITCH_H
 

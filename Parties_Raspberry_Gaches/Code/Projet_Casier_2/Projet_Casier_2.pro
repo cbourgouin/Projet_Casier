@@ -1,6 +1,6 @@
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql multimedia webenginewidgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets sql multimedia
 
 CONFIG += c++11
 

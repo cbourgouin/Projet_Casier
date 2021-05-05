@@ -1,3 +1,11 @@
+/**
+  @file fenetredeswitch.cpp
+  @brief Implémentation de la classe visuel fenetreDeSwitch
+  @author Charly Bourgouin
+  @date 05/05/2020
+  @details Classe permettant de switch entre les deux interfaces
+  */
+
 #include "fenetredeswitch.h"
 #include "ui_fenetredeswitch.h"
 

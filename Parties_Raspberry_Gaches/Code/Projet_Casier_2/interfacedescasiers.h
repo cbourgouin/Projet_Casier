@@ -1,3 +1,10 @@
+/**
+  @file interfacedescasier.h
+  @brief Déclaration de la classe visuel InterfaceDesCasiers
+  @author Charly Bourgouin
+  @date 05/05/2020
+  */
+
 #ifndef INTERFACEDESCASIERS_H
 #define INTERFACEDESCASIERS_H
 
@@ -10,7 +17,7 @@
 #include <QGridLayout>
 #include <QLayoutItem>
 #include <vector>
-#include <QWebEngineView>
+//#include <QWebEngineView>
 
 #include "bdd.h"
 #include "gache.h"

@@ -1,3 +1,10 @@
+/**
+  @file materiel.h
+  @brief Déclaration de la classe Materiel
+  @author Charly Bourgouin
+  @date 05/05/2020
+  */
+
 #ifndef MATERIEL_H
 #define MATERIEL_H
 

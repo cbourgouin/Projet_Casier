@@ -1,3 +1,10 @@
+/**
+  @file bdd.h
+  @brief Déclaration de la classe BDD
+  @author Charly Bourgouin
+  @date 05/05/2020
+  */
+
 #ifndef BDD_H
 #define BDD_H
 

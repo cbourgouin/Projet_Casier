@@ -1,3 +1,11 @@
+/**
+  @file interfacedescasiers.h
+  @brief Implémentation de la classe visuel InterfaceDesCasiers
+  @author Charly Bourgouin
+  @date 05/05/2020
+  @details Classe permettant l'affichage des boutons de selection des casiers
+  */
+
 #include "interfacedescasiers.h"
 #include "ui_interfacedescasiers.h"
 
@@ -31,6 +39,7 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
         lesBoutons[i] = new QPushButton();
         connect(lesBoutons[i], &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
         lesBoutons[i]->setFixedSize(80, 80);
+        lesBoutons[i]->setEnabled(false);
     }
     int compteur = 0;
     for(int etage=0; etage<nbCasierY; etage++){
@@ -77,6 +86,7 @@ void InterfaceDesCasiers::miseAJourInterface()
                     QWidget *wBouton = item->widget();
                     QPushButton *bouton = ((QPushButton*) wBouton);
                     bouton->setText(listeMateriel[nummateriel].getNom());
+                    bouton->setEnabled(true);
                 }
             }
         }
