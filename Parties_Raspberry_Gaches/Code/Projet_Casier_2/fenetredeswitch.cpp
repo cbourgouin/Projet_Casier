@@ -9,7 +9,7 @@
 #include "fenetredeswitch.h"
 #include "ui_fenetredeswitch.h"
 
-fenetreDeSwitch::fenetreDeSwitch(QWidget *parent) :
+FenetreDeSwitch::FenetreDeSwitch(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::fenetreDeSwitch)
 {
@@ -29,18 +29,18 @@ fenetreDeSwitch::fenetreDeSwitch(QWidget *parent) :
     connect(fen1, SIGNAL(ouvrirCasier(int , int)), this, SLOT(ouvrirCasier(int, int)));
 }
 
-fenetreDeSwitch::~fenetreDeSwitch()
+FenetreDeSwitch::~FenetreDeSwitch()
 {
     delete ui;
 }
 
-void fenetreDeSwitch::slotDisplayFen(int fenIndex)
+void FenetreDeSwitch::slotDisplayFen(int fenIndex)
 {
     if ((fenIndex < 0) || (fenIndex > 1)) {return;}
     stack->setCurrentIndex(fenIndex);
 }
 
-void fenetreDeSwitch::ouvrirCasier(int _x, int _y)
+void FenetreDeSwitch::ouvrirCasier(int _x, int _y)
 {
     fen2->ouvrirCasier(_x, _y);
 }

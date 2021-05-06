@@ -41,6 +41,9 @@ public:
 private slots:
     void onpushButtonMaterielsclicked();
 
+signals:
+    void askDisplayFen(int value);
+
 private:
     Ui::InterfaceDesCasiers *ui;
     int nbCasierX;
@@ -48,7 +51,7 @@ private:
     QPushButton* lesBoutons[NBDECASIERS];
     QGridLayout* grille;
     QWidget* gridLayoutWidget;
-    Gache *lesGache;
+    Gache lesGaches;
     int value;
     void miseAJourInterface();
 

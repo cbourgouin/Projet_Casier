@@ -19,15 +19,24 @@
 
 class Gache : public QObject
 {
+    Q_OBJECT
+
 public:
     Gache(QObject *parent = nullptr);
     void ouvrirCasier(int _numCasier);
+
 private slots:
         void finImpulsion();
         void verifFermeture();
+
+signals:
+
 private:
     QTimer *timerImpulsion;
     QTimer *timerVerif;
+    ABElectronics_CPP_Libraries::IoPi bus1;
+    ABElectronics_CPP_Libraries::IoPi bus2;
+    QMessageBox *messageCasierOuvert;
     int numCasier;
 };
 

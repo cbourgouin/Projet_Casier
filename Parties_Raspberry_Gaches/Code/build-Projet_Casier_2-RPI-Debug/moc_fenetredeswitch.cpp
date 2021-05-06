@@ -20,18 +20,18 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_fenetreDeSwitch_t {
+struct qt_meta_stringdata_FenetreDeSwitch_t {
     QByteArrayData data[7];
     char stringdata0[60];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_fenetreDeSwitch_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_FenetreDeSwitch_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_fenetreDeSwitch_t qt_meta_stringdata_fenetreDeSwitch = {
+static const qt_meta_stringdata_FenetreDeSwitch_t qt_meta_stringdata_FenetreDeSwitch = {
     {
-QT_MOC_LITERAL(0, 0, 15), // "fenetreDeSwitch"
+QT_MOC_LITERAL(0, 0, 15), // "FenetreDeSwitch"
 QT_MOC_LITERAL(1, 16, 14), // "slotDisplayFen"
 QT_MOC_LITERAL(2, 31, 0), // ""
 QT_MOC_LITERAL(3, 32, 8), // "fenIndex"
@@ -40,12 +40,12 @@ QT_MOC_LITERAL(5, 54, 2), // "_x"
 QT_MOC_LITERAL(6, 57, 2) // "_y"
 
     },
-    "fenetreDeSwitch\0slotDisplayFen\0\0"
+    "FenetreDeSwitch\0slotDisplayFen\0\0"
     "fenIndex\0ouvrirCasier\0_x\0_y"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_fenetreDeSwitch[] = {
+static const uint qt_meta_data_FenetreDeSwitch[] = {
 
  // content:
        7,       // revision
@@ -69,10 +69,10 @@ static const uint qt_meta_data_fenetreDeSwitch[] = {
        0        // eod
 };
 
-void fenetreDeSwitch::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void FenetreDeSwitch::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        fenetreDeSwitch *_t = static_cast<fenetreDeSwitch *>(_o);
+        FenetreDeSwitch *_t = static_cast<FenetreDeSwitch *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slotDisplayFen((*reinterpret_cast< int(*)>(_a[1]))); break;
@@ -82,26 +82,26 @@ void fenetreDeSwitch::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject fenetreDeSwitch::staticMetaObject = {
-    { &QMainWindow::staticMetaObject, qt_meta_stringdata_fenetreDeSwitch.data,
-      qt_meta_data_fenetreDeSwitch,  qt_static_metacall, nullptr, nullptr}
+QT_INIT_METAOBJECT const QMetaObject FenetreDeSwitch::staticMetaObject = {
+    { &QMainWindow::staticMetaObject, qt_meta_stringdata_FenetreDeSwitch.data,
+      qt_meta_data_FenetreDeSwitch,  qt_static_metacall, nullptr, nullptr}
 };
 
 
-const QMetaObject *fenetreDeSwitch::metaObject() const
+const QMetaObject *FenetreDeSwitch::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *fenetreDeSwitch::qt_metacast(const char *_clname)
+void *FenetreDeSwitch::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_fenetreDeSwitch.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_FenetreDeSwitch.stringdata0))
         return static_cast<void*>(this);
     return QMainWindow::qt_metacast(_clname);
 }
 
-int fenetreDeSwitch::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int FenetreDeSwitch::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QMainWindow::qt_metacall(_c, _id, _a);
     if (_id < 0)

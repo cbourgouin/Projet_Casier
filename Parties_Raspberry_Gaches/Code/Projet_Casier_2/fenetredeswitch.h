@@ -18,13 +18,13 @@ namespace Ui {
 class fenetreDeSwitch;
 }
 
-class fenetreDeSwitch : public QMainWindow
+class FenetreDeSwitch : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit fenetreDeSwitch(QWidget *parent = nullptr);
-    ~fenetreDeSwitch();
+    explicit FenetreDeSwitch(QWidget *parent = nullptr);
+    ~FenetreDeSwitch();
 
 public slots:
     void slotDisplayFen(int fenIndex);

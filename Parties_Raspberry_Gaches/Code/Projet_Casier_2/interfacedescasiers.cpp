@@ -34,7 +34,6 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
         qDebug()<<"fichier ini non valide";
     }
     ui->setupUi(this);
-    lesGache = new Gache();
     for(int i=0; i<nbCasier; i++){
         lesBoutons[i] = new QPushButton();
         connect(lesBoutons[i], &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
@@ -67,8 +66,7 @@ void InterfaceDesCasiers::onpushButtonMaterielsclicked()
             numCasier = i+1;
         }
     }
-    lesGache->ouvrirCasier(numCasier);
-    //ui->gridLayout.
+    lesGaches.ouvrirCasier(numCasier);
 }
 
 void InterfaceDesCasiers::miseAJourInterface()
@@ -114,6 +112,6 @@ void InterfaceDesCasiers::ouvrirCasier(int _x, int _y)
             numCasier = i+1;
         }
     }
-    lesGache->ouvrirCasier(numCasier);
+    lesGaches.ouvrirCasier(numCasier);
 
 }

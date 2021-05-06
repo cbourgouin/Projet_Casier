@@ -58,6 +58,7 @@ SOURCES       = ../Projet_Casier_2/ABE_IoPi.cpp \
 		../Projet_Casier_2/interfacenumcarte.cpp \
 		../Projet_Casier_2/main.cpp \
 		../Projet_Casier_2/materiel.cpp moc_fenetredeswitch.cpp \
+		moc_gache.cpp \
 		moc_interfacedescasiers.cpp \
 		moc_interfacenumcarte.cpp
 OBJECTS       = ABE_IoPi.o \
@@ -69,6 +70,7 @@ OBJECTS       = ABE_IoPi.o \
 		main.o \
 		materiel.o \
 		moc_fenetredeswitch.o \
+		moc_gache.o \
 		moc_interfacedescasiers.o \
 		moc_interfacenumcarte.o
 DIST          = /opt/raspi/qt5/mkspecs/features/spec_pre.prf \
@@ -667,9 +669,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/raspi/qt5/mkspecs/features/data/dummy.cpp
 	/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++ -pipe -marm -mfpu=vfp -mtune=arm1176jzf-s -march=armv6zk -mabi=aapcs-linux -mfloat-abi=hard --sysroot=/opt/raspi/sysroot -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/raspi/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp
+compiler_moc_header_make_all: moc_fenetredeswitch.cpp moc_gache.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp
+	-$(DEL_FILE) moc_fenetredeswitch.cpp moc_gache.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp
 moc_fenetredeswitch.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMainWindow \
 		/opt/raspi/qt5pi/include/QtWidgets/qmainwindow.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qtwidgetsglobal.h \
@@ -816,12 +818,131 @@ moc_fenetredeswitch.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMainWindow \
 		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
 		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
 		../Projet_Casier_2/interfacenumcarte.h \
 		../Projet_Casier_2/fenetredeswitch.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
 	/opt/raspi/qt5/bin/moc $(DEFINES) --include /home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/build-Projet_Casier_2-RPI-Debug/moc_predefs.h -I/opt/raspi/qt5/mkspecs/devices/linux-rasp-pi-g++ -I/home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2 -I/opt/raspi/qt5pi/include -I/opt/raspi/qt5pi/include/QtWidgets -I/opt/raspi/qt5pi/include/QtMultimedia -I/opt/raspi/qt5pi/include/QtGui -I/opt/raspi/qt5pi/include/QtSql -I/opt/raspi/qt5pi/include/QtNetwork -I/opt/raspi/qt5pi/include/QtCore -I. -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3 -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/arm-linux-gnueabihf -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/backward -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include-fixed -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include -I/opt/raspi/sysroot/usr/include -I/opt/raspi/sysroot/usr/include/arm-linux-gnueabihf ../Projet_Casier_2/fenetredeswitch.h -o moc_fenetredeswitch.cpp
+
+moc_gache.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/raspi/qt5pi/include/QtGui/qtguiglobal.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobal.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig-bootstrapped.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig.h \
+		/opt/raspi/qt5pi/include/QtCore/qtcore-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qsystemdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qprocessordetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qcompilerdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qtypeinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qsysinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qlogging.h \
+		/opt/raspi/qt5pi/include/QtCore/qflags.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasicatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_bootstrap.h \
+		/opt/raspi/qt5pi/include/QtCore/qgenericatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_cxx11.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_msvc.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobalstatic.h \
+		/opt/raspi/qt5pi/include/QtCore/qmutex.h \
+		/opt/raspi/qt5pi/include/QtCore/qnumeric.h \
+		/opt/raspi/qt5pi/include/QtCore/qversiontagging.h \
+		/opt/raspi/qt5pi/include/QtGui/qtgui-config.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgets-config.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qwidget.h \
+		/opt/raspi/qt5pi/include/QtGui/qwindowdefs.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs.h \
+		/opt/raspi/qt5pi/include/QtCore/qnamespace.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs_impl.h \
+		/opt/raspi/qt5pi/include/QtGui/qwindowdefs_win.h \
+		/opt/raspi/qt5pi/include/QtCore/qobject.h \
+		/opt/raspi/qt5pi/include/QtCore/qstring.h \
+		/opt/raspi/qt5pi/include/QtCore/qchar.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearray.h \
+		/opt/raspi/qt5pi/include/QtCore/qrefcount.h \
+		/opt/raspi/qt5pi/include/QtCore/qarraydata.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringliteral.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringview.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringbuilder.h \
+		/opt/raspi/qt5pi/include/QtCore/qlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qiterator.h \
+		/opt/raspi/qt5pi/include/QtCore/qhashfunctions.h \
+		/opt/raspi/qt5pi/include/QtCore/qpair.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearraylist.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qregexp.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringmatcher.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qscopedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetatype.h \
+		/opt/raspi/qt5pi/include/QtCore/qvarlengtharray.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontainerfwd.h \
+		/opt/raspi/qt5pi/include/QtCore/qobject_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/qmargins.h \
+		/opt/raspi/qt5pi/include/QtGui/qpaintdevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qrect.h \
+		/opt/raspi/qt5pi/include/QtCore/qsize.h \
+		/opt/raspi/qt5pi/include/QtCore/qpoint.h \
+		/opt/raspi/qt5pi/include/QtGui/qpalette.h \
+		/opt/raspi/qt5pi/include/QtGui/qcolor.h \
+		/opt/raspi/qt5pi/include/QtGui/qrgb.h \
+		/opt/raspi/qt5pi/include/QtGui/qrgba64.h \
+		/opt/raspi/qt5pi/include/QtGui/qbrush.h \
+		/opt/raspi/qt5pi/include/QtCore/qvector.h \
+		/opt/raspi/qt5pi/include/QtGui/qmatrix.h \
+		/opt/raspi/qt5pi/include/QtGui/qpolygon.h \
+		/opt/raspi/qt5pi/include/QtGui/qregion.h \
+		/opt/raspi/qt5pi/include/QtCore/qdatastream.h \
+		/opt/raspi/qt5pi/include/QtCore/qiodevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qline.h \
+		/opt/raspi/qt5pi/include/QtGui/qtransform.h \
+		/opt/raspi/qt5pi/include/QtGui/qpainterpath.h \
+		/opt/raspi/qt5pi/include/QtGui/qimage.h \
+		/opt/raspi/qt5pi/include/QtGui/qpixelformat.h \
+		/opt/raspi/qt5pi/include/QtGui/qpixmap.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qshareddata.h \
+		/opt/raspi/qt5pi/include/QtCore/qhash.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer_impl.h \
+		/opt/raspi/qt5pi/include/QtGui/qfont.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontmetrics.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontinfo.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qsizepolicy.h \
+		/opt/raspi/qt5pi/include/QtGui/qcursor.h \
+		/opt/raspi/qt5pi/include/QtGui/qkeysequence.h \
+		/opt/raspi/qt5pi/include/QtGui/qevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qvariant.h \
+		/opt/raspi/qt5pi/include/QtCore/qmap.h \
+		/opt/raspi/qt5pi/include/QtCore/qdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qtextstream.h \
+		/opt/raspi/qt5pi/include/QtCore/qlocale.h \
+		/opt/raspi/qt5pi/include/QtCore/qset.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontiguouscache.h \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtCore/qfile.h \
+		/opt/raspi/qt5pi/include/QtCore/qfiledevice.h \
+		/opt/raspi/qt5pi/include/QtGui/qvector2d.h \
+		/opt/raspi/qt5pi/include/QtGui/qtouchdevice.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
+		../Projet_Casier_2/ABE_IoPi.h \
+		../Projet_Casier_2/gache.h \
+		moc_predefs.h \
+		/opt/raspi/qt5/bin/moc
+	/opt/raspi/qt5/bin/moc $(DEFINES) --include /home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/build-Projet_Casier_2-RPI-Debug/moc_predefs.h -I/opt/raspi/qt5/mkspecs/devices/linux-rasp-pi-g++ -I/home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2 -I/opt/raspi/qt5pi/include -I/opt/raspi/qt5pi/include/QtWidgets -I/opt/raspi/qt5pi/include/QtMultimedia -I/opt/raspi/qt5pi/include/QtGui -I/opt/raspi/qt5pi/include/QtSql -I/opt/raspi/qt5pi/include/QtNetwork -I/opt/raspi/qt5pi/include/QtCore -I. -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3 -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/arm-linux-gnueabihf -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/backward -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include-fixed -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include -I/opt/raspi/sysroot/usr/include -I/opt/raspi/sysroot/usr/include/arm-linux-gnueabihf ../Projet_Casier_2/gache.h -o moc_gache.cpp
 
 moc_interfacedescasiers.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtWidgets/qwidget.h \
@@ -962,6 +1083,10 @@ moc_interfacedescasiers.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
 		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
 		../Projet_Casier_2/interfacedescasiers.h \
 		moc_predefs.h \
@@ -1103,6 +1228,10 @@ moc_interfacenumcarte.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		../Projet_Casier_2/materiel.h \
 		/opt/raspi/qt5pi/include/QtCore/QString \
 		../Projet_Casier_2/gache.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
 		../Projet_Casier_2/interfacenumcarte.h \
 		moc_predefs.h \
@@ -1414,17 +1543,13 @@ fenetredeswitch.o: ../Projet_Casier_2/fenetredeswitch.cpp ../Projet_Casier_2/fen
 		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
 		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
 		../Projet_Casier_2/interfacenumcarte.h \
-		ui_fenetredeswitch.h \
-		/opt/raspi/qt5pi/include/QtCore/QVariant \
-		/opt/raspi/qt5pi/include/QtWidgets/QMenuBar \
-		/opt/raspi/qt5pi/include/QtWidgets/qmenubar.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qmenu.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qaction.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qactiongroup.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QStatusBar \
-		/opt/raspi/qt5pi/include/QtWidgets/qstatusbar.h
+		ui_fenetredeswitch.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetredeswitch.o ../Projet_Casier_2/fenetredeswitch.cpp
 
 gache.o: ../Projet_Casier_2/gache.cpp ../Projet_Casier_2/gache.h \
@@ -1533,7 +1658,12 @@ gache.o: ../Projet_Casier_2/gache.cpp ../Projet_Casier_2/gache.h \
 		/opt/raspi/qt5pi/include/QtCore/qfiledevice.h \
 		/opt/raspi/qt5pi/include/QtGui/qvector2d.h \
 		/opt/raspi/qt5pi/include/QtGui/qtouchdevice.h \
-		../Projet_Casier_2/ABE_IoPi.h
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
+		../Projet_Casier_2/ABE_IoPi.h \
+		/opt/raspi/qt5pi/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o gache.o ../Projet_Casier_2/gache.cpp
 
 interfacedescasiers.o: ../Projet_Casier_2/interfacedescasiers.cpp ../Projet_Casier_2/interfacedescasiers.h \
@@ -1676,9 +1806,12 @@ interfacedescasiers.o: ../Projet_Casier_2/interfacedescasiers.cpp ../Projet_Casi
 		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
 		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
-		ui_interfacedescasiers.h \
-		/opt/raspi/qt5pi/include/QtCore/QVariant
+		ui_interfacedescasiers.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfacedescasiers.o ../Projet_Casier_2/interfacedescasiers.cpp
 
 interfacenumcarte.o: ../Projet_Casier_2/interfacenumcarte.cpp ../Projet_Casier_2/interfacenumcarte.h \
@@ -1817,23 +1950,12 @@ interfacenumcarte.o: ../Projet_Casier_2/interfacenumcarte.cpp ../Projet_Casier_2
 		../Projet_Casier_2/materiel.h \
 		/opt/raspi/qt5pi/include/QtCore/QString \
 		../Projet_Casier_2/gache.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
-		ui_interfacenumcarte.h \
-		/opt/raspi/qt5pi/include/QtCore/QVariant \
-		/opt/raspi/qt5pi/include/QtWidgets/QHBoxLayout \
-		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qgridlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QLineEdit \
-		/opt/raspi/qt5pi/include/QtWidgets/qlineedit.h \
-		/opt/raspi/qt5pi/include/QtGui/qtextcursor.h \
-		/opt/raspi/qt5pi/include/QtGui/qtextformat.h \
-		/opt/raspi/qt5pi/include/QtGui/qpen.h \
-		/opt/raspi/qt5pi/include/QtGui/qtextoption.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QPushButton \
-		/opt/raspi/qt5pi/include/QtWidgets/qpushbutton.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qabstractbutton.h
+		ui_interfacenumcarte.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfacenumcarte.o ../Projet_Casier_2/interfacenumcarte.cpp
 
 main.o: ../Projet_Casier_2/main.cpp ../Projet_Casier_2/fenetredeswitch.h \
@@ -1983,6 +2105,10 @@ main.o: ../Projet_Casier_2/main.cpp ../Projet_Casier_2/fenetredeswitch.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
 		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
 		../Projet_Casier_2/ABE_IoPi.h \
 		../Projet_Casier_2/interfacenumcarte.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Projet_Casier_2/main.cpp
@@ -2024,6 +2150,9 @@ materiel.o: ../Projet_Casier_2/materiel.cpp ../Projet_Casier_2/materiel.h \
 
 moc_fenetredeswitch.o: moc_fenetredeswitch.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_fenetredeswitch.o moc_fenetredeswitch.cpp
+
+moc_gache.o: moc_gache.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_gache.o moc_gache.cpp
 
 moc_interfacedescasiers.o: moc_interfacedescasiers.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interfacedescasiers.o moc_interfacedescasiers.cpp
