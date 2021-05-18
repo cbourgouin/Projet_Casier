@@ -1,0 +1,11 @@
+digraph "QWidget"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{QWidget\n||}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{InterfaceDesCasiers\n|- ui\l- nbCasierX\l- nbCasierY\l- nbCasier\l- lesBoutons\l- grille\l- gridLayoutWidget\l- lesGache\l|+ InterfaceDesCasiers()\l+ ~InterfaceDesCasiers()\l+ ouvrirCasier()\l- miseAJourInterface()\l- onpushButtonMaterielsclicked()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_interface_des_casiers.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{InterfaceNumCarte\n|- ui\l|+ InterfaceNumCarte()\l+ ~InterfaceNumCarte()\l- on_pushButton_clicked()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_interface_num_carte.html",tooltip=" "];
+}

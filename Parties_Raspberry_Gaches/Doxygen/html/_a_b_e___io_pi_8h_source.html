@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Casier Automatique:  Fichier source de /home/cbourgouin/Documents/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2/ABE_IoPi.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Casier Automatique
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('_a_b_e___io_pi_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ABE_IoPi.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_a_b_e___io_pi_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> ================================================</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> ABElectronics UK IO Pi 32-Channel Port Expander</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> Version 1.1.0 Updated 01/07/2020</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> ================================================</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> Each MCP23017 chip is split into two 8-bit ports.  port 0 controls</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> pins 1 to 8 while port 1 controls pins 9 to 16.</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> When writing to or reading from a port the least significant bit represents</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> the lowest numbered pin on the selected port.</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> Required package{</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> apt-get install libi2c-dev</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespace_a_b_electronics___c_p_p___libraries.html">   18</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_a_b_electronics___c_p_p___libraries.html">ABElectronics_CPP_Libraries</a></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html">IoPi</a></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;   <span class="comment">// public methods</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8a1902397b8d1207f9e2620920399397">IoPi</a>(uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1b7b68f58c4e82ac2c9625b022c8a40b">i2caddress</a>, <span class="keywordtype">bool</span> initialise=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#adbc8cab9142e1b770967347aea24ef29">set_pin_direction</a>(uint8_t pin, uint8_t direction);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a49e16c726af57be9917cbd90a92837a8">get_pin_direction</a>(uint8_t pin);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aa91b23b3ea973ce3fe8d7edab6098cfc">set_port_direction</a>(uint8_t port, uint8_t direction);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3f86ec1d5011f1b75cde139c9ee947ac">get_port_direction</a>(uint8_t port);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afef4f347ff52ee665558e7205d89c15e">set_bus_direction</a>(uint16_t direction);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aee7f3a49a7ba565763f9e61fcaf82187">get_bus_direction</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0822bbad2d5431990ba900ab5068ae27">set_pin_pullup</a>(uint8_t pin, uint8_t value);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a211e57e199e24f018082efa00b4ad198">get_pin_pullup</a>(uint8_t pin);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab2f7583826f215fb751d19cbd0648bec">set_port_pullups</a>(uint8_t port, uint8_t value);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab041051847fe5cbb7e1df088df5e407a">get_port_pullups</a>(uint8_t port);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a93052d486432e3a40f50060f4230c158">set_bus_pullups</a>(uint16_t value);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aac3d6552b4069f68cfc99ee41ace2eb5">get_bus_pullups</a>();</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a612f947ee30e278c893916e68a55aaf2">write_pin</a>(uint8_t pin, uint8_t value);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abbd457cfa81c9466c5908860c4bf3cc4">write_port</a>(uint8_t port, uint8_t value);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a91e3d886c87d138898e5b39b8791b8dc">write_bus</a>(uint16_t value);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aae503dd1188d2f9776e9b81a7d290ca6">read_pin</a>(uint8_t pin);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aeee6db4279f1166fe2d23e888f89f88a">read_port</a>(uint8_t port);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a290997722ead47802ede9fefec3e8255">read_bus</a>();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#af9f79f4ecb679dd1c42291a7f921f518">invert_pin</a>(uint8_t pin, uint8_t polarity);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a05f1c91dbd0e83c7e92a377368a55dfa">get_pin_polarity</a>(uint8_t pin);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3c15075812aed4ca3b5cdeeb45781133">invert_port</a>(uint8_t port, uint8_t polarity);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9164b31deb85b0eecd97241488014bd7">get_port_polarity</a>(uint8_t port);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a7fd096bf44026f299290977ae62f67fb">invert_bus</a>(uint16_t polarity);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3535bab5e8b2d74163b8f7a02141908b">get_bus_polarity</a>();</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a7aa972c8303534c2f461a20ef3998e0f">mirror_interrupts</a>(uint8_t value);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6d78a4dc83228d16ee337c7d4ce3da3b">set_interrupt_polarity</a>(uint8_t value);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a70dfe510e537dda9bb61a2d3e98595e6">get_interrupt_polarity</a>();</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ac9ba3605b4b5336e6334b9df5c8a593d">set_interrupt_type</a>(uint8_t port, uint8_t value);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a4575749aff75e1311fbd73657d55871c">get_interrupt_type</a>(uint8_t port);</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a5053c7f0e39101d316d74a2f7b336c94">set_interrupt_defaults</a>(uint8_t port, uint8_t value);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#affdeb51b0442c87082287efbe838452c">get_interrupt_defaults</a>(uint8_t port);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9fdc87f4edadd539c3913fabe4ea408d">set_interrupt_on_pin</a>(uint8_t pin, uint8_t value);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ae8717db89ae2df55e4e95462c67a1e2d">get_interrupt_on_pin</a>(uint8_t pin);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a5062d5511dcf203139e3c7c82923e288">set_interrupt_on_port</a>(uint8_t port, uint8_t value);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afb203cc7b1e81a50af59a5ff2e0f94e0">get_interrupt_on_port</a>(uint8_t port);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab0847d0a05f63e288437d9214a0d6cc5">set_interrupt_on_bus</a>(uint16_t value);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abbb20ee0b624650d05d92c45bf0a14cc">get_interrupt_on_bus</a>();</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab245e37950aa42c375ddc2e262adb603">read_interrupt_status</a>(uint8_t port);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ad312b4ca1fe41fa09e7262b3b9daa8c7">read_interrupt_capture</a>(uint8_t port);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8fa34ce4e0a59065bd1b0e511a4f43bf">reset_interrupts</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8cb9fa9f39f391bc0e8b964442817b06">  328</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8cb9fa9f39f391bc0e8b964442817b06">config</a>; <span class="comment">// config register</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9b7e432c6eb6ed71a5f4c60cfba70fd4">  329</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9b7e432c6eb6ed71a5f4c60cfba70fd4">i2cbus</a>; <span class="comment">// I2C bus </span></div>
+<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1b7b68f58c4e82ac2c9625b022c8a40b">  330</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1b7b68f58c4e82ac2c9625b022c8a40b">i2caddress</a>; <span class="comment">// I2C address</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  </div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0932c3daf6387a83b6abc5099378cc20">  332</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0932c3daf6387a83b6abc5099378cc20">port_a_dir</a>; <span class="comment">// port a direction</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab699bfba324632fcedbae676578f884c">  333</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab699bfba324632fcedbae676578f884c">port_b_dir</a>; <span class="comment">// port b direction</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0629452320b29eaed9e035e44c782764">  334</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0629452320b29eaed9e035e44c782764">portaval</a>; <span class="comment">// port a value</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aa124209d4db28d5d92a7773d855c9bc4">  335</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aa124209d4db28d5d92a7773d855c9bc4">portbval</a>; <span class="comment">// port b value</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afb7a70e1ef571674b9f2a755cea58702">  336</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afb7a70e1ef571674b9f2a755cea58702">porta_pullup</a>; <span class="comment">// port a pull-up resistors</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1ec638e6455a08ab93eba1cf2e9ff9c1">  337</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1ec638e6455a08ab93eba1cf2e9ff9c1">portb_pullup</a>; <span class="comment">// port a pull-up resistors</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a87a6eba61ca01d754cbf9118bbbe85b6">  338</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a87a6eba61ca01d754cbf9118bbbe85b6">porta_polarity</a>; <span class="comment">// input polarity for port a</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a53469403f398739a147ff81ca8415ecc">  339</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a53469403f398739a147ff81ca8415ecc">portb_polarity</a>; <span class="comment">// input polarity for port b</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a707a41d9c7da190ed2dc6aedfbd8dcb2">  340</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a707a41d9c7da190ed2dc6aedfbd8dcb2">intA</a>; <span class="comment">// interrupt control for port a</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a925ff8973e6b93d85d329aee6d95a613">  341</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a925ff8973e6b93d85d329aee6d95a613">intB</a>; <span class="comment">// interrupt control for port a</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  </div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6263586720564f5d8702f65aceddf5cb">  343</a></span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6263586720564f5d8702f65aceddf5cb">buf</a>[3];</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    <span class="comment">// local methods</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6c5b5cab75a2bef6d7989280e82af749">read_byte_data</a>(uint8_t reg);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  uint16_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a48fb8748286ce3092f226a413fa7a716">read_word_data</a>(uint8_t reg);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6e5043316a873558ce21055239a617ab">write_byte_data</a>(uint8_t reg, uint8_t value);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8057c0dd36f76f1ef94933e5fc559d24">write_word_data</a>(uint8_t reg, uint16_t value);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a2c83a9435405a1be622ac0427f53cdd3">updatebyte</a>(uint8_t <span class="keywordtype">byte</span>, uint8_t bit, uint8_t value);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ac0238bb3858f33f8b96f8176400acac5">checkbit</a>(uint8_t <span class="keywordtype">byte</span>, uint8_t bit);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6ccafece65b0785cbaa3c1f268eb36ab">set_pin</a>(uint8_t pin, uint8_t value, uint8_t a_register, uint8_t b_register);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a75a2481d733da503d66966547df8e0a3">get_pin</a>(uint8_t pin, uint8_t a_register, uint8_t b_register);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a11f93f212fc3129f340afd63a2bcdb13">set_port</a>(uint8_t port, uint8_t value, uint8_t a_register, uint8_t b_register);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  uint8_t <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ad3722aacba3e10dee348e1c07b2358ab">get_port</a>(uint8_t port, uint8_t a_register, uint8_t b_register);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abca54642b490b81edd3933e0e60744aa">set_bus</a>(uint16_t value, uint8_t a_register);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;};</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a49e16c726af57be9917cbd90a92837a8"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a49e16c726af57be9917cbd90a92837a8">ABElectronics_CPP_Libraries::IoPi::get_pin_direction</a></div><div class="ttdeci">uint8_t get_pin_direction(uint8_t pin)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:120</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a6c5b5cab75a2bef6d7989280e82af749"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6c5b5cab75a2bef6d7989280e82af749">ABElectronics_CPP_Libraries::IoPi::read_byte_data</a></div><div class="ttdeci">uint8_t read_byte_data(uint8_t reg)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:527</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a9164b31deb85b0eecd97241488014bd7"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9164b31deb85b0eecd97241488014bd7">ABElectronics_CPP_Libraries::IoPi::get_port_polarity</a></div><div class="ttdeci">uint8_t get_port_polarity(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:309</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_abbd457cfa81c9466c5908860c4bf3cc4"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abbd457cfa81c9466c5908860c4bf3cc4">ABElectronics_CPP_Libraries::IoPi::write_port</a></div><div class="ttdeci">void write_port(uint8_t port, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:231</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a6d78a4dc83228d16ee337c7d4ce3da3b"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6d78a4dc83228d16ee337c7d4ce3da3b">ABElectronics_CPP_Libraries::IoPi::set_interrupt_polarity</a></div><div class="ttdeci">void set_interrupt_polarity(uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:357</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a3c15075812aed4ca3b5cdeeb45781133"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3c15075812aed4ca3b5cdeeb45781133">ABElectronics_CPP_Libraries::IoPi::invert_port</a></div><div class="ttdeci">void invert_port(uint8_t port, uint8_t polarity)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:299</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a87a6eba61ca01d754cbf9118bbbe85b6"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a87a6eba61ca01d754cbf9118bbbe85b6">ABElectronics_CPP_Libraries::IoPi::porta_polarity</a></div><div class="ttdeci">uint8_t porta_polarity</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:338</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_abbb20ee0b624650d05d92c45bf0a14cc"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abbb20ee0b624650d05d92c45bf0a14cc">ABElectronics_CPP_Libraries::IoPi::get_interrupt_on_bus</a></div><div class="ttdeci">uint16_t get_interrupt_on_bus()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:474</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a75a2481d733da503d66966547df8e0a3"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a75a2481d733da503d66966547df8e0a3">ABElectronics_CPP_Libraries::IoPi::get_pin</a></div><div class="ttdeci">uint8_t get_pin(uint8_t pin, uint8_t a_register, uint8_t b_register)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:711</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aac3d6552b4069f68cfc99ee41ace2eb5"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aac3d6552b4069f68cfc99ee41ace2eb5">ABElectronics_CPP_Libraries::IoPi::get_bus_pullups</a></div><div class="ttdeci">uint16_t get_bus_pullups()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:213</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a9b7e432c6eb6ed71a5f4c60cfba70fd4"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9b7e432c6eb6ed71a5f4c60cfba70fd4">ABElectronics_CPP_Libraries::IoPi::i2cbus</a></div><div class="ttdeci">int i2cbus</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:329</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ab245e37950aa42c375ddc2e262adb603"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab245e37950aa42c375ddc2e262adb603">ABElectronics_CPP_Libraries::IoPi::read_interrupt_status</a></div><div class="ttdeci">uint8_t read_interrupt_status(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:482</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a5053c7f0e39101d316d74a2f7b336c94"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a5053c7f0e39101d316d74a2f7b336c94">ABElectronics_CPP_Libraries::IoPi::set_interrupt_defaults</a></div><div class="ttdeci">void set_interrupt_defaults(uint8_t port, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:406</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ab2f7583826f215fb751d19cbd0648bec"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab2f7583826f215fb751d19cbd0648bec">ABElectronics_CPP_Libraries::IoPi::set_port_pullups</a></div><div class="ttdeci">void set_port_pullups(uint8_t port, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:185</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aa124209d4db28d5d92a7773d855c9bc4"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aa124209d4db28d5d92a7773d855c9bc4">ABElectronics_CPP_Libraries::IoPi::portbval</a></div><div class="ttdeci">uint8_t portbval</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:335</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a2c83a9435405a1be622ac0427f53cdd3"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a2c83a9435405a1be622ac0427f53cdd3">ABElectronics_CPP_Libraries::IoPi::updatebyte</a></div><div class="ttdeci">uint8_t updatebyte(uint8_t byte, uint8_t bit, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:650</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aae503dd1188d2f9776e9b81a7d290ca6"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aae503dd1188d2f9776e9b81a7d290ca6">ABElectronics_CPP_Libraries::IoPi::read_pin</a></div><div class="ttdeci">uint8_t read_pin(uint8_t pin)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:250</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a8cb9fa9f39f391bc0e8b964442817b06"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8cb9fa9f39f391bc0e8b964442817b06">ABElectronics_CPP_Libraries::IoPi::config</a></div><div class="ttdeci">uint8_t config</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:328</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_af9f79f4ecb679dd1c42291a7f921f518"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#af9f79f4ecb679dd1c42291a7f921f518">ABElectronics_CPP_Libraries::IoPi::invert_pin</a></div><div class="ttdeci">void invert_pin(uint8_t pin, uint8_t polarity)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:280</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_afb203cc7b1e81a50af59a5ff2e0f94e0"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afb203cc7b1e81a50af59a5ff2e0f94e0">ABElectronics_CPP_Libraries::IoPi::get_interrupt_on_port</a></div><div class="ttdeci">uint8_t get_interrupt_on_port(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:456</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a0822bbad2d5431990ba900ab5068ae27"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0822bbad2d5431990ba900ab5068ae27">ABElectronics_CPP_Libraries::IoPi::set_pin_pullup</a></div><div class="ttdeci">void set_pin_pullup(uint8_t pin, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:165</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a6e5043316a873558ce21055239a617ab"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6e5043316a873558ce21055239a617ab">ABElectronics_CPP_Libraries::IoPi::write_byte_data</a></div><div class="ttdeci">void write_byte_data(uint8_t reg, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:594</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a707a41d9c7da190ed2dc6aedfbd8dcb2"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a707a41d9c7da190ed2dc6aedfbd8dcb2">ABElectronics_CPP_Libraries::IoPi::intA</a></div><div class="ttdeci">uint8_t intA</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:340</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a612f947ee30e278c893916e68a55aaf2"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a612f947ee30e278c893916e68a55aaf2">ABElectronics_CPP_Libraries::IoPi::write_pin</a></div><div class="ttdeci">void write_pin(uint8_t pin, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:221</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a925ff8973e6b93d85d329aee6d95a613"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a925ff8973e6b93d85d329aee6d95a613">ABElectronics_CPP_Libraries::IoPi::intB</a></div><div class="ttdeci">uint8_t intB</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:341</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_affdeb51b0442c87082287efbe838452c"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#affdeb51b0442c87082287efbe838452c">ABElectronics_CPP_Libraries::IoPi::get_interrupt_defaults</a></div><div class="ttdeci">uint8_t get_interrupt_defaults(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:417</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_afb7a70e1ef571674b9f2a755cea58702"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afb7a70e1ef571674b9f2a755cea58702">ABElectronics_CPP_Libraries::IoPi::porta_pullup</a></div><div class="ttdeci">uint8_t porta_pullup</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:336</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a211e57e199e24f018082efa00b4ad198"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a211e57e199e24f018082efa00b4ad198">ABElectronics_CPP_Libraries::IoPi::get_pin_pullup</a></div><div class="ttdeci">uint8_t get_pin_pullup(uint8_t pin)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:175</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_adbc8cab9142e1b770967347aea24ef29"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#adbc8cab9142e1b770967347aea24ef29">ABElectronics_CPP_Libraries::IoPi::set_pin_direction</a></div><div class="ttdeci">void set_pin_direction(uint8_t pin, uint8_t direction)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:110</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a0932c3daf6387a83b6abc5099378cc20"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0932c3daf6387a83b6abc5099378cc20">ABElectronics_CPP_Libraries::IoPi::port_a_dir</a></div><div class="ttdeci">uint8_t port_a_dir</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:332</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aeee6db4279f1166fe2d23e888f89f88a"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aeee6db4279f1166fe2d23e888f89f88a">ABElectronics_CPP_Libraries::IoPi::read_port</a></div><div class="ttdeci">uint8_t read_port(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:261</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ab041051847fe5cbb7e1df088df5e407a"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab041051847fe5cbb7e1df088df5e407a">ABElectronics_CPP_Libraries::IoPi::get_port_pullups</a></div><div class="ttdeci">uint8_t get_port_pullups(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:195</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a1b7b68f58c4e82ac2c9625b022c8a40b"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1b7b68f58c4e82ac2c9625b022c8a40b">ABElectronics_CPP_Libraries::IoPi::i2caddress</a></div><div class="ttdeci">uint8_t i2caddress</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:330</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a3535bab5e8b2d74163b8f7a02141908b"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3535bab5e8b2d74163b8f7a02141908b">ABElectronics_CPP_Libraries::IoPi::get_bus_polarity</a></div><div class="ttdeci">uint16_t get_bus_polarity()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:327</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_afef4f347ff52ee665558e7205d89c15e"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#afef4f347ff52ee665558e7205d89c15e">ABElectronics_CPP_Libraries::IoPi::set_bus_direction</a></div><div class="ttdeci">void set_bus_direction(uint16_t direction)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:148</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a11f93f212fc3129f340afd63a2bcdb13"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a11f93f212fc3129f340afd63a2bcdb13">ABElectronics_CPP_Libraries::IoPi::set_port</a></div><div class="ttdeci">void set_port(uint8_t port, uint8_t value, uint8_t a_register, uint8_t b_register)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:735</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ab0847d0a05f63e288437d9214a0d6cc5"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab0847d0a05f63e288437d9214a0d6cc5">ABElectronics_CPP_Libraries::IoPi::set_interrupt_on_bus</a></div><div class="ttdeci">void set_interrupt_on_bus(uint16_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:465</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html">ABElectronics_CPP_Libraries::IoPi</a></div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:20</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a53469403f398739a147ff81ca8415ecc"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a53469403f398739a147ff81ca8415ecc">ABElectronics_CPP_Libraries::IoPi::portb_polarity</a></div><div class="ttdeci">uint8_t portb_polarity</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:339</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a3f86ec1d5011f1b75cde139c9ee947ac"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a3f86ec1d5011f1b75cde139c9ee947ac">ABElectronics_CPP_Libraries::IoPi::get_port_direction</a></div><div class="ttdeci">uint8_t get_port_direction(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:139</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a7fd096bf44026f299290977ae62f67fb"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a7fd096bf44026f299290977ae62f67fb">ABElectronics_CPP_Libraries::IoPi::invert_bus</a></div><div class="ttdeci">void invert_bus(uint16_t polarity)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:318</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aa91b23b3ea973ce3fe8d7edab6098cfc"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aa91b23b3ea973ce3fe8d7edab6098cfc">ABElectronics_CPP_Libraries::IoPi::set_port_direction</a></div><div class="ttdeci">void set_port_direction(uint8_t port, uint8_t direction)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:129</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a290997722ead47802ede9fefec3e8255"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a290997722ead47802ede9fefec3e8255">ABElectronics_CPP_Libraries::IoPi::read_bus</a></div><div class="ttdeci">uint16_t read_bus()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:271</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ae8717db89ae2df55e4e95462c67a1e2d"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ae8717db89ae2df55e4e95462c67a1e2d">ABElectronics_CPP_Libraries::IoPi::get_interrupt_on_pin</a></div><div class="ttdeci">uint8_t get_interrupt_on_pin(uint8_t pin)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:437</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a5062d5511dcf203139e3c7c82923e288"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a5062d5511dcf203139e3c7c82923e288">ABElectronics_CPP_Libraries::IoPi::set_interrupt_on_port</a></div><div class="ttdeci">void set_interrupt_on_port(uint8_t port, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:446</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a4575749aff75e1311fbd73657d55871c"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a4575749aff75e1311fbd73657d55871c">ABElectronics_CPP_Libraries::IoPi::get_interrupt_type</a></div><div class="ttdeci">uint8_t get_interrupt_type(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:397</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_abca54642b490b81edd3933e0e60744aa"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#abca54642b490b81edd3933e0e60744aa">ABElectronics_CPP_Libraries::IoPi::set_bus</a></div><div class="ttdeci">void set_bus(uint16_t value, uint8_t a_register)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:773</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a8a1902397b8d1207f9e2620920399397"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8a1902397b8d1207f9e2620920399397">ABElectronics_CPP_Libraries::IoPi::IoPi</a></div><div class="ttdeci">IoPi(uint8_t i2caddress, bool initialise=true)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:85</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a7aa972c8303534c2f461a20ef3998e0f"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a7aa972c8303534c2f461a20ef3998e0f">ABElectronics_CPP_Libraries::IoPi::mirror_interrupts</a></div><div class="ttdeci">void mirror_interrupts(uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:335</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a93052d486432e3a40f50060f4230c158"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a93052d486432e3a40f50060f4230c158">ABElectronics_CPP_Libraries::IoPi::set_bus_pullups</a></div><div class="ttdeci">void set_bus_pullups(uint16_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:204</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a6263586720564f5d8702f65aceddf5cb"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6263586720564f5d8702f65aceddf5cb">ABElectronics_CPP_Libraries::IoPi::buf</a></div><div class="ttdeci">uint8_t buf[3]</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:343</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ac9ba3605b4b5336e6334b9df5c8a593d"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ac9ba3605b4b5336e6334b9df5c8a593d">ABElectronics_CPP_Libraries::IoPi::set_interrupt_type</a></div><div class="ttdeci">void set_interrupt_type(uint8_t port, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:387</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ad312b4ca1fe41fa09e7262b3b9daa8c7"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ad312b4ca1fe41fa09e7262b3b9daa8c7">ABElectronics_CPP_Libraries::IoPi::read_interrupt_capture</a></div><div class="ttdeci">uint8_t read_interrupt_capture(uint8_t port)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:492</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ab699bfba324632fcedbae676578f884c"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ab699bfba324632fcedbae676578f884c">ABElectronics_CPP_Libraries::IoPi::port_b_dir</a></div><div class="ttdeci">uint8_t port_b_dir</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:333</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a05f1c91dbd0e83c7e92a377368a55dfa"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a05f1c91dbd0e83c7e92a377368a55dfa">ABElectronics_CPP_Libraries::IoPi::get_pin_polarity</a></div><div class="ttdeci">uint8_t get_pin_polarity(uint8_t pin)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:290</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_aee7f3a49a7ba565763f9e61fcaf82187"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#aee7f3a49a7ba565763f9e61fcaf82187">ABElectronics_CPP_Libraries::IoPi::get_bus_direction</a></div><div class="ttdeci">uint16_t get_bus_direction()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:157</div></div>
+<div class="ttc" id="anamespace_a_b_electronics___c_p_p___libraries_html"><div class="ttname"><a href="namespace_a_b_electronics___c_p_p___libraries.html">ABElectronics_CPP_Libraries</a></div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:18</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ac0238bb3858f33f8b96f8176400acac5"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ac0238bb3858f33f8b96f8176400acac5">ABElectronics_CPP_Libraries::IoPi::checkbit</a></div><div class="ttdeci">uint8_t checkbit(uint8_t byte, uint8_t bit)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:665</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a6ccafece65b0785cbaa3c1f268eb36ab"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a6ccafece65b0785cbaa3c1f268eb36ab">ABElectronics_CPP_Libraries::IoPi::set_pin</a></div><div class="ttdeci">void set_pin(uint8_t pin, uint8_t value, uint8_t a_register, uint8_t b_register)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:680</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a0629452320b29eaed9e035e44c782764"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a0629452320b29eaed9e035e44c782764">ABElectronics_CPP_Libraries::IoPi::portaval</a></div><div class="ttdeci">uint8_t portaval</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:334</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a48fb8748286ce3092f226a413fa7a716"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a48fb8748286ce3092f226a413fa7a716">ABElectronics_CPP_Libraries::IoPi::read_word_data</a></div><div class="ttdeci">uint16_t read_word_data(uint8_t reg)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:560</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_ad3722aacba3e10dee348e1c07b2358ab"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#ad3722aacba3e10dee348e1c07b2358ab">ABElectronics_CPP_Libraries::IoPi::get_port</a></div><div class="ttdeci">uint8_t get_port(uint8_t port, uint8_t a_register, uint8_t b_register)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:754</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a9fdc87f4edadd539c3913fabe4ea408d"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a9fdc87f4edadd539c3913fabe4ea408d">ABElectronics_CPP_Libraries::IoPi::set_interrupt_on_pin</a></div><div class="ttdeci">void set_interrupt_on_pin(uint8_t pin, uint8_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:427</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a8fa34ce4e0a59065bd1b0e511a4f43bf"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8fa34ce4e0a59065bd1b0e511a4f43bf">ABElectronics_CPP_Libraries::IoPi::reset_interrupts</a></div><div class="ttdeci">void reset_interrupts(void)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:502</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a70dfe510e537dda9bb61a2d3e98595e6"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a70dfe510e537dda9bb61a2d3e98595e6">ABElectronics_CPP_Libraries::IoPi::get_interrupt_polarity</a></div><div class="ttdeci">uint8_t get_interrupt_polarity()</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:379</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a91e3d886c87d138898e5b39b8791b8dc"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a91e3d886c87d138898e5b39b8791b8dc">ABElectronics_CPP_Libraries::IoPi::write_bus</a></div><div class="ttdeci">void write_bus(uint16_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:241</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a1ec638e6455a08ab93eba1cf2e9ff9c1"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a1ec638e6455a08ab93eba1cf2e9ff9c1">ABElectronics_CPP_Libraries::IoPi::portb_pullup</a></div><div class="ttdeci">uint8_t portb_pullup</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.h:337</div></div>
+<div class="ttc" id="aclass_a_b_electronics___c_p_p___libraries_1_1_io_pi_html_a8057c0dd36f76f1ef94933e5fc559d24"><div class="ttname"><a href="class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html#a8057c0dd36f76f1ef94933e5fc559d24">ABElectronics_CPP_Libraries::IoPi::write_word_data</a></div><div class="ttdeci">void write_word_data(uint8_t reg, uint16_t value)</div><div class="ttdef"><b>Definition:</b> ABE_IoPi.cpp:621</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_03a6a1b6adb2eccd789d1acf046b7dde.html">Projet_Casier_2</a></li><li class="navelem"><a class="el" href="_a_b_e___io_pi_8h.html">ABE_IoPi.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>
