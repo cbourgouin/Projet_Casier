@@ -18,8 +18,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     ABE_IoPi.cpp \
     bdd.cpp \
+    controleurdegache.cpp \
     fenetredeswitch.cpp \
-    gache.cpp \
     interfacedescasiers.cpp \
     interfacenumcarte.cpp \
     main.cpp \
@@ -28,8 +28,8 @@ SOURCES += \
 HEADERS += \
     ABE_IoPi.h \
     bdd.h \
+    controleurdegache.h \
     fenetredeswitch.h \
-    gache.h \
     interfacedescasiers.h \
     interfacenumcarte.h \
     materiel.h

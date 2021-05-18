@@ -15,7 +15,7 @@
 
 #include "bdd.h"
 #include "materiel.h"
-#include "gache.h"
+#include "controleurdegache.h"
 
 namespace Ui {
 class InterfaceNumCarte;

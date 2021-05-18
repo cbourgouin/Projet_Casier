@@ -1,8 +1,8 @@
-#include "gache.h"
+#include "controleurdegache.h"
 #include <QDebug>
 using namespace ABElectronics_CPP_Libraries;
 
-Gache::Gache(QObject *parent)
+ControleurDeGache::ControleurDeGache(QObject *parent)
   : QObject(parent)
   , bus1(0x20)
   , bus2(0x21)
@@ -14,11 +14,11 @@ Gache::Gache(QObject *parent)
     timerVerif = new QTimer(this);
     timerImpulsion->setSingleShot(true);
 
-    connect(timerImpulsion, &QTimer::timeout, this, &Gache::finImpulsion);
-    connect(timerVerif, &QTimer::timeout, this, &Gache::verifFermeture);
+    connect(timerImpulsion, &QTimer::timeout, this, &ControleurDeGache::finImpulsion);
+    connect(timerVerif, &QTimer::timeout, this, &ControleurDeGache::verifFermeture);
 }
 
-void Gache::ouvrirCasier(int _numCasier)
+void ControleurDeGache::ouvrirCasier(int _numCasier)
 {
     numCasier = _numCasier;
     bus1.write_pin(numCasier, 0);
@@ -28,7 +28,7 @@ void Gache::ouvrirCasier(int _numCasier)
 
 }
 
-void Gache::finImpulsion()
+void ControleurDeGache::finImpulsion()
 {
     qDebug()<<"dans timeout timer";
 
@@ -39,7 +39,7 @@ void Gache::finImpulsion()
     timerVerif->start(100);
 }
 
-void Gache::verifFermeture()
+void ControleurDeGache::verifFermeture()
 {
     timerVerif->stop();
     if(bus2.read_pin(numCasier) == 1){

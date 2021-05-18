@@ -34,7 +34,7 @@ void InterfaceNumCarte::on_pushButton_clicked()
             msgBox.setDefaultButton(QMessageBox::Yes);
             int ret = msgBox.exec();
             if(ret == QMessageBox::Yes){
-                Gache lesGaches;
+                ControleurDeGache lesGaches;
 
             }
         }

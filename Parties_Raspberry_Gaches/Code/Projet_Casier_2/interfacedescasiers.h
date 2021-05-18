@@ -20,7 +20,7 @@
 //#include <QWebEngineView>
 
 #include "bdd.h"
-#include "gache.h"
+#include "controleurdegache.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InterfaceDesCasiers; }
@@ -50,8 +50,7 @@ private:
     int nbCasierY;
     QPushButton* lesBoutons[NBDECASIERS];
     QGridLayout* grille;
-    QWidget* gridLayoutWidget;
-    Gache lesGaches;
+    ControleurDeGache lesGaches;
     int value;
     void miseAJourInterface();
 

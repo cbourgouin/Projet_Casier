@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="conception_projet_iu_gache_2" version="4">
+  <OBJECT>
+    <ID name="conception_projet_iu_gache_2" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
+    <PID name="Conception_Projet_IU_Gache_2" mc="Standard.Project" uid="1d573d30-ac50-4059-bbbd-99f33e1de92c"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[conception_projet_iu_gache_2]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedBehavior">
+        <COMPID name="Choisir un matériel à emprunter ou à restituer" mc="Standard.Interaction" uid="658d8ac6-1e24-4ebc-b232-b107966fd4e7"/>
+        <COMPID name="Manoeuvrer la gâche d'un casier" mc="Standard.Interaction" uid="1afaede6-57e6-4b3b-9346-1e520a327496"/>
+      </COMP>
+      <COMP relation="OwnedElement">
+        <COMPID name="InterfaceDesCasiers" mc="Standard.Class" uid="16ce26c6-fcbf-4bd9-a670-bdfe6ef50f2e"/>
+        <COMPID name="BDD" mc="Standard.Class" uid="f59d9b6d-7a37-451b-82ba-6241a3e72298"/>
+        <COMPID name="Utilisateur" mc="Standard.Actor" uid="c5ff44de-b33c-41c6-b93a-294c854ce2ff"/>
+        <COMPID name="uint16_t" mc="Standard.DataType" uid="68465f0f-4f9f-4b0b-ae36-5d1305fad838"/>
+        <COMPID name="uint8_t" mc="Standard.DataType" uid="54b5d0fc-2fa5-4d06-b6b6-f425d45bbd19"/>
+        <COMPID name="HautParleur" mc="Standard.Class" uid="1b013300-de0a-4e6b-885b-17ea942a5050"/>
+        <COMPID name="QT" mc="Standard.Package" uid="40ea672b-ec20-4ce0-955b-b687c2754ca9"/>
+        <COMPID name="FenetreDeSwitch" mc="Standard.Class" uid="1cf207e6-53d1-49cf-bcf2-832c068bedf2"/>
+        <COMPID name="IoPi" mc="Standard.Class" uid="ee1eb004-571a-4ba0-9248-5a6418a5fb65"/>
+        <COMPID name="InterfaceNumCarte" mc="Standard.Class" uid="a8cf4a02-7dfd-4bcd-994b-cbca81dd5e5c"/>
+        <COMPID name="ControleurDeGache" mc="Standard.Class" uid="93a49b9c-d523-48c1-bd98-3c1a4172e6dd"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="conception_projet_iu_gache_2 Class diagram" mc="Standard.ClassDiagram" uid="7f073e79-dc07-46d1-8c4d-83ccb7c56d33"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

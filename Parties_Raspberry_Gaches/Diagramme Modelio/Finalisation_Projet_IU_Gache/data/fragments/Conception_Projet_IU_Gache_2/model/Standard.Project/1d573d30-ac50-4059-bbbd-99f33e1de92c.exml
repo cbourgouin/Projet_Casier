@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Conception_Projet_IU_Gache_2" version="4">
+  <OBJECT>
+    <ID name="Conception_Projet_IU_Gache_2" mc="Standard.Project" uid="1d573d30-ac50-4059-bbbd-99f33e1de92c"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[Conception_Projet_IU_Gache_2]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Model">
+        <COMPID name="conception_projet_iu_gache_2" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
+      </COMP>
+      <COMP relation="DiagramRoot">
+        <COMPID name="Conception_Projet_IU_Gache_2" mc="Infrastructure.DiagramSet" uid="a855e015-85a7-489b-b746-6f7b2fdb3955"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
