@@ -67,6 +67,7 @@ void InterfaceDesCasiers::onpushButtonMaterielsclicked()
         }
     }
     lesGaches.ouvrirCasier(numCasier);
+    
 }
 
 void InterfaceDesCasiers::miseAJourInterface()
@@ -113,5 +114,5 @@ void InterfaceDesCasiers::ouvrirCasier(int _x, int _y)
         }
     }
     lesGaches.ouvrirCasier(numCasier);
-
+    
 }
