@@ -16,6 +16,7 @@
       <COMP relation="OwnedBehavior">
         <COMPID name="Choisir un matériel à emprunter ou à restituer" mc="Standard.Interaction" uid="658d8ac6-1e24-4ebc-b232-b107966fd4e7"/>
         <COMPID name="Manoeuvrer la gâche d'un casier" mc="Standard.Interaction" uid="1afaede6-57e6-4b3b-9346-1e520a327496"/>
+        <COMPID name="Interaction" mc="Standard.Interaction" uid="22c0c68e-ccc0-4d07-ad19-754c31762749"/>
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="InterfaceDesCasiers" mc="Standard.Class" uid="16ce26c6-fcbf-4bd9-a670-bdfe6ef50f2e"/>

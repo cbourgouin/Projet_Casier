@@ -7,11 +7,11 @@ ControleurDeGache::ControleurDeGache(QObject *parent)
   , bus1(0x20)
   , bus2(0x21)
 {
-    bus1.set_bus_direction(0x0000);
-    bus1.write_bus(0xFFFF);
+    bus1.set_bus_direction(0x0000);    
     bus2.set_bus_direction(0xFFFF);
+    bus1.write_bus(0xFFFF);
     timerImpulsion = new QTimer();
-    timerVerif = new QTimer(this);
+    timerVerif = new QTimer();
     timerImpulsion->setSingleShot(true);
 
     connect(timerImpulsion, &QTimer::timeout, this, &ControleurDeGache::finImpulsion);

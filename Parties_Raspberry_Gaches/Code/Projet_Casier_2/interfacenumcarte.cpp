@@ -15,7 +15,6 @@ InterfaceNumCarte::~InterfaceNumCarte()
 
 void InterfaceNumCarte::on_pushButton_clicked()
 {
-    stack = new QStackedWidget(this);
 
     BDD *maBaseDeDonnee;
     maBaseDeDonnee = new BDD();

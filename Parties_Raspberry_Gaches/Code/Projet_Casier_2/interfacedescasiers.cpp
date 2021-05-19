@@ -72,7 +72,6 @@ void InterfaceDesCasiers::onpushButtonMaterielsclicked()
 
 void InterfaceDesCasiers::miseAJourInterface()
 {
-    BDD *maBaseDeDonnees;
     maBaseDeDonnees = new BDD();
     std::vector<Materiel> listeMateriel;
     listeMateriel = maBaseDeDonnees->ListeMaterielEmpreintable();
@@ -90,6 +89,7 @@ void InterfaceDesCasiers::miseAJourInterface()
             }
         }
     }
+    delete maBaseDeDonnees;
 }
 
 int InterfaceDesCasiers::getValue() const

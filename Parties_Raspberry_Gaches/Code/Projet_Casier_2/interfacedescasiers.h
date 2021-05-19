@@ -50,9 +50,10 @@ private:
     int nbCasierY;
     QPushButton* lesBoutons[NBDECASIERS];
     QGridLayout* grille;
-    ControleurDeGache lesGaches;
+    ControleurDeGache controlDeGache;
     int value;
     void miseAJourInterface();
+    BDD *maBaseDeDonnees;
 
 };
 #endif // INTERFACEDESCASIERS_H
