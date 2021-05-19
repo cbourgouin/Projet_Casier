@@ -19,7 +19,6 @@
       </COMP>
       <COMP relation="OwnedElement">
         <COMPID name="ControleurCasier" mc="Standard.Class" uid="16ce26c6-fcbf-4bd9-a670-bdfe6ef50f2e"/>
-        <COMPID name="BDD" mc="Standard.Class" uid="f59d9b6d-7a37-451b-82ba-6241a3e72298"/>
         <COMPID name="Utilisateur" mc="Standard.Actor" uid="c5ff44de-b33c-41c6-b93a-294c854ce2ff"/>
         <COMPID name="Materiel" mc="Standard.Class" uid="ffc2349e-8ca9-4dc3-80ef-2e25e08df76c"/>
         <COMPID name="Gache" mc="Standard.Class" uid="a5817248-9c2d-43b3-b59a-e892b0b2e8d8"/>

@@ -15,13 +15,9 @@
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
         <COMPID name="QWidget" mc="Standard.Class" uid="6d9af5aa-d3ba-4d45-880d-8f66247d00b9"/>
-        <COMPID name="QSettings" mc="Standard.Class" uid="a32b25c8-d06e-4d24-84df-eede4d080f7b"/>
-        <COMPID name="QSqlDataBase" mc="Standard.Class" uid="e20667f7-59dd-4931-b891-22ef1f07cfca"/>
         <COMPID name="QString" mc="Standard.Class" uid="c581d53e-b055-43cb-9595-f009f91a16d1"/>
         <COMPID name="QTimer" mc="Standard.Class" uid="d89b12ab-356f-40b2-9a6b-8550673e14a0"/>
         <COMPID name="QVariant" mc="Standard.Class" uid="41efa9f3-11ec-4ea8-b860-592ba2cdf71b"/>
-        <COMPID name="QFileInfo" mc="Standard.Class" uid="20125d61-17b6-48b0-9c39-90b8b958ae3b"/>
-        <COMPID name="QSqlQuery" mc="Standard.Class" uid="6811a77e-22bb-460a-9998-f540e81da484"/>
         <COMPID name="QSqlError" mc="Standard.Class" uid="e742e0c8-27a5-4677-8dc5-e9381186bff7"/>
       </COMP>
     </DEPENDENCIES>

@@ -164,11 +164,6 @@
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="4029ceb2-e756-41d1-a25a-e096e51bbfef"/>
                     </REFOBJ>
                   </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="BDD" mc="Standard.Operation" uid="cad050aa-aa99-4082-a1c6-4a3bf5e349be"/>
-                    </REFOBJ>
-                  </LINK>
                 </DEPENDENCIES>
               </OBJECT>
             </COMP>
@@ -217,11 +212,6 @@
                   <LINK relation="ReceiveEvent">
                     <REFOBJ>
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="7d254677-72af-4998-8e1c-191b8b87ba42"/>
-                    </REFOBJ>
-                  </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="VerifAdherent" mc="Standard.Operation" uid="8f52f6ba-fbdb-4ccd-b3a5-28c3209f1b82"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -391,11 +381,6 @@
                   <LINK relation="ReceiveEvent">
                     <REFOBJ>
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="c452a65f-697f-4e14-8715-951890017178"/>
-                    </REFOBJ>
-                  </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="VerifObjetNonRendu" mc="Standard.Operation" uid="1094a5af-2397-4243-b2cf-26998e12ed0a"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -602,11 +587,6 @@
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="7242dd8b-61a6-44de-9a3e-75dc6b5c7fc5"/>
                     </REFOBJ>
                   </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="MajBDDObjetRendu" mc="Standard.Operation" uid="0da66270-05bc-4f89-84ae-64883d659d05"/>
-                    </REFOBJ>
-                  </LINK>
                 </DEPENDENCIES>
               </OBJECT>
             </COMP>
@@ -696,11 +676,6 @@
                   <LINK relation="ReceiveEvent">
                     <REFOBJ>
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="c84f2a4d-a4c5-4fcf-a21d-8e8039ab2a8a"/>
-                    </REFOBJ>
-                  </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="ListeMaterielEmpreintable" mc="Standard.Operation" uid="250c6378-6b8f-41f1-9adb-33f85b46afbb"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -828,11 +803,6 @@
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="8c37f08a-a055-45ce-aa16-dc4d06370ce1"/>
                     </REFOBJ>
                   </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="MajBDDObjetRendu" mc="Standard.Operation" uid="0da66270-05bc-4f89-84ae-64883d659d05"/>
-                    </REFOBJ>
-                  </LINK>
                 </DEPENDENCIES>
               </OBJECT>
             </COMP>
@@ -921,11 +891,6 @@
                   <LINK relation="ReceiveEvent">
                     <REFOBJ>
                       <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="3d5b7bba-ce64-4d75-a418-821e571b17ad"/>
-                    </REFOBJ>
-                  </LINK>
-                  <LINK relation="Invoked">
-                    <REFOBJ>
-                      <ID name="~BDD" mc="Standard.Operation" uid="e18960f1-20da-40ff-bf0a-b60cbe525053"/>
                     </REFOBJ>
                   </LINK>
                 </DEPENDENCIES>
@@ -1614,11 +1579,7 @@
                   <ATT name="Name"><![CDATA[BaseDeDonnées]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Base">
-                    <ID name="BDD" mc="Standard.Class" uid="f59d9b6d-7a37-451b-82ba-6241a3e72298"/>
-                  </LINK>
-                </DEPENDENCIES>
+                <DEPENDENCIES></DEPENDENCIES>
               </OBJECT>
               <OBJECT>
                 <ID name="dataBase" mc="Standard.BindableInstance" uid="28548455-ce22-410d-bd3d-5f5c2a066045"/>
@@ -1630,11 +1591,7 @@
                   <ATT name="Name"><![CDATA[dataBase]]></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Base">
-                    <ID name="BDD" mc="Standard.Class" uid="f59d9b6d-7a37-451b-82ba-6241a3e72298"/>
-                  </LINK>
-                </DEPENDENCIES>
+                <DEPENDENCIES></DEPENDENCIES>
               </OBJECT>
               <OBJECT>
                 <ID name="unUtilisateur" mc="Standard.BindableInstance" uid="4ac9053a-eb1a-46d9-8795-5e736a203cfc"/>
