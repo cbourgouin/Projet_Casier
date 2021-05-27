@@ -2,6 +2,10 @@
 #include <QDebug>
 using namespace ABElectronics_CPP_Libraries;
 
+/**
+ * @brief ControleurDeGache::ControleurDeGache
+ * @param parent
+ */
 ControleurDeGache::ControleurDeGache(QObject *parent)
   : QObject(parent)
   , bus1(0x20)
@@ -14,10 +18,16 @@ ControleurDeGache::ControleurDeGache(QObject *parent)
     timerVerif = new QTimer();
     timerImpulsion->setSingleShot(true);
 
-    connect(timerImpulsion, &QTimer::timeout, this, &ControleurDeGache::finImpulsion);
-    connect(timerVerif, &QTimer::timeout, this, &ControleurDeGache::verifFermeture);
+    connect(timerImpulsion, &QTimer::timeout, this, &ControleurDeGache::on_timerImpulsion_timeout);
+    connect(timerVerif, &QTimer::timeout, this, &ControleurDeGache::onTimerVerif_timeout);
 }
 
+/**
+ * @brief ControleurDeGache::ouvrirCasier
+ * @details permet l'ouverture du casier ciblé
+ * @param _numCasier numéro du casier a ouvrir
+ * @author Charly Bourgouin
+ */
 void ControleurDeGache::ouvrirCasier(int _numCasier)
 {
     numCasier = _numCasier;
@@ -28,7 +38,12 @@ void ControleurDeGache::ouvrirCasier(int _numCasier)
 
 }
 
-void ControleurDeGache::finImpulsion()
+/**
+ * @brief ControleurDeGache::on_timerImpulsion_timeout
+ * @details slots permettant de mettre fin a l'impulsion pour ouvrir le casier
+ * @author Charly Bourgouin
+ */
+void ControleurDeGache::on_timerImpulsion_timeout()
 {
     qDebug()<<"dans timeout timer";
 
@@ -39,7 +54,12 @@ void ControleurDeGache::finImpulsion()
     timerVerif->start(100);
 }
 
-void ControleurDeGache::verifFermeture()
+/**
+ * @brief ControleurDeGache::onTimerVerif_timeout
+ * @details slots permettant de verifier le de manière periodique la fermeture du casier
+ * @author Charly Bourgouin
+ */
+void ControleurDeGache::onTimerVerif_timeout()
 {
     timerVerif->stop();
     if(bus2.read_pin(numCasier) == 1){

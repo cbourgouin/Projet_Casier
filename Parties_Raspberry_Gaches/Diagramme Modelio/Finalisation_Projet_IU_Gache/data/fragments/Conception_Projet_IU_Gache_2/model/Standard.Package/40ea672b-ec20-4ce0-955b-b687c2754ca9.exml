@@ -28,6 +28,8 @@
         <COMPID name="QMessageBox" mc="Standard.Class" uid="265be95e-b669-4079-a7b4-f65fc5d97031"/>
         <COMPID name="QPushButton" mc="Standard.Class" uid="132488a7-6d93-4a44-8bc3-e78b77a80390"/>
         <COMPID name="QGridLayout" mc="Standard.Class" uid="1bff4acf-cba2-4c1f-a0d4-dcbd6d8bccfd"/>
+        <COMPID name="QWebEngineView" mc="Standard.Class" uid="376b9c24-2b22-49ae-a0cb-992983d861c6"/>
+        <COMPID name="QMediaPlayer" mc="Standard.Class" uid="8335c25f-7f70-4430-9a67-c4e85e4f90d3"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

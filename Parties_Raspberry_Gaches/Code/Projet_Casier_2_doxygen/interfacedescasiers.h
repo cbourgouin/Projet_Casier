@@ -20,7 +20,7 @@
 //#include <QWebEngineView>
 
 #include "bdd.h"
-#include "gache.h"
+#include "controleurdegache.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class InterfaceDesCasiers; }
@@ -50,9 +50,9 @@ private:
     QGridLayout* grille;
     QWidget* gridLayoutWidget;
 <<<<<<< HEAD
-    Gache *lesGache; /// Class de manipulatio de classe
+    ControleurDeGache *lesGache; /// Class de manipulatio de classe
 =======
-    Gache lesGaches;
+    ControleurDeGache lesGaches;
     int value;
 >>>>>>> 3921db3ff0712f26367d9a4cb117bdc9ced18919
     void miseAJourInterface();

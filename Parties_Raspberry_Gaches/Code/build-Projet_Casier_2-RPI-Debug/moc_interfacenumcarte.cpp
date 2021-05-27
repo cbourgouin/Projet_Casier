@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../Projet_Casier_2/interfacenumcarte.h"
+#include "../Projet_Casier_integre/interfacenumcarte.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_InterfaceNumCarte_t {
     QByteArrayData data[8];
-    char stringdata0[90];
+    char stringdata0[95];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,16 +34,16 @@ static const qt_meta_stringdata_InterfaceNumCarte_t qt_meta_stringdata_Interface
 QT_MOC_LITERAL(0, 0, 17), // "InterfaceNumCarte"
 QT_MOC_LITERAL(1, 18, 13), // "askDisplayFen"
 QT_MOC_LITERAL(2, 32, 0), // ""
-QT_MOC_LITERAL(3, 33, 5), // "value"
-QT_MOC_LITERAL(4, 39, 12), // "ouvrirCasier"
-QT_MOC_LITERAL(5, 52, 7), // "casierX"
-QT_MOC_LITERAL(6, 60, 7), // "casierY"
-QT_MOC_LITERAL(7, 68, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(3, 33, 9), // "_numCarte"
+QT_MOC_LITERAL(4, 43, 12), // "ouvrirCasier"
+QT_MOC_LITERAL(5, 56, 8), // "_casierX"
+QT_MOC_LITERAL(6, 65, 8), // "_casierY"
+QT_MOC_LITERAL(7, 74, 20) // "on_LC_nouvelle_carte"
 
     },
-    "InterfaceNumCarte\0askDisplayFen\0\0value\0"
-    "ouvrirCasier\0casierX\0casierY\0"
-    "on_pushButton_clicked"
+    "InterfaceNumCarte\0askDisplayFen\0\0"
+    "_numCarte\0ouvrirCasier\0_casierX\0"
+    "_casierY\0on_LC_nouvelle_carte"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +68,7 @@ static const uint qt_meta_data_InterfaceNumCarte[] = {
        7,    0,   37,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    5,    6,
 
  // slots: parameters
@@ -83,15 +83,15 @@ void InterfaceNumCarte::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         InterfaceNumCarte *_t = static_cast<InterfaceNumCarte *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->askDisplayFen((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->askDisplayFen((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->ouvrirCasier((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 2: _t->on_pushButton_clicked(); break;
+        case 2: _t->on_LC_nouvelle_carte(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (InterfaceNumCarte::*)(int );
+            using _t = void (InterfaceNumCarte::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&InterfaceNumCarte::askDisplayFen)) {
                 *result = 0;
                 return;
@@ -144,7 +144,7 @@ int InterfaceNumCarte::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void InterfaceNumCarte::askDisplayFen(int _t1)
+void InterfaceNumCarte::askDisplayFen(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

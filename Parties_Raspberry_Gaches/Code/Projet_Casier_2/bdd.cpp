@@ -8,6 +8,13 @@
 
 #include "bdd.h"
 
+
+/**
+ * @brief BDD::BDD
+ * @details A la creation de la base de données, récuperation des infos dans le fichier
+ * de configuration
+ * @author Charly Bourgouin
+ */
 BDD::BDD()
 {
     QString nomFichierIni="Projet_Casier.ini";
@@ -30,6 +37,14 @@ BDD::BDD()
     }
 }
 
+
+/**
+ * @brief BDD::VerifAdherent
+ * @details verifie si l'utilisateur possédant la carte est adhérent
+ * @param _numCarte numéro de carte
+ * @return utilisateur est il adherent
+ * @author Charly Bourgouin
+ */
 bool BDD::VerifAdherent(int _numCarte)
 {
     bool reponse = false;
@@ -56,6 +71,14 @@ bool BDD::VerifAdherent(int _numCarte)
 
 }
 
+
+/**
+ * @brief BDD::VerifObjetNonRendu
+ * @details Verifie si l'adherent a rendu le dernier objet qu'il a empreinté et qu'elle est cet objet
+ * @param _numCarte numéro de carte
+ * @return Objet non rendu par l'utilisateur
+ * @author Charly Bourgouin
+ */
 Materiel *BDD::VerifObjetNonRendu(int _numCarte)
 {
     Materiel *dernierMaterielEmpreinter;
@@ -100,6 +123,13 @@ Materiel *BDD::VerifObjetNonRendu(int _numCarte)
     return dernierMaterielEmpreinter;
 }
 
+
+/**
+ * @brief BDD::MajBDDObjetRendu
+ * @details met a jour la base de données lorsque l'objet est rendue
+ * @param _idObjet identifiant de l'objet rendu
+ * @author Charly Bourgouin
+ */
 void BDD::MajBDDObjetRendu(int _idObjet)
 {
     if(!accesBdd.open())
@@ -118,6 +148,13 @@ void BDD::MajBDDObjetRendu(int _idObjet)
     }
 }
 
+
+/**
+ * @brief BDD::ListeMaterielEmpreintable
+ * @details recupère la liste complète des objet disponnible a l'empreint
+ * @return listeMateriel tableau des objets disponnible
+ * @author Charly Bourgouin
+ */
 std::vector<Materiel> BDD::ListeMaterielEmpreintable()
 {
     std::vector<Materiel> listeMateriel;
@@ -146,6 +183,14 @@ std::vector<Materiel> BDD::ListeMaterielEmpreintable()
     return listeMateriel;
 }
 
+
+/**
+ * @brief BDD::MajBDDObjetEmpreinter
+ * @details met a jour la base de données lorsque l'objet est empreinté
+ * @param _objet Objet empreinté
+ * @param _numCarte numéro de la carte de l'utilisateur
+ * @author Charly Bourgouin
+ */
 void BDD::MajBDDObjetEmpreinter(Materiel _objet, int _numCarte)
 {
 

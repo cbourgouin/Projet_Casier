@@ -19,18 +19,18 @@ public:
     void ouvrirCasier(int _numCasier);
 
 private slots:
-        void finImpulsion();
-        void verifFermeture();
-
-signals:
+    void on_timerImpulsion_timeout();
+    void onTimerVerif_timeout();
 
 private:
-    QTimer *timerImpulsion;
-    QTimer *timerVerif;
+    int numCasier; /// Numero du casier
+
+    QTimer *timerImpulsion; /// Timer pour l'impulsion d'ouverture
+    QTimer *timerVerif; /// Timer pour la boucle e verification de la fermeture
+    QMessageBox *messageCasierOuvert;
+
     ABElectronics_CPP_Libraries::IoPi bus1;
     ABElectronics_CPP_Libraries::IoPi bus2;
-    QMessageBox *messageCasierOuvert;
-    int numCasier;
 };
 
 #endif // GACHE_H

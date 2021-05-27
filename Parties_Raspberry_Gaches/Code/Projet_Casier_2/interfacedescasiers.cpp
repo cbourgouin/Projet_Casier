@@ -9,7 +9,12 @@
 #include "interfacedescasiers.h"
 #include "ui_interfacedescasiers.h"
 
-
+/**
+ * @brief InterfaceDesCasiers::InterfaceDesCasiers
+ * @details lors de la creation permet la récuperation des parametres du casier dans le fichier de configuration
+ * @param parent
+ * @author Charly Bourgouin
+ */
 InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::InterfaceDesCasiers)
@@ -52,6 +57,11 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
     miseAJourInterface();
 }
 
+
+/**
+ * @brief InterfaceDesCasiers::~InterfaceDesCasiers
+ * @author Charly Bourgouin
+ */
 InterfaceDesCasiers::~InterfaceDesCasiers()
 {
     delete ui;
@@ -70,6 +80,12 @@ void InterfaceDesCasiers::onpushButtonMaterielsclicked()
     
 }
 
+
+/**
+ * @brief InterfaceDesCasiers::miseAJourInterface
+ * @details synchronisation entre l'interface grace et la base de données
+ * @author Charly Bourgouin
+ */
 void InterfaceDesCasiers::miseAJourInterface()
 {
     maBaseDeDonnees = new BDD();
@@ -92,16 +108,13 @@ void InterfaceDesCasiers::miseAJourInterface()
     delete maBaseDeDonnees;
 }
 
-int InterfaceDesCasiers::getValue() const
-{
-    return value;
-}
-
-void InterfaceDesCasiers::setValue(int _value)
-{
-    value = _value;
-}
-
+/**
+ * @brief InterfaceDesCasiers::ouvrirCasier
+ * @details ouvrir un casier a partir de la position sur la grille
+ * @param _x position horizontal du casier
+ * @param _y position vertical du casier
+ * @author Charly Bourgouin
+ */
 void InterfaceDesCasiers::ouvrirCasier(int _x, int _y)
 {
     int numCasier;

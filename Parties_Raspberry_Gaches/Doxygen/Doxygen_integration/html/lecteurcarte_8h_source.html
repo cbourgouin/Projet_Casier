@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projet_Casier:  Fichier source de /home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_integre/lecteurcarte.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Projet_Casier
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('lecteurcarte_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">lecteurcarte.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="lecteurcarte_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef LECTEURCARTE_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#define LECTEURCARTE_H</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;QTimer&quot;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="wiegand_8h.html">wiegand.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cameras_8h.html">cameras.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="lecteurcarte_8h.html#a23f615c7651dc136d15794c0e8818de2">   15</a></span>&#160;<span class="preprocessor">#define NBBITMAX 100</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_lecteur_carte.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_lecteur_carte.html">LecteurCarte</a> : <span class="keyword">public</span> QObject</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_lecteur_carte.html#a1b7832d90efd0c9586552d42996de00a">LecteurCarte</a>(QObject *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_lecteur_carte.html#a6f758bad50b89a6f6d19fb7726a79b57">~LecteurCarte</a>();</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    QByteArray <a class="code" href="class_lecteur_carte.html#aa16179755afcbb8dc476256104e170e4">lireTagNFC</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">private</span> slots:</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_lecteur_carte.html#a763b54debb6f341ccfa839acca3fb903">onTimerTempo_timeout</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="class_lecteur_carte.html#a20a57becd42c9e2373f5b30e472bd532">   30</a></span>&#160;    QTimer <a class="code" href="class_lecteur_carte.html#a20a57becd42c9e2373f5b30e472bd532">timer</a>;</div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_lecteur_carte.html#a7732fb3235a28eed61a74e3a308ec5cb">   31</a></span>&#160;    QByteArray <a class="code" href="class_lecteur_carte.html#a7732fb3235a28eed61a74e3a308ec5cb">code</a>;</div><div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_lecteur_carte.html#a4122cadc473030b473ce43a6bfbf8049">   32</a></span>&#160;    <a class="code" href="class_wiegand.html">Wiegand</a> <a class="code" href="class_lecteur_carte.html#a4122cadc473030b473ce43a6bfbf8049">protocole</a>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;signals:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_lecteur_carte.html#ab9051e75a1ac394a261dc2ad6772e33b">nouvelle_carte</a>();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif // LECTEURCARTE_H</span></div><div class="ttc" id="wiegand_8h_html"><div class="ttname"><a href="wiegand_8h.html">wiegand.h</a></div></div>
+<div class="ttc" id="class_lecteur_carte_html_a7732fb3235a28eed61a74e3a308ec5cb"><div class="ttname"><a href="class_lecteur_carte.html#a7732fb3235a28eed61a74e3a308ec5cb">LecteurCarte::code</a></div><div class="ttdeci">QByteArray code</div><div class="ttdef"><b>Definition:</b> lecteurcarte.h:31</div></div>
+<div class="ttc" id="class_lecteur_carte_html_a20a57becd42c9e2373f5b30e472bd532"><div class="ttname"><a href="class_lecteur_carte.html#a20a57becd42c9e2373f5b30e472bd532">LecteurCarte::timer</a></div><div class="ttdeci">QTimer timer</div><div class="ttdef"><b>Definition:</b> lecteurcarte.h:30</div></div>
+<div class="ttc" id="class_lecteur_carte_html_ab9051e75a1ac394a261dc2ad6772e33b"><div class="ttname"><a href="class_lecteur_carte.html#ab9051e75a1ac394a261dc2ad6772e33b">LecteurCarte::nouvelle_carte</a></div><div class="ttdeci">void nouvelle_carte()</div></div>
+<div class="ttc" id="class_lecteur_carte_html_a763b54debb6f341ccfa839acca3fb903"><div class="ttname"><a href="class_lecteur_carte.html#a763b54debb6f341ccfa839acca3fb903">LecteurCarte::onTimerTempo_timeout</a></div><div class="ttdeci">void onTimerTempo_timeout()</div><div class="ttdoc">LecteurCarte::onTimerTempo_timeout. </div><div class="ttdef"><b>Definition:</b> lecteurcarte.cpp:54</div></div>
+<div class="ttc" id="class_lecteur_carte_html_aa16179755afcbb8dc476256104e170e4"><div class="ttname"><a href="class_lecteur_carte.html#aa16179755afcbb8dc476256104e170e4">LecteurCarte::lireTagNFC</a></div><div class="ttdeci">QByteArray lireTagNFC()</div><div class="ttdoc">LecteurCarte::lireTagNFC. </div><div class="ttdef"><b>Definition:</b> lecteurcarte.cpp:42</div></div>
+<div class="ttc" id="cameras_8h_html"><div class="ttname"><a href="cameras_8h.html">cameras.h</a></div></div>
+<div class="ttc" id="class_wiegand_html"><div class="ttname"><a href="class_wiegand.html">Wiegand</a></div><div class="ttdef"><b>Definition:</b> wiegand.h:18</div></div>
+<div class="ttc" id="class_lecteur_carte_html_a4122cadc473030b473ce43a6bfbf8049"><div class="ttname"><a href="class_lecteur_carte.html#a4122cadc473030b473ce43a6bfbf8049">LecteurCarte::protocole</a></div><div class="ttdeci">Wiegand protocole</div><div class="ttdef"><b>Definition:</b> lecteurcarte.h:32</div></div>
+<div class="ttc" id="class_lecteur_carte_html_a6f758bad50b89a6f6d19fb7726a79b57"><div class="ttname"><a href="class_lecteur_carte.html#a6f758bad50b89a6f6d19fb7726a79b57">LecteurCarte::~LecteurCarte</a></div><div class="ttdeci">~LecteurCarte()</div><div class="ttdoc">LecteurCarte::~LecteurCarte. </div><div class="ttdef"><b>Definition:</b> lecteurcarte.cpp:32</div></div>
+<div class="ttc" id="class_lecteur_carte_html"><div class="ttname"><a href="class_lecteur_carte.html">LecteurCarte</a></div><div class="ttdef"><b>Definition:</b> lecteurcarte.h:18</div></div>
+<div class="ttc" id="class_lecteur_carte_html_a1b7832d90efd0c9586552d42996de00a"><div class="ttname"><a href="class_lecteur_carte.html#a1b7832d90efd0c9586552d42996de00a">LecteurCarte::LecteurCarte</a></div><div class="ttdeci">LecteurCarte(QObject *parent=nullptr)</div><div class="ttdoc">LecteurCarte::LecteurCarte. </div><div class="ttdef"><b>Definition:</b> lecteurcarte.cpp:19</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_edc9b51a3b9c035a98baaa0d63409fc1.html">Projet_Casier_integre</a></li><li class="navelem"><a class="el" href="lecteurcarte_8h.html">lecteurcarte.h</a></li>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
+  </ul>
+</div>
+</body>
+</html>

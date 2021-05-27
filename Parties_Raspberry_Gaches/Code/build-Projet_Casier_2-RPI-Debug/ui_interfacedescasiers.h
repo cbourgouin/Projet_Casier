@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,6 +22,7 @@ class Ui_InterfaceDesCasiers
 public:
     QWidget *gridLayoutWidget;
     QGridLayout *gridLayout;
+    QLabel *label;
 
     void setupUi(QWidget *InterfaceDesCasiers)
     {
@@ -33,6 +35,9 @@ public:
         gridLayout = new QGridLayout(gridLayoutWidget);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(InterfaceDesCasiers);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 10, 181, 21));
 
         retranslateUi(InterfaceDesCasiers);
 
@@ -42,6 +47,7 @@ public:
     void retranslateUi(QWidget *InterfaceDesCasiers)
     {
         InterfaceDesCasiers->setWindowTitle(QApplication::translate("InterfaceDesCasiers", "Form", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };

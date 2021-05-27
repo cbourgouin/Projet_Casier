@@ -32,9 +32,9 @@ public slots:
 
 private:
     Ui::fenetreDeSwitch *ui;
-    QStackedWidget *stack;
-    InterfaceNumCarte *fen1;
-    InterfaceDesCasiers *fen2;
+    QStackedWidget *stack; /// Stack des widgets a afficher
+    InterfaceNumCarte *fen1; /// Affichage des boutons de selection des casiers
+    InterfaceDesCasiers *fen2; /// Affichage d'entrée du numero de la carte de l'utilisateur
 };
 
 #endif // FENETREDESWITCH_H

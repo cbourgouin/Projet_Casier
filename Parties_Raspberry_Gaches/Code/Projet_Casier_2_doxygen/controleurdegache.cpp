@@ -1,4 +1,4 @@
-#include "gache.h"
+#include "controleurdegache.h"
 #include <QDebug>
 using namespace ABElectronics_CPP_Libraries;
 
@@ -7,12 +7,12 @@ using namespace ABElectronics_CPP_Libraries;
  * @brief Gache::Gache
  * @author Charly Bourgouin
  */
-Gache::Gache()
+ControleurDeGache::ControleurDeGache()
 {
     timerImpulsion = new QTimer();
     timerVerif = new QTimer();
 =======
-Gache::Gache(QObject *parent)
+ControleurDeGache::ControleurDeGache(QObject *parent)
   : QObject(parent)
   , bus1(0x20)
   , bus2(0x21)
@@ -25,15 +25,15 @@ Gache::Gache(QObject *parent)
     timerImpulsion->setSingleShot(true);
 
 >>>>>>> 3921db3ff0712f26367d9a4cb117bdc9ced18919
-    connect(timerImpulsion, &QTimer::timeout, this, &Gache::finImpulsion);
-    connect(timerVerif, &QTimer::timeout, this, &Gache::verifFermeture);
+    connect(timerImpulsion, &QTimer::timeout, this, &ControleurDeGache::finImpulsion);
+    connect(timerVerif, &QTimer::timeout, this, &ControleurDeGache::verifFermeture);
 }
 
 /**
  * @brief Gache::~Gache
  * @author Charly Bourgouin
  */
-Gache::~Gache()
+ControleurDeGache::~ControleurDeGache()
 {
     delete timerImpulsion;
     delete timerVerif;
@@ -45,7 +45,7 @@ Gache::~Gache()
  * @param _numCasier numéro du casier a ouvrir
  * @author Charly Bourgouin
  */
-void Gache::ouvrirCasier(int _numCasier)
+void ControleurDeGache::ouvrirCasier(int _numCasier)
 {
     numCasier = _numCasier;
 <<<<<<< HEAD
@@ -68,7 +68,7 @@ void Gache::ouvrirCasier(int _numCasier)
  * @details slots permettant de mettre fin a l'impulsion pour ouvrir le casier
  * @author Charly Bourgouin
  */
-void Gache::finImpulsion()
+void ControleurDeGache::finImpulsion()
 {
     qDebug()<<"dans timeout timer";
 
@@ -84,7 +84,7 @@ void Gache::finImpulsion()
  * @details slots permettant de verifier le de manière periodique la fermeture du casier
  * @author Charly Bourgouin
  */
-void Gache::verifFermeture()
+void ControleurDeGache::verifFermeture()
 {
     timerVerif->stop();
 <<<<<<< HEAD

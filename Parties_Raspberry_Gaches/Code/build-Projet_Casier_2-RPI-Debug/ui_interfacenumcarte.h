@@ -11,9 +11,9 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLineEdit>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,31 +21,48 @@ QT_BEGIN_NAMESPACE
 class Ui_InterfaceNumCarte
 {
 public:
-    QWidget *widget;
-    QHBoxLayout *horizontalLayout;
-    QLineEdit *lineEdit;
-    QPushButton *pushButton;
+    QWidget *gridLayoutWidget;
+    QGridLayout *gridLayout_2;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *label;
+    QSpacerItem *verticalSpacer_2;
 
     void setupUi(QWidget *InterfaceNumCarte)
     {
         if (InterfaceNumCarte->objectName().isEmpty())
             InterfaceNumCarte->setObjectName(QStringLiteral("InterfaceNumCarte"));
-        InterfaceNumCarte->resize(828, 564);
-        widget = new QWidget(InterfaceNumCarte);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(50, 260, 731, 30));
-        horizontalLayout = new QHBoxLayout(widget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        lineEdit = new QLineEdit(widget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        InterfaceNumCarte->resize(800, 480);
+        gridLayoutWidget = new QWidget(InterfaceNumCarte);
+        gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
+        gridLayoutWidget->setGeometry(QRect(0, 0, 801, 481));
+        gridLayout_2 = new QGridLayout(gridLayoutWidget);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        horizontalLayout->addWidget(lineEdit);
+        gridLayout_2->addItem(verticalSpacer, 0, 1, 1, 1);
 
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout->addWidget(pushButton);
+        gridLayout_2->addItem(horizontalSpacer, 1, 0, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_2, 1, 2, 1, 1);
+
+        label = new QLabel(gridLayoutWidget);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font;
+        font.setPointSize(13);
+        label->setFont(font);
+
+        gridLayout_2->addWidget(label, 1, 1, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_2, 2, 1, 1, 1);
 
 
         retranslateUi(InterfaceNumCarte);
@@ -56,7 +73,7 @@ public:
     void retranslateUi(QWidget *InterfaceNumCarte)
     {
         InterfaceNumCarte->setWindowTitle(QApplication::translate("InterfaceNumCarte", "Form", nullptr));
-        pushButton->setText(QApplication::translate("InterfaceNumCarte", "Valid\303\251", nullptr));
+        label->setText(QApplication::translate("InterfaceNumCarte", "Passez votre carte sur le scanner", nullptr));
     } // retranslateUi
 
 };

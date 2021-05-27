@@ -1,6 +1,12 @@
 #include "interfacenumcarte.h"
 #include "ui_interfacenumcarte.h"
 
+
+/**
+ * @brief InterfaceNumCarte::InterfaceNumCarte
+ * @param parent
+ * @author Charly Bourgouin
+ */
 InterfaceNumCarte::InterfaceNumCarte(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::InterfaceNumCarte)
@@ -8,11 +14,21 @@ InterfaceNumCarte::InterfaceNumCarte(QWidget *parent) :
     ui->setupUi(this);
 }
 
+
+/**
+ * @brief InterfaceNumCarte::~InterfaceNumCarte
+ * @author Charly Bourgouin
+ */
 InterfaceNumCarte::~InterfaceNumCarte()
 {
     delete ui;
 }
 
+/**
+ * @brief InterfaceNumCarte::on_pushButton_clicked
+ * @details permet la verification de l'adherent et de sin il a empreinter un objet
+ * @author Charly Bourgouin
+ */
 void InterfaceNumCarte::on_pushButton_clicked()
 {
 

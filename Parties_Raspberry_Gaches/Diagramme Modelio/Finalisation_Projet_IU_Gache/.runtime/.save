@@ -1,5 +1,2 @@
-#Thu May 20 00:49:34 CEST 2021
-org.modelio.diagram.editor.OpenedDiagrams3='Interaction Sequence diagram' {5fc6d294-170c-4c8d-9c5a-c062240950ba} Standard.SequenceDiagram
-org.modelio.diagram.editor.OpenedDiagrams2='conception_projet_iu_gache_2 Class diagram' {7f073e79-dc07-46d1-8c4d-83ccb7c56d33} Standard.ClassDiagram
-org.modelio.diagram.editor.OpenedDiagrams1='Manoeuvrer la g\u00E2che d'un casier' {7d766888-10fd-4580-8e82-f0414a0e97bf} Standard.SequenceDiagram
-org.modelio.diagram.editor.OpenedDiagrams0='Choisir un mat\u00E9riel \u00E0 emprunter ou \u00E0 restituer' {172d6f82-c398-4073-b822-ed306f819db1} Standard.SequenceDiagram
+#Thu May 20 12:35:02 CEST 2021
+org.modelio.diagram.editor.OpenedDiagrams0='Interaction Sequence diagram' {5fc6d294-170c-4c8d-9c5a-c062240950ba} Standard.SequenceDiagram

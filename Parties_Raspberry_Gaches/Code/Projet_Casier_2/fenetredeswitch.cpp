@@ -9,6 +9,13 @@
 #include "fenetredeswitch.h"
 #include "ui_fenetredeswitch.h"
 
+/**
+ * @brief fenetreDeSwitch::fenetreDeSwitch
+ * @details lors de la creation permet de construire la fenetre de saisi de
+ * numéro de carte ainsi que l'interface de selection de casier
+ * @param parent
+ * @author Charly Bourgouin
+ */
 FenetreDeSwitch::FenetreDeSwitch(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::fenetreDeSwitch)
@@ -29,17 +36,37 @@ FenetreDeSwitch::FenetreDeSwitch(QWidget *parent) :
     connect(fen1, SIGNAL(ouvrirCasier(int , int)), this, SLOT(ouvrirCasier(int, int)));
 }
 
+
+/**
+ * @brief fenetreDeSwitch::~fenetreDeSwitch
+ * @details lors de la destruction, detruit la totalité des fenetres
+ * @author Charly Bourgouin
+ */
 FenetreDeSwitch::~FenetreDeSwitch()
 {
     delete ui;
 }
 
+/**
+ * @brief fenetreDeSwitch::slotDisplayFen
+ * @details permet de naviguer entre les multiples widget du programme
+ * @param fenIndex index de la fenetre a afficher
+ * ( 0 : saisi du numero de carte | 1 : selection de casier )
+ * @author Charly Bourgouin
+ */
 void FenetreDeSwitch::slotDisplayFen(int fenIndex)
 {
     if ((fenIndex < 0) || (fenIndex > 1)) {return;}
     stack->setCurrentIndex(fenIndex);
 }
 
+/**
+ * @brief fenetreDeSwitch::ouvrirCasier
+ * @details slots de communication entre les deux fenetre pour ouvrir le casier grace a la position de celui ci
+ * @param _x position horizontal du casier
+ * @param _y position vertical du casier
+ * @author Charly Bourgouin
+ */
 void FenetreDeSwitch::ouvrirCasier(int _x, int _y)
 {
     fen2->ouvrirCasier(_x, _y);

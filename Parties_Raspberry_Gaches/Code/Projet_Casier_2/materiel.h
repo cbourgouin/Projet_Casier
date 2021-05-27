@@ -31,11 +31,11 @@ public:
     void setLocalisationImage(const QString &value);
 
 private:
-    int idMateriel;
-    QString nom;
-    int PositionCasierX;
-    int PositionCasierY;
-    QString localisationImage;
+    int idMateriel; /// Id de l'objet
+    QString nom; /// nom de l'objet
+    int PositionCasierX; /// position horizontal du casier contenant l'objet
+    int PositionCasierY; /// position vertical du casier contenant l'objet
+    QString localisationImage; /// localisation de l'image de l'objet
 };
 
 #endif // MATERIEL_H

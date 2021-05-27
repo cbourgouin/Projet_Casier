@@ -10,16 +10,16 @@
 #include <iostream>
 #include "ABE_IoPi.h"
 
-class Gache : public QObject
+class ControleurDeGache : public QObject
 {
     Q_OBJECT
 
 public:
 <<<<<<< HEAD
-    Gache();
-    ~Gache();
+    ControleurDeGache();
+    ~ControleurDeGache();
 =======
-    explicit Gache(QObject *parent = nullptr);
+    explicit ControleurDeGache(QObject *parent = nullptr);
 >>>>>>> 3921db3ff0712f26367d9a4cb117bdc9ced18919
     void ouvrirCasier(int _numCasier);
 
