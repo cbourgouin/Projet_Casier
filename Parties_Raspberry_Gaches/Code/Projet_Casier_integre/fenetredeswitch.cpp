@@ -18,7 +18,7 @@
  */
 FenetreDeSwitch::FenetreDeSwitch(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::fenetreDeSwitch)
+    ui(new Ui::FenetreDeSwitch)
 {
     ui->setupUi(this);
     stack = new QStackedWidget(this);
@@ -46,6 +46,7 @@ FenetreDeSwitch::~FenetreDeSwitch()
     delete ui;
     delete fen1;
     delete fen2;
+    delete stack;
 }
 
 /**
@@ -65,7 +66,7 @@ void FenetreDeSwitch::slotDisplayFen1()
  * @param _numCarte numéro de carte
  * @author Charly Bourgouin
  */
-void FenetreDeSwitch::slotDisplayFen2(QString _numCarte)
+void FenetreDeSwitch::slotDisplayFen2(const QString &_numCarte)
 {
     stack->setCurrentIndex(1);
     fen2->setNumCarte(_numCarte);

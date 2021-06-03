@@ -51,6 +51,7 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Projet_Casier_integre/ABE_IoPi.cpp \
+		../Projet_Casier_integre/alarme.cpp \
 		../Projet_Casier_integre/bdd.cpp \
 		../Projet_Casier_integre/cameras.cpp \
 		../Projet_Casier_integre/controleurdegache.cpp \
@@ -60,13 +61,16 @@ SOURCES       = ../Projet_Casier_integre/ABE_IoPi.cpp \
 		../Projet_Casier_integre/lecteurcarte.cpp \
 		../Projet_Casier_integre/main.cpp \
 		../Projet_Casier_integre/materiel.cpp \
-		../Projet_Casier_integre/wiegand.cpp moc_controleurdegache.cpp \
+		../Projet_Casier_integre/wiegand.cpp qrc_images.cpp \
+		moc_alarme.cpp \
+		moc_controleurdegache.cpp \
 		moc_fenetredeswitch.cpp \
 		moc_interfacedescasiers.cpp \
 		moc_interfacenumcarte.cpp \
 		moc_lecteurcarte.cpp \
 		moc_wiegand.cpp
 OBJECTS       = ABE_IoPi.o \
+		alarme.o \
 		bdd.o \
 		cameras.o \
 		controleurdegache.o \
@@ -77,6 +81,8 @@ OBJECTS       = ABE_IoPi.o \
 		main.o \
 		materiel.o \
 		wiegand.o \
+		qrc_images.o \
+		moc_alarme.o \
 		moc_controleurdegache.o \
 		moc_fenetredeswitch.o \
 		moc_interfacedescasiers.o \
@@ -253,6 +259,7 @@ DIST          = /opt/raspi/qt5/mkspecs/features/spec_pre.prf \
 		/opt/raspi/qt5/mkspecs/features/yacc.prf \
 		/opt/raspi/qt5/mkspecs/features/lex.prf \
 		../Projet_Casier_integre/Projet_Casier_2.pro ../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
 		../Projet_Casier_integre/bdd.h \
 		../Projet_Casier_integre/cameras.h \
 		../Projet_Casier_integre/controleurdegache.h \
@@ -262,6 +269,7 @@ DIST          = /opt/raspi/qt5/mkspecs/features/spec_pre.prf \
 		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/materiel.h \
 		../Projet_Casier_integre/wiegand.h ../Projet_Casier_integre/ABE_IoPi.cpp \
+		../Projet_Casier_integre/alarme.cpp \
 		../Projet_Casier_integre/bdd.cpp \
 		../Projet_Casier_integre/cameras.cpp \
 		../Projet_Casier_integre/controleurdegache.cpp \
@@ -453,6 +461,7 @@ Makefile: ../Projet_Casier_integre/Projet_Casier_2.pro /opt/raspi/qt5/mkspecs/de
 		/opt/raspi/qt5/mkspecs/features/yacc.prf \
 		/opt/raspi/qt5/mkspecs/features/lex.prf \
 		../Projet_Casier_integre/Projet_Casier_2.pro \
+		../Projet_Casier_integre/images.qrc \
 		/opt/raspi/qt5pi/lib/libQt5Widgets.prl \
 		/opt/raspi/qt5pi/lib/libQt5Multimedia.prl \
 		/opt/raspi/qt5pi/lib/libQt5Gui.prl \
@@ -630,6 +639,7 @@ Makefile: ../Projet_Casier_integre/Projet_Casier_2.pro /opt/raspi/qt5/mkspecs/de
 /opt/raspi/qt5/mkspecs/features/yacc.prf:
 /opt/raspi/qt5/mkspecs/features/lex.prf:
 ../Projet_Casier_integre/Projet_Casier_2.pro:
+../Projet_Casier_integre/images.qrc:
 /opt/raspi/qt5pi/lib/libQt5Widgets.prl:
 /opt/raspi/qt5pi/lib/libQt5Multimedia.prl:
 /opt/raspi/qt5pi/lib/libQt5Gui.prl:
@@ -650,9 +660,10 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
+	$(COPY_FILE) --parents ../Projet_Casier_integre/images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/raspi/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Projet_Casier_integre/ABE_IoPi.h ../Projet_Casier_integre/bdd.h ../Projet_Casier_integre/cameras.h ../Projet_Casier_integre/controleurdegache.h ../Projet_Casier_integre/fenetredeswitch.h ../Projet_Casier_integre/interfacedescasiers.h ../Projet_Casier_integre/interfacenumcarte.h ../Projet_Casier_integre/lecteurcarte.h ../Projet_Casier_integre/materiel.h ../Projet_Casier_integre/wiegand.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Projet_Casier_integre/ABE_IoPi.cpp ../Projet_Casier_integre/bdd.cpp ../Projet_Casier_integre/cameras.cpp ../Projet_Casier_integre/controleurdegache.cpp ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier_integre/interfacedescasiers.cpp ../Projet_Casier_integre/interfacenumcarte.cpp ../Projet_Casier_integre/lecteurcarte.cpp ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/materiel.cpp ../Projet_Casier_integre/wiegand.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Projet_Casier_integre/ABE_IoPi.h ../Projet_Casier_integre/alarme.h ../Projet_Casier_integre/bdd.h ../Projet_Casier_integre/cameras.h ../Projet_Casier_integre/controleurdegache.h ../Projet_Casier_integre/fenetredeswitch.h ../Projet_Casier_integre/interfacedescasiers.h ../Projet_Casier_integre/interfacenumcarte.h ../Projet_Casier_integre/lecteurcarte.h ../Projet_Casier_integre/materiel.h ../Projet_Casier_integre/wiegand.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Projet_Casier_integre/ABE_IoPi.cpp ../Projet_Casier_integre/alarme.cpp ../Projet_Casier_integre/bdd.cpp ../Projet_Casier_integre/cameras.cpp ../Projet_Casier_integre/controleurdegache.cpp ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier_integre/interfacedescasiers.cpp ../Projet_Casier_integre/interfacenumcarte.cpp ../Projet_Casier_integre/lecteurcarte.cpp ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/materiel.cpp ../Projet_Casier_integre/wiegand.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Projet_Casier_integre/fenetredeswitch.ui ../Projet_Casier_integre/interfacedescasiers.ui ../Projet_Casier_integre/interfacenumcarte.ui $(DISTDIR)/
 
 
@@ -677,17 +688,124 @@ check: first
 
 benchmark: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_images.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) qrc_images.cpp
+qrc_images.cpp: ../Projet_Casier_integre/images.qrc \
+		/opt/raspi/qt5/bin/rcc \
+		../Projet_Casier_integre/Calculatrice.jpg \
+		../Projet_Casier_integre/Ballon.jpg \
+		../Projet_Casier_integre/alarme-de-reveil-standard-son.mp3
+	/opt/raspi/qt5/bin/rcc -name images ../Projet_Casier_integre/images.qrc -o qrc_images.cpp
+
 compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /opt/raspi/qt5/mkspecs/features/data/dummy.cpp
 	/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-g++ -pipe -marm -mfpu=vfp -mtune=arm1176jzf-s -march=armv6zk -mabi=aapcs-linux -mfloat-abi=hard --sysroot=/opt/raspi/sysroot -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/raspi/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_controleurdegache.cpp moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp moc_lecteurcarte.cpp moc_wiegand.cpp
+compiler_moc_header_make_all: moc_alarme.cpp moc_controleurdegache.cpp moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp moc_lecteurcarte.cpp moc_wiegand.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_controleurdegache.cpp moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp moc_lecteurcarte.cpp moc_wiegand.cpp
+	-$(DEL_FILE) moc_alarme.cpp moc_controleurdegache.cpp moc_fenetredeswitch.cpp moc_interfacedescasiers.cpp moc_interfacenumcarte.cpp moc_lecteurcarte.cpp moc_wiegand.cpp
+moc_alarme.cpp: /opt/raspi/qt5pi/include/QtCore/QObject \
+		/opt/raspi/qt5pi/include/QtCore/qobject.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs.h \
+		/opt/raspi/qt5pi/include/QtCore/qnamespace.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobal.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig-bootstrapped.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig.h \
+		/opt/raspi/qt5pi/include/QtCore/qtcore-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qsystemdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qprocessordetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qcompilerdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qtypeinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qsysinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qlogging.h \
+		/opt/raspi/qt5pi/include/QtCore/qflags.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasicatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_bootstrap.h \
+		/opt/raspi/qt5pi/include/QtCore/qgenericatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_cxx11.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_msvc.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobalstatic.h \
+		/opt/raspi/qt5pi/include/QtCore/qmutex.h \
+		/opt/raspi/qt5pi/include/QtCore/qnumeric.h \
+		/opt/raspi/qt5pi/include/QtCore/qversiontagging.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/qstring.h \
+		/opt/raspi/qt5pi/include/QtCore/qchar.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearray.h \
+		/opt/raspi/qt5pi/include/QtCore/qrefcount.h \
+		/opt/raspi/qt5pi/include/QtCore/qarraydata.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringliteral.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringview.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringbuilder.h \
+		/opt/raspi/qt5pi/include/QtCore/qlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qiterator.h \
+		/opt/raspi/qt5pi/include/QtCore/qhashfunctions.h \
+		/opt/raspi/qt5pi/include/QtCore/qpair.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearraylist.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qregexp.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringmatcher.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qscopedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetatype.h \
+		/opt/raspi/qt5pi/include/QtCore/qvarlengtharray.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontainerfwd.h \
+		/opt/raspi/qt5pi/include/QtCore/qobject_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qfile.h \
+		/opt/raspi/qt5pi/include/QtCore/qfiledevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qiodevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qshareddata.h \
+		/opt/raspi/qt5pi/include/QtCore/qhash.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtCore/qvariant.h \
+		/opt/raspi/qt5pi/include/QtCore/qmap.h \
+		/opt/raspi/qt5pi/include/QtCore/qdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qtextstream.h \
+		/opt/raspi/qt5pi/include/QtCore/qlocale.h \
+		/opt/raspi/qt5pi/include/QtCore/qvector.h \
+		/opt/raspi/qt5pi/include/QtCore/qpoint.h \
+		/opt/raspi/qt5pi/include/QtCore/qset.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontiguouscache.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/QDebug \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtGui/qtguiglobal.h \
+		/opt/raspi/qt5pi/include/QtGui/qtgui-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		../Projet_Casier_integre/alarme.h \
+		moc_predefs.h \
+		/opt/raspi/qt5/bin/moc
+	/opt/raspi/qt5/bin/moc $(DEFINES) --include /home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/build-Projet_Casier_2-RPI-Debug/moc_predefs.h -I/opt/raspi/qt5/mkspecs/devices/linux-rasp-pi-g++ -I/home/USERS/ELEVES/SNIR2019/cbourgouin/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_integre -I/opt/raspi/qt5pi/include -I/opt/raspi/qt5pi/include/QtWidgets -I/opt/raspi/qt5pi/include/QtMultimedia -I/opt/raspi/qt5pi/include/QtGui -I/opt/raspi/qt5pi/include/QtSql -I/opt/raspi/qt5pi/include/QtNetwork -I/opt/raspi/qt5pi/include/QtCore -I. -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3 -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/arm-linux-gnueabihf -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3/backward -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/lib/gcc/arm-linux-gnueabihf/4.8.3/include-fixed -I/opt/raspi/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include -I/opt/raspi/sysroot/usr/include -I/opt/raspi/sysroot/usr/include/arm-linux-gnueabihf ../Projet_Casier_integre/alarme.h -o moc_alarme.cpp
+
 moc_controleurdegache.cpp: /opt/raspi/qt5pi/include/QtCore/QObject \
 		/opt/raspi/qt5pi/include/QtCore/qobject.h \
 		/opt/raspi/qt5pi/include/QtCore/qobjectdefs.h \
@@ -798,6 +916,31 @@ moc_controleurdegache.cpp: /opt/raspi/qt5pi/include/QtCore/QObject \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
 		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtCore/QDebug \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
 		../Projet_Casier_integre/controleurdegache.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
@@ -923,6 +1066,7 @@ moc_fenetredeswitch.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMainWindow \
 		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QLayoutItem \
+		/opt/raspi/qt5pi/include/QtGui/QPixmap \
 		../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
 		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
@@ -945,20 +1089,12 @@ moc_fenetredeswitch.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMainWindow \
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
-		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
-		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
-		../Projet_Casier_integre/ABE_IoPi.h \
-		../Projet_Casier_integre/interfacenumcarte.h \
-		../Projet_Casier_integre/cameras.h \
-		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/wiegand.h \
 		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
 		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
@@ -987,6 +1123,27 @@ moc_fenetredeswitch.cpp: /opt/raspi/qt5pi/include/QtWidgets/QMainWindow \
 		/opt/raspi/qt5pi/include/QtCore/QFile \
 		/opt/raspi/qt5pi/include/QtCore/QDir \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		../Projet_Casier_integre/interfacenumcarte.h \
 		../Projet_Casier_integre/fenetredeswitch.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
@@ -1105,6 +1262,7 @@ moc_interfacedescasiers.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QLayoutItem \
+		/opt/raspi/qt5pi/include/QtGui/QPixmap \
 		../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
 		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
@@ -1127,17 +1285,60 @@ moc_interfacedescasiers.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
-		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
-		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		../Projet_Casier_integre/wiegand.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontrol.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaservice.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraexposure.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerafocus.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qvideoframe.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qabstractvideobuffer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraImageCapture \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaencodersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraInfo \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerainfo.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraViewfinderSettings \
+		/opt/raspi/qt5pi/include/QtCore/QDateTime \
+		/opt/raspi/qt5pi/include/QtCore/QFile \
+		/opt/raspi/qt5pi/include/QtCore/QDir \
+		/opt/raspi/qt5pi/include/QtCore/qdir.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
 		../Projet_Casier_integre/interfacedescasiers.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
@@ -1277,16 +1478,12 @@ moc_interfacenumcarte.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
-		../Projet_Casier_integre/ABE_IoPi.h \
-		../Projet_Casier_integre/cameras.h \
-		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/wiegand.h \
 		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
 		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
@@ -1315,6 +1512,23 @@ moc_interfacenumcarte.cpp: /opt/raspi/qt5pi/include/QtWidgets/QWidget \
 		/opt/raspi/qt5pi/include/QtCore/QFile \
 		/opt/raspi/qt5pi/include/QtCore/QDir \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
 		../Projet_Casier_integre/interfacenumcarte.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
@@ -1443,6 +1657,43 @@ moc_lecteurcarte.cpp: /opt/raspi/qt5pi/include/QtCore/QObject \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
 		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
 		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		../Projet_Casier_integre/bdd.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
+		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
+		/opt/raspi/qt5pi/include/QtSql/qtsqlglobal.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlQuery \
+		/opt/raspi/qt5pi/include/QtSql/qsqlquery.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QApplication \
+		/opt/raspi/qt5pi/include/QtWidgets/qapplication.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgets-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreapplication.h \
+		/opt/raspi/qt5pi/include/QtCore/qeventloop.h \
+		/opt/raspi/qt5pi/include/QtGui/qcursor.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdesktopwidget.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qwidget.h \
+		/opt/raspi/qt5pi/include/QtGui/qpalette.h \
+		/opt/raspi/qt5pi/include/QtGui/qbrush.h \
+		/opt/raspi/qt5pi/include/QtGui/qpixmap.h \
+		/opt/raspi/qt5pi/include/QtGui/qfont.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontmetrics.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontinfo.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qsizepolicy.h \
+		/opt/raspi/qt5pi/include/QtGui/qkeysequence.h \
+		/opt/raspi/qt5pi/include/QtGui/qevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtGui/qvector2d.h \
+		/opt/raspi/qt5pi/include/QtGui/qtouchdevice.h \
+		/opt/raspi/qt5pi/include/QtGui/qguiapplication.h \
+		/opt/raspi/qt5pi/include/QtGui/qinputmethod.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlError \
+		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
+		/opt/raspi/qt5pi/include/QtCore/QDate \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
 		../Projet_Casier_integre/lecteurcarte.h \
 		moc_predefs.h \
 		/opt/raspi/qt5/bin/moc
@@ -1528,12 +1779,109 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_predefs_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
 ABE_IoPi.o: ../Projet_Casier_integre/ABE_IoPi.cpp ../Projet_Casier_integre/ABE_IoPi.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ABE_IoPi.o ../Projet_Casier_integre/ABE_IoPi.cpp
+
+alarme.o: ../Projet_Casier_integre/alarme.cpp ../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
+		/opt/raspi/qt5pi/include/QtCore/qobject.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs.h \
+		/opt/raspi/qt5pi/include/QtCore/qnamespace.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobal.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig-bootstrapped.h \
+		/opt/raspi/qt5pi/include/QtCore/qconfig.h \
+		/opt/raspi/qt5pi/include/QtCore/qtcore-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qsystemdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qprocessordetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qcompilerdetection.h \
+		/opt/raspi/qt5pi/include/QtCore/qtypeinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qsysinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qlogging.h \
+		/opt/raspi/qt5pi/include/QtCore/qflags.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasicatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_bootstrap.h \
+		/opt/raspi/qt5pi/include/QtCore/qgenericatomic.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_cxx11.h \
+		/opt/raspi/qt5pi/include/QtCore/qatomic_msvc.h \
+		/opt/raspi/qt5pi/include/QtCore/qglobalstatic.h \
+		/opt/raspi/qt5pi/include/QtCore/qmutex.h \
+		/opt/raspi/qt5pi/include/QtCore/qnumeric.h \
+		/opt/raspi/qt5pi/include/QtCore/qversiontagging.h \
+		/opt/raspi/qt5pi/include/QtCore/qobjectdefs_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/qstring.h \
+		/opt/raspi/qt5pi/include/QtCore/qchar.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearray.h \
+		/opt/raspi/qt5pi/include/QtCore/qrefcount.h \
+		/opt/raspi/qt5pi/include/QtCore/qarraydata.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringliteral.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringview.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringbuilder.h \
+		/opt/raspi/qt5pi/include/QtCore/qlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qalgorithms.h \
+		/opt/raspi/qt5pi/include/QtCore/qiterator.h \
+		/opt/raspi/qt5pi/include/QtCore/qhashfunctions.h \
+		/opt/raspi/qt5pi/include/QtCore/qpair.h \
+		/opt/raspi/qt5pi/include/QtCore/qbytearraylist.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringlist.h \
+		/opt/raspi/qt5pi/include/QtCore/qregexp.h \
+		/opt/raspi/qt5pi/include/QtCore/qstringmatcher.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qscopedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetatype.h \
+		/opt/raspi/qt5pi/include/QtCore/qvarlengtharray.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontainerfwd.h \
+		/opt/raspi/qt5pi/include/QtCore/qobject_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/qfile.h \
+		/opt/raspi/qt5pi/include/QtCore/qfiledevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qiodevice.h \
+		/opt/raspi/qt5pi/include/QtCore/qshareddata.h \
+		/opt/raspi/qt5pi/include/QtCore/qhash.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtCore/qvariant.h \
+		/opt/raspi/qt5pi/include/QtCore/qmap.h \
+		/opt/raspi/qt5pi/include/QtCore/qdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qtextstream.h \
+		/opt/raspi/qt5pi/include/QtCore/qlocale.h \
+		/opt/raspi/qt5pi/include/QtCore/qvector.h \
+		/opt/raspi/qt5pi/include/QtCore/qpoint.h \
+		/opt/raspi/qt5pi/include/QtCore/qset.h \
+		/opt/raspi/qt5pi/include/QtCore/qcontiguouscache.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer.h \
+		/opt/raspi/qt5pi/include/QtCore/qsharedpointer_impl.h \
+		/opt/raspi/qt5pi/include/QtCore/QDebug \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtGui/qtguiglobal.h \
+		/opt/raspi/qt5pi/include/QtGui/qtgui-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o alarme.o ../Projet_Casier_integre/alarme.cpp
 
 bdd.o: ../Projet_Casier_integre/bdd.cpp ../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
@@ -1659,6 +2007,40 @@ bdd.o: ../Projet_Casier_integre/bdd.cpp ../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
+		/opt/raspi/qt5pi/include/QtCore/QObject \
+		/opt/raspi/qt5pi/include/QtCore/QTimer \
+		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
+		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		../Projet_Casier_integre/wiegand.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontrol.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaservice.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraexposure.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerafocus.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qvideoframe.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qabstractvideobuffer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraImageCapture \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaencodersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraInfo \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerainfo.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraViewfinderSettings \
+		/opt/raspi/qt5pi/include/QtCore/QDateTime \
+		/opt/raspi/qt5pi/include/QtCore/QFile \
+		/opt/raspi/qt5pi/include/QtCore/QDir \
+		/opt/raspi/qt5pi/include/QtCore/qdir.h \
 		../Projet_Casier_integre/materiel.h \
 		/opt/raspi/qt5pi/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o bdd.o ../Projet_Casier_integre/bdd.cpp
@@ -1786,8 +2168,43 @@ cameras.o: ../Projet_Casier_integre/cameras.cpp ../Projet_Casier_integre/cameras
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
 		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
 		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		../Projet_Casier_integre/bdd.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
+		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
+		/opt/raspi/qt5pi/include/QtSql/qtsqlglobal.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlQuery \
+		/opt/raspi/qt5pi/include/QtSql/qsqlquery.h \
 		/opt/raspi/qt5pi/include/QtCore/QSettings \
-		/opt/raspi/qt5pi/include/QtCore/qsettings.h
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QApplication \
+		/opt/raspi/qt5pi/include/QtWidgets/qapplication.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgets-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreapplication.h \
+		/opt/raspi/qt5pi/include/QtCore/qeventloop.h \
+		/opt/raspi/qt5pi/include/QtGui/qcursor.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdesktopwidget.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qwidget.h \
+		/opt/raspi/qt5pi/include/QtGui/qpalette.h \
+		/opt/raspi/qt5pi/include/QtGui/qbrush.h \
+		/opt/raspi/qt5pi/include/QtGui/qpixmap.h \
+		/opt/raspi/qt5pi/include/QtGui/qfont.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontmetrics.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontinfo.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qsizepolicy.h \
+		/opt/raspi/qt5pi/include/QtGui/qkeysequence.h \
+		/opt/raspi/qt5pi/include/QtGui/qevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtGui/qvector2d.h \
+		/opt/raspi/qt5pi/include/QtGui/qtouchdevice.h \
+		/opt/raspi/qt5pi/include/QtGui/qguiapplication.h \
+		/opt/raspi/qt5pi/include/QtGui/qinputmethod.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlError \
+		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
+		/opt/raspi/qt5pi/include/QtCore/QDate \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cameras.o ../Projet_Casier_integre/cameras.cpp
 
 controleurdegache.o: ../Projet_Casier_integre/controleurdegache.cpp ../Projet_Casier_integre/controleurdegache.h \
@@ -1901,7 +2318,31 @@ controleurdegache.o: ../Projet_Casier_integre/controleurdegache.cpp ../Projet_Ca
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
 		../Projet_Casier_integre/ABE_IoPi.h \
-		/opt/raspi/qt5pi/include/QtCore/QDebug
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtCore/QDebug \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o controleurdegache.o ../Projet_Casier_integre/controleurdegache.cpp
 
 fenetredeswitch.o: ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier_integre/fenetredeswitch.h \
@@ -2025,6 +2466,7 @@ fenetredeswitch.o: ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier
 		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QLayoutItem \
+		/opt/raspi/qt5pi/include/QtGui/QPixmap \
 		../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
 		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
@@ -2047,20 +2489,12 @@ fenetredeswitch.o: ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
-		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
-		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
-		../Projet_Casier_integre/ABE_IoPi.h \
-		../Projet_Casier_integre/interfacenumcarte.h \
-		../Projet_Casier_integre/cameras.h \
-		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/wiegand.h \
 		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
 		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
@@ -2089,15 +2523,28 @@ fenetredeswitch.o: ../Projet_Casier_integre/fenetredeswitch.cpp ../Projet_Casier
 		/opt/raspi/qt5pi/include/QtCore/QFile \
 		/opt/raspi/qt5pi/include/QtCore/QDir \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
-		ui_fenetredeswitch.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
 		/opt/raspi/qt5pi/include/QtCore/QVariant \
-		/opt/raspi/qt5pi/include/QtWidgets/QMenuBar \
-		/opt/raspi/qt5pi/include/QtWidgets/qmenubar.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qmenu.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qaction.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qactiongroup.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QStatusBar \
-		/opt/raspi/qt5pi/include/QtWidgets/qstatusbar.h
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		../Projet_Casier_integre/interfacenumcarte.h \
+		ui_fenetredeswitch.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fenetredeswitch.o ../Projet_Casier_integre/fenetredeswitch.cpp
 
 interfacedescasiers.o: ../Projet_Casier_integre/interfacedescasiers.cpp ../Projet_Casier_integre/interfacedescasiers.h \
@@ -2214,6 +2661,7 @@ interfacedescasiers.o: ../Projet_Casier_integre/interfacedescasiers.cpp ../Proje
 		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QLayoutItem \
+		/opt/raspi/qt5pi/include/QtGui/QPixmap \
 		../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
 		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
@@ -2236,22 +2684,61 @@ interfacedescasiers.o: ../Projet_Casier_integre/interfacedescasiers.cpp ../Proje
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
-		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
-		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
+		../Projet_Casier_integre/wiegand.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontrol.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimediaglobal.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qtmultimedia-config.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmultimedia.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaservice.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraexposure.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaenumdebug.h \
+		/opt/raspi/qt5pi/include/QtCore/qmetaobject.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerafocus.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimageprocessing.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraviewfindersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qvideoframe.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qabstractvideobuffer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraImageCapture \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcameraimagecapture.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaencodersettings.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediabindableinterface.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraInfo \
+		/opt/raspi/qt5pi/include/QtMultimedia/qcamerainfo.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QCameraViewfinderSettings \
+		/opt/raspi/qt5pi/include/QtCore/QDateTime \
+		/opt/raspi/qt5pi/include/QtCore/QFile \
+		/opt/raspi/qt5pi/include/QtCore/QDir \
+		/opt/raspi/qt5pi/include/QtCore/qdir.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		../Projet_Casier_integre/ABE_IoPi.h \
-		ui_interfacedescasiers.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
 		/opt/raspi/qt5pi/include/QtCore/QVariant \
-		/opt/raspi/qt5pi/include/QtWidgets/QLabel \
-		/opt/raspi/qt5pi/include/QtWidgets/qlabel.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qframe.h
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		ui_interfacedescasiers.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfacedescasiers.o ../Projet_Casier_integre/interfacedescasiers.cpp
 
 interfacenumcarte.o: ../Projet_Casier_integre/interfacenumcarte.cpp ../Projet_Casier_integre/interfacenumcarte.h \
@@ -2389,16 +2876,12 @@ interfacenumcarte.o: ../Projet_Casier_integre/interfacenumcarte.cpp ../Projet_Ca
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
-		../Projet_Casier_integre/ABE_IoPi.h \
-		../Projet_Casier_integre/cameras.h \
-		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/wiegand.h \
 		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
 		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
@@ -2427,16 +2910,24 @@ interfacenumcarte.o: ../Projet_Casier_integre/interfacenumcarte.cpp ../Projet_Ca
 		/opt/raspi/qt5pi/include/QtCore/QFile \
 		/opt/raspi/qt5pi/include/QtCore/QDir \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
-		ui_interfacenumcarte.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
 		/opt/raspi/qt5pi/include/QtCore/QVariant \
-		/opt/raspi/qt5pi/include/QtWidgets/QGridLayout \
-		/opt/raspi/qt5pi/include/QtWidgets/qgridlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QLabel \
-		/opt/raspi/qt5pi/include/QtWidgets/qlabel.h \
-		/opt/raspi/qt5pi/include/QtWidgets/QSpacerItem
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		ui_interfacenumcarte.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interfacenumcarte.o ../Projet_Casier_integre/interfacenumcarte.cpp
 
 lecteurcarte.o: ../Projet_Casier_integre/lecteurcarte.cpp ../Projet_Casier_integre/lecteurcarte.h \
@@ -2561,7 +3052,44 @@ lecteurcarte.o: ../Projet_Casier_integre/lecteurcarte.cpp ../Projet_Casier_integ
 		/opt/raspi/qt5pi/include/QtCore/QDir \
 		/opt/raspi/qt5pi/include/QtCore/qdir.h \
 		/opt/raspi/qt5pi/include/QtCore/qfileinfo.h \
-		/opt/raspi/qt5pi/include/QtCore/QFileInfo
+		/opt/raspi/qt5pi/include/QtCore/QFileInfo \
+		../Projet_Casier_integre/bdd.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
+		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
+		/opt/raspi/qt5pi/include/QtSql/qtsqlglobal.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlQuery \
+		/opt/raspi/qt5pi/include/QtSql/qsqlquery.h \
+		/opt/raspi/qt5pi/include/QtCore/QSettings \
+		/opt/raspi/qt5pi/include/QtCore/qsettings.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QApplication \
+		/opt/raspi/qt5pi/include/QtWidgets/qapplication.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qtwidgets-config.h \
+		/opt/raspi/qt5pi/include/QtCore/qcoreapplication.h \
+		/opt/raspi/qt5pi/include/QtCore/qeventloop.h \
+		/opt/raspi/qt5pi/include/QtGui/qcursor.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdesktopwidget.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qwidget.h \
+		/opt/raspi/qt5pi/include/QtGui/qpalette.h \
+		/opt/raspi/qt5pi/include/QtGui/qbrush.h \
+		/opt/raspi/qt5pi/include/QtGui/qpixmap.h \
+		/opt/raspi/qt5pi/include/QtGui/qfont.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontmetrics.h \
+		/opt/raspi/qt5pi/include/QtGui/qfontinfo.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qsizepolicy.h \
+		/opt/raspi/qt5pi/include/QtGui/qkeysequence.h \
+		/opt/raspi/qt5pi/include/QtGui/qevent.h \
+		/opt/raspi/qt5pi/include/QtCore/qurl.h \
+		/opt/raspi/qt5pi/include/QtCore/qurlquery.h \
+		/opt/raspi/qt5pi/include/QtGui/qvector2d.h \
+		/opt/raspi/qt5pi/include/QtGui/qtouchdevice.h \
+		/opt/raspi/qt5pi/include/QtGui/qguiapplication.h \
+		/opt/raspi/qt5pi/include/QtGui/qinputmethod.h \
+		/opt/raspi/qt5pi/include/QtSql/QSqlError \
+		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
+		/opt/raspi/qt5pi/include/QtCore/QDate \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o lecteurcarte.o ../Projet_Casier_integre/lecteurcarte.cpp
 
 main.o: ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/fenetredeswitch.h \
@@ -2685,6 +3213,7 @@ main.o: ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/fenetredeswit
 		/opt/raspi/qt5pi/include/QtWidgets/qlayoutitem.h \
 		/opt/raspi/qt5pi/include/QtWidgets/qboxlayout.h \
 		/opt/raspi/qt5pi/include/QtWidgets/QLayoutItem \
+		/opt/raspi/qt5pi/include/QtGui/QPixmap \
 		../Projet_Casier_integre/bdd.h \
 		/opt/raspi/qt5pi/include/QtSql/QSqlDatabase \
 		/opt/raspi/qt5pi/include/QtSql/qsqldatabase.h \
@@ -2707,20 +3236,12 @@ main.o: ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/fenetredeswit
 		/opt/raspi/qt5pi/include/QtSql/qsqlerror.h \
 		/opt/raspi/qt5pi/include/QtCore/QDate \
 		/opt/raspi/qt5pi/include/QtCore/qdatetime.h \
-		../Projet_Casier_integre/materiel.h \
-		/opt/raspi/qt5pi/include/QtCore/QString \
-		../Projet_Casier_integre/controleurdegache.h \
+		../Projet_Casier_integre/cameras.h \
+		../Projet_Casier_integre/lecteurcarte.h \
 		/opt/raspi/qt5pi/include/QtCore/QObject \
-		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
-		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
-		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
 		/opt/raspi/qt5pi/include/QtCore/QTimer \
 		/opt/raspi/qt5pi/include/QtCore/qtimer.h \
 		/opt/raspi/qt5pi/include/QtCore/qbasictimer.h \
-		../Projet_Casier_integre/ABE_IoPi.h \
-		../Projet_Casier_integre/interfacenumcarte.h \
-		../Projet_Casier_integre/cameras.h \
-		../Projet_Casier_integre/lecteurcarte.h \
 		../Projet_Casier_integre/wiegand.h \
 		/opt/raspi/qt5pi/include/QtMultimedia/QCamera \
 		/opt/raspi/qt5pi/include/QtMultimedia/qcamera.h \
@@ -2748,7 +3269,28 @@ main.o: ../Projet_Casier_integre/main.cpp ../Projet_Casier_integre/fenetredeswit
 		/opt/raspi/qt5pi/include/QtCore/QDateTime \
 		/opt/raspi/qt5pi/include/QtCore/QFile \
 		/opt/raspi/qt5pi/include/QtCore/QDir \
-		/opt/raspi/qt5pi/include/QtCore/qdir.h
+		/opt/raspi/qt5pi/include/QtCore/qdir.h \
+		../Projet_Casier_integre/materiel.h \
+		/opt/raspi/qt5pi/include/QtCore/QString \
+		../Projet_Casier_integre/controleurdegache.h \
+		/opt/raspi/qt5pi/include/QtWidgets/QMessageBox \
+		/opt/raspi/qt5pi/include/QtWidgets/qmessagebox.h \
+		/opt/raspi/qt5pi/include/QtWidgets/qdialog.h \
+		../Projet_Casier_integre/ABE_IoPi.h \
+		../Projet_Casier_integre/alarme.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/QMediaPlayer \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaplayer.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediacontent.h \
+		/opt/raspi/qt5pi/include/QtMultimedia/qmediaresource.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkrequest.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetworkglobal.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qtnetwork-config.h \
+		/opt/raspi/qt5pi/include/QtCore/QSharedDataPointer \
+		/opt/raspi/qt5pi/include/QtCore/QUrl \
+		/opt/raspi/qt5pi/include/QtCore/QVariant \
+		/opt/raspi/qt5pi/include/QtMultimedia/qaudio.h \
+		/opt/raspi/qt5pi/include/QtNetwork/qnetworkconfiguration.h \
+		../Projet_Casier_integre/interfacenumcarte.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Projet_Casier_integre/main.cpp
 
 materiel.o: ../Projet_Casier_integre/materiel.cpp ../Projet_Casier_integre/materiel.h \
@@ -2838,6 +3380,12 @@ wiegand.o: ../Projet_Casier_integre/wiegand.cpp ../Projet_Casier_integre/wiegand
 		/opt/raspi/qt5pi/include/QtCore/qcontainerfwd.h \
 		/opt/raspi/qt5pi/include/QtCore/qobject_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o wiegand.o ../Projet_Casier_integre/wiegand.cpp
+
+qrc_images.o: qrc_images.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
+
+moc_alarme.o: moc_alarme.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_alarme.o moc_alarme.cpp
 
 moc_controleurdegache.o: moc_controleurdegache.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_controleurdegache.o moc_controleurdegache.cpp

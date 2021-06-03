@@ -22,6 +22,7 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
 {
     int positionSystemeX;
     int positionSystemeY;
+
     QString nomFichierIni="Projet_Casier.ini";
     QFileInfo testFichier(nomFichierIni);
     
@@ -32,9 +33,10 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
         QSettings paramsSocket(nomFichierIni, QSettings::IniFormat);
         nbCasierX = paramsSocket.value("CASIER/nbcasierx").toInt();
         nbCasierY = paramsSocket.value("CASIER/nbcasiery").toInt();
+        nbCasier = paramsSocket.value("CASIER/nbcasier").toInt();
         positionSystemeX = paramsSocket.value("CASIER/positionsystemex").toInt();
         positionSystemeY = paramsSocket.value("CASIER/positionsystemey").toInt();
-        nbCasier = paramsSocket.value("CASIER/nbcasier").toInt();
+        tailleDesBoutons = paramsSocket.value("INTERFACE/tailledesboutons").toInt();
     }
     else
     {
@@ -45,7 +47,7 @@ InterfaceDesCasiers::InterfaceDesCasiers(QWidget *parent)
         QPushButton *button;
         button = new QPushButton();
         connect(button, &QPushButton::clicked, this, &InterfaceDesCasiers::onpushButtonMaterielsclicked);
-        button->setFixedSize(80, 80);
+        button->setFixedSize(tailleDesBoutons, tailleDesBoutons);
         button->setEnabled(false);
         lesBoutons.push_back(button);
         button=nullptr;
@@ -89,7 +91,7 @@ void InterfaceDesCasiers::onpushButtonMaterielsclicked()
 
 /**
  * @brief InterfaceDesCasiers::onCasierFerme
- * @details slot activer l'orsque le signal envoyé lors de la fermeture de la porte est reçu
+ * @details slot activer l'orsque le signale envoyé lors de la fermeture de la porte et reçu
  * @author Charly Bourgouin
  */
 void InterfaceDesCasiers::onCasierFerme()
@@ -108,6 +110,7 @@ void InterfaceDesCasiers::onCasierFerme()
         }
         break;
     case Protocol::restitution :
+
         for(int i=0; i<lesBoutons.size(); i++){
             for(int u=0; u<listeMateriel.size(); u++){
                 QLayoutItem *item = ui->gridLayout->itemAtPosition(listeMateriel[u].getPositionCasierY(), listeMateriel[u].getPositionCasierX());
@@ -144,7 +147,9 @@ void InterfaceDesCasiers::miseAJourInterface()
                     QLayoutItem *item = ui->gridLayout->itemAtPosition(etage,colonne);
                     QWidget *wBouton = item->widget();
                     QPushButton *bouton = ((QPushButton*) wBouton);
-                    bouton->setText(listeMateriel[nummateriel].getNom());
+                    bouton->setIconSize(QSize(tailleDesBoutons-10, tailleDesBoutons-10));
+                    bouton->setIcon(QIcon(listeMateriel[nummateriel].getLocalisationImage()));
+
                     bouton->setEnabled(true);
                 }
             }
@@ -184,7 +189,7 @@ void InterfaceDesCasiers::ouvrirCasier(int _x, int _y)
  * @param _numCarte numéro de carte
  * @author Charly Bourgouin
  */
-void InterfaceDesCasiers::setNumCarte(QString _numCarte)
+void InterfaceDesCasiers::setNumCarte(const QString &_numCarte)
 {
     numCarte = _numCarte;
 }

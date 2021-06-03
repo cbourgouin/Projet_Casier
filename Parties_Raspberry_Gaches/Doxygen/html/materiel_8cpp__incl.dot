@@ -1,11 +1,10 @@
-digraph "/home/cbourgouin/Documents/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2/materiel.cpp"
+digraph "materiel.cpp"
 {
- // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="/home/cbourgouin/Documents\l/Projet_Casier/Parties_Raspberry\l_Gaches/Code/Projet_Casier_2\l/materiel.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Implémentation de la classe Materiel."];
+  Node0 [label="materiel.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 [label="materiel.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$materiel_8h.html",tooltip="Déclaration de la classe Materiel. "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="materiel.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$materiel_8h.html",tooltip="Déclaration de la classe Materiel."];
-  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="QString",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 [label="QString",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
 }

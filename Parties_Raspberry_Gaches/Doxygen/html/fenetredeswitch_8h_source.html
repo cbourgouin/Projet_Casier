@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Casier Automatique:  Fichier source de /home/cbourgouin/Documents/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2/fenetredeswitch.h</title>
+<title>Projet_Casier:  Fichier source de fenetredeswitch.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,9 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,31 +27,30 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="image.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Casier Automatique
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Projet_Casier
+   &#160;<span id="projectnumber">0.9</span>
    </div>
+   <div id="projectbrief">Projet commandé par la MDL du lycée Alain, permet l&#39;empreint d&#39;objet par les adhérents de la mdl</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.8.13 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
-/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */</script>
+</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
@@ -62,9 +64,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('fenetredeswitch_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(document).ready(function(){initNavTree('fenetredeswitch_8h_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -86,65 +86,25 @@ $(document).ready(function(){initNavTree('fenetredeswitch_8h_source.html',''); i
 <div class="title">fenetredeswitch.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="fenetredeswitch_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef FENETREDESWITCH_H</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define FENETREDESWITCH_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QStackedWidget&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacedescasiers_8h.html">interfacedescasiers.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacenumcarte_8h.html">interfacenumcarte.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_ui.html">   17</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="classfenetre_de_switch.html">fenetreDeSwitch</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classfenetre_de_switch.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classfenetre_de_switch.html">fenetreDeSwitch</a> : <span class="keyword">public</span> <a class="code" href="class_q_main_window.html">QMainWindow</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classfenetre_de_switch.html#a1034407a6f19f8fcf8635416adef42fb">fenetreDeSwitch</a>(<a class="code" href="class_q_widget.html">QWidget</a> *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classfenetre_de_switch.html#aa1c4ef1113fe14a473b3cc52950e1d59">~fenetreDeSwitch</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span> slots:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfenetre_de_switch.html#a8ff32d01e07d46b09e8da6146744672e">slotDisplayFen</a>(<span class="keywordtype">int</span> fenIndex);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classfenetre_de_switch.html#adda59bc7ff37d724f26f9fee49580468">ouvrirCasier</a>(<span class="keywordtype">int</span> _x, <span class="keywordtype">int</span>  _y);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classfenetre_de_switch.html#aad5a83f0a95dee040552dd61bab4643b">   34</a></span>&#160;    Ui::fenetreDeSwitch *<a class="code" href="classfenetre_de_switch.html#aad5a83f0a95dee040552dd61bab4643b">ui</a>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classfenetre_de_switch.html#a41354ad77196c457597e40aba8050e2d">   35</a></span>&#160;    QStackedWidget *<a class="code" href="classfenetre_de_switch.html#a41354ad77196c457597e40aba8050e2d">stack</a>; </div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classfenetre_de_switch.html#a0c8d967b33fdbfe96e42225c1910b6c7">   36</a></span>&#160;    <a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a> *<a class="code" href="classfenetre_de_switch.html#a0c8d967b33fdbfe96e42225c1910b6c7">fen1</a>; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classfenetre_de_switch.html#a6e550612e4b7e3695c1bad10c44c8078">   37</a></span>&#160;    <a class="code" href="class_interface_des_casiers.html">InterfaceDesCasiers</a> *<a class="code" href="classfenetre_de_switch.html#a6e550612e4b7e3695c1bad10c44c8078">fen2</a>; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif // FENETREDESWITCH_H</span></div>
+<a href="fenetredeswitch_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef FENETREDESWITCH_H</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define FENETREDESWITCH_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QStackedWidget&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacedescasiers_8h.html">interfacedescasiers.h</a>&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="interfacenumcarte_8h.html">interfacenumcarte.h</a>&quot;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespace_ui.html">   17</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">class </span><a class="code" href="class_fenetre_de_switch.html">FenetreDeSwitch</a>;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_fenetre_de_switch.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fenetre_de_switch.html">FenetreDeSwitch</a> : <span class="keyword">public</span> QMainWindow</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_fenetre_de_switch.html">FenetreDeSwitch</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    ~<a class="code" href="class_fenetre_de_switch.html">FenetreDeSwitch</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span> slots:</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> slotDisplayFen1();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> slotDisplayFen2(QString _numCarte);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> ouvrirCasier(<span class="keywordtype">int</span> _x, <span class="keywordtype">int</span>  _y);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="class_fenetre_de_switch.html#ab8a852d2686df26018a5fe01c9c1b306">   35</a></span>&#160;    Ui::FenetreDeSwitch *<a class="code" href="class_fenetre_de_switch.html#ab8a852d2686df26018a5fe01c9c1b306">ui</a>;</div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_fenetre_de_switch.html#a4329deb80869c4fae81a99b9e052cfcf">   36</a></span>&#160;    QStackedWidget *<a class="code" href="class_fenetre_de_switch.html#a4329deb80869c4fae81a99b9e052cfcf">stack</a>; </div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_fenetre_de_switch.html#a92f25e2fd8a6e0166fd5b9dc9b341713">   37</a></span>&#160;    <a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a> *<a class="code" href="class_fenetre_de_switch.html#a92f25e2fd8a6e0166fd5b9dc9b341713">fen1</a>; </div><div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="class_fenetre_de_switch.html#a20913b8b71b2e98598aca3f5977c0f3e">   38</a></span>&#160;    <a class="code" href="class_interface_des_casiers.html">InterfaceDesCasiers</a> *<a class="code" href="class_fenetre_de_switch.html#a20913b8b71b2e98598aca3f5977c0f3e">fen2</a>; </div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif // FENETREDESWITCH_H</span></div><div class="ttc" id="class_interface_num_carte_html"><div class="ttname"><a href="class_interface_num_carte.html">InterfaceNumCarte</a></div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:26</div></div>
+<div class="ttc" id="class_fenetre_de_switch_html"><div class="ttname"><a href="class_fenetre_de_switch.html">FenetreDeSwitch</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:21</div></div>
+<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:17</div></div>
+<div class="ttc" id="class_fenetre_de_switch_html_a92f25e2fd8a6e0166fd5b9dc9b341713"><div class="ttname"><a href="class_fenetre_de_switch.html#a92f25e2fd8a6e0166fd5b9dc9b341713">FenetreDeSwitch::fen1</a></div><div class="ttdeci">InterfaceNumCarte * fen1</div><div class="ttdoc">Stack des widgets a afficher. </div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:37</div></div>
+<div class="ttc" id="class_interface_des_casiers_html"><div class="ttname"><a href="class_interface_des_casiers.html">InterfaceDesCasiers</a></div><div class="ttdef"><b>Definition:</b> interfacedescasiers.h:28</div></div>
+<div class="ttc" id="interfacedescasiers_8h_html"><div class="ttname"><a href="interfacedescasiers_8h.html">interfacedescasiers.h</a></div><div class="ttdoc">Implémentation de la classe visuel InterfaceDesCasiers. </div></div>
+<div class="ttc" id="class_fenetre_de_switch_html_a4329deb80869c4fae81a99b9e052cfcf"><div class="ttname"><a href="class_fenetre_de_switch.html#a4329deb80869c4fae81a99b9e052cfcf">FenetreDeSwitch::stack</a></div><div class="ttdeci">QStackedWidget * stack</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:36</div></div>
+<div class="ttc" id="interfacenumcarte_8h_html"><div class="ttname"><a href="interfacenumcarte_8h.html">interfacenumcarte.h</a></div><div class="ttdoc">Implémentation de la classe visuel InterfaceNumCarte. </div></div>
+<div class="ttc" id="class_fenetre_de_switch_html_ab8a852d2686df26018a5fe01c9c1b306"><div class="ttname"><a href="class_fenetre_de_switch.html#ab8a852d2686df26018a5fe01c9c1b306">FenetreDeSwitch::ui</a></div><div class="ttdeci">Ui::FenetreDeSwitch * ui</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:35</div></div>
+<div class="ttc" id="class_fenetre_de_switch_html_a20913b8b71b2e98598aca3f5977c0f3e"><div class="ttname"><a href="class_fenetre_de_switch.html#a20913b8b71b2e98598aca3f5977c0f3e">FenetreDeSwitch::fen2</a></div><div class="ttdeci">InterfaceDesCasiers * fen2</div><div class="ttdoc">Affichage des boutons de selection des casiers. </div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_q_widget_html"><div class="ttname"><a href="class_q_widget.html">QWidget</a></div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_a0c8d967b33fdbfe96e42225c1910b6c7"><div class="ttname"><a href="classfenetre_de_switch.html#a0c8d967b33fdbfe96e42225c1910b6c7">fenetreDeSwitch::fen1</a></div><div class="ttdeci">InterfaceNumCarte * fen1</div><div class="ttdoc">Stack des widgets a afficher.</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:36</div></div>
-<div class="ttc" id="ainterfacedescasiers_8h_html"><div class="ttname"><a href="interfacedescasiers_8h.html">interfacedescasiers.h</a></div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_a1034407a6f19f8fcf8635416adef42fb"><div class="ttname"><a href="classfenetre_de_switch.html#a1034407a6f19f8fcf8635416adef42fb">fenetreDeSwitch::fenetreDeSwitch</a></div><div class="ttdeci">fenetreDeSwitch(QWidget *parent=nullptr)</div><div class="ttdoc">fenetreDeSwitch::fenetreDeSwitch</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.cpp:19</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_aa1c4ef1113fe14a473b3cc52950e1d59"><div class="ttname"><a href="classfenetre_de_switch.html#aa1c4ef1113fe14a473b3cc52950e1d59">fenetreDeSwitch::~fenetreDeSwitch</a></div><div class="ttdeci">~fenetreDeSwitch()</div><div class="ttdoc">fenetreDeSwitch::~fenetreDeSwitch</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.cpp:44</div></div>
-<div class="ttc" id="aclass_q_main_window_html"><div class="ttname"><a href="class_q_main_window.html">QMainWindow</a></div></div>
-<div class="ttc" id="aclass_interface_num_carte_html"><div class="ttname"><a href="class_interface_num_carte.html">InterfaceNumCarte</a></div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:24</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_a6e550612e4b7e3695c1bad10c44c8078"><div class="ttname"><a href="classfenetre_de_switch.html#a6e550612e4b7e3695c1bad10c44c8078">fenetreDeSwitch::fen2</a></div><div class="ttdeci">InterfaceDesCasiers * fen2</div><div class="ttdoc">Affichage des boutons de selection des casiers.</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:37</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_adda59bc7ff37d724f26f9fee49580468"><div class="ttname"><a href="classfenetre_de_switch.html#adda59bc7ff37d724f26f9fee49580468">fenetreDeSwitch::ouvrirCasier</a></div><div class="ttdeci">void ouvrirCasier(int _x, int _y)</div><div class="ttdoc">fenetreDeSwitch::ouvrirCasier</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.cpp:72</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html"><div class="ttname"><a href="classfenetre_de_switch.html">fenetreDeSwitch</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:21</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_a41354ad77196c457597e40aba8050e2d"><div class="ttname"><a href="classfenetre_de_switch.html#a41354ad77196c457597e40aba8050e2d">fenetreDeSwitch::stack</a></div><div class="ttdeci">QStackedWidget * stack</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:35</div></div>
-<div class="ttc" id="aclass_interface_des_casiers_html"><div class="ttname"><a href="class_interface_des_casiers.html">InterfaceDesCasiers</a></div><div class="ttdef"><b>Definition:</b> interfacedescasiers.h:29</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_aad5a83f0a95dee040552dd61bab4643b"><div class="ttname"><a href="classfenetre_de_switch.html#aad5a83f0a95dee040552dd61bab4643b">fenetreDeSwitch::ui</a></div><div class="ttdeci">Ui::fenetreDeSwitch * ui</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:34</div></div>
-<div class="ttc" id="ainterfacenumcarte_8h_html"><div class="ttname"><a href="interfacenumcarte_8h.html">interfacenumcarte.h</a></div><div class="ttdoc">Déclaration de la classe visuel InterfaceNumCarte.</div></div>
-<div class="ttc" id="aclassfenetre_de_switch_html_a8ff32d01e07d46b09e8da6146744672e"><div class="ttname"><a href="classfenetre_de_switch.html#a8ff32d01e07d46b09e8da6146744672e">fenetreDeSwitch::slotDisplayFen</a></div><div class="ttdeci">void slotDisplayFen(int fenIndex)</div><div class="ttdoc">fenetreDeSwitch::slotDisplayFen</div><div class="ttdef"><b>Definition:</b> fenetredeswitch.cpp:59</div></div>
-<div class="ttc" id="anamespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:17</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_03a6a1b6adb2eccd789d1acf046b7dde.html">Projet_Casier_2</a></li><li class="navelem"><a class="el" href="fenetredeswitch_8h.html">fenetredeswitch.h</a></li>
+    <li class="navelem"><a class="el" href="fenetredeswitch_8h.html">fenetredeswitch.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
 </div>
 </body>

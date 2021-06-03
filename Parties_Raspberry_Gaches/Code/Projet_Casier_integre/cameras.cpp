@@ -5,9 +5,6 @@
  */
 
 #include "cameras.h"
-//#include "widget.h"
-//#include "ui_widget.h"
-//#include "wiegand_c.h"
 #include <QSettings>
 
 
@@ -18,13 +15,12 @@
  */
 Cameras::Cameras()
 {
-    //connect(&timerPhoto,&QTimer::timeout,this,&Cameras::onTimerPhoto_timeout);
+    maBaseDeDonnees = new BDD;
 
     QList<QCameraInfo> cameras = QCameraInfo::availableCameras();
     qDebug() << " ";
     qDebug() << "cameras disponibles : ";
     camera = new QCamera(cameras.at(0));
-    //camera->setViewfinderSettings(pictureSettings);
     camera->setCaptureMode(QCamera::CaptureStillImage);
     imageCapture = new QCameraImageCapture(camera);
     camera->start();
@@ -32,12 +28,10 @@ Cameras::Cameras()
 
     qDebug() << " ";
     camera2 = new QCamera(cameras.at(1));
-    //camera2->setViewfinderSettings(pictureSettings);
     camera2->setCaptureMode(QCamera::CaptureStillImage);
     imageCapture2 = new QCameraImageCapture(camera2);
     camera2->start();
     qDebug() << cameras.at(1);
-
 
 
     for(const QCameraInfo &cameraInfo : cameras)
@@ -86,8 +80,8 @@ void Cameras::captureImageCasiers()
             camera->setCaptureMode(QCamera::CaptureViewfinder);
             // change la resolution a 1280x720
             camera->setViewfinderSettings(pictureSettings);
-            QString filename = QString::fromLatin1("%1%2-%3-%4-CASIERS.jpg").arg(chemin).arg(NOM).arg(PRENOM).arg(timestamp);
-           imageCapture->capture(filename);
+            QString filename = QString::fromLatin1("%1%2-%3-CASIERS.jpg").arg(chemin).arg(obtenirNomPrenom()).arg(timestamp);
+            imageCapture->capture(filename);
             qDebug() << "Photo casier";
         }
     }
@@ -109,20 +103,17 @@ void Cameras::captureImageUtilisateurs()
             camera2->setCaptureMode(QCamera::CaptureViewfinder);
             // change la resolution a 1280x720 et le nom de la photo
             camera2->setViewfinderSettings(pictureSettings);
-            QString filename = QString::fromLatin1("%1%2-%3-%4-UTILISATEURS.jpg").arg(chemin).arg(NOM).arg(PRENOM).arg(timestamp);
-            //for(int indice=0; indice<NBPHOTOS; indice++)
-            //{
-                imageCapture2->capture(filename);
-                qDebug() << "Photo utilisateur";
-            //}
-            //timerPhoto.start(1000);
+            QString filename = QString::fromLatin1("%1%2-%3-UTILISATEURS.jpg").arg(chemin).arg(obtenirNomPrenom()).arg(timestamp);
+            imageCapture2->capture(filename);
+            qDebug() << "Photo utilisateur";
+
         }
     }
 }
 
-void Cameras::onTimerPhoto_timeout()
+QString Cameras::obtenirNomPrenom()
 {
-    //timerPhoto.stop();
+    return maBaseDeDonnees->RecupAdherent(numCompte);
 }
 
 

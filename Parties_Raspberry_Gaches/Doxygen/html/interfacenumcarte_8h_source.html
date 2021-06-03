@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Casier Automatique:  Fichier source de /home/cbourgouin/Documents/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2/interfacenumcarte.h</title>
+<title>Projet_Casier:  Fichier source de interfacenumcarte.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,9 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,31 +27,30 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="image.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Casier Automatique
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Projet_Casier
+   &#160;<span id="projectnumber">0.9</span>
    </div>
+   <div id="projectbrief">Projet commandé par la MDL du lycée Alain, permet l&#39;empreint d&#39;objet par les adhérents de la mdl</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.8.13 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
-/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */</script>
+</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
@@ -62,9 +64,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('interfacenumcarte_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(document).ready(function(){initNavTree('interfacenumcarte_8h_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -86,65 +86,30 @@ $(document).ready(function(){initNavTree('interfacenumcarte_8h_source.html','');
 <div class="title">interfacenumcarte.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="interfacenumcarte_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef INTERFACENUMCARTE_H</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define INTERFACENUMCARTE_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QMessageBox&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;qstackedwidget.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bdd_8h.html">bdd.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="materiel_8h.html">materiel.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gache_8h.html">gache.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">class </span><a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a> : <span class="keyword">public</span> <a class="code" href="class_q_widget.html">QWidget</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;       <span class="keyword">explicit</span> <a class="code" href="class_interface_num_carte.html#ad6645b302ab449d1cbb76d11e615674d">InterfaceNumCarte</a>(<a class="code" href="class_q_widget.html">QWidget</a> *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;       <a class="code" href="class_interface_num_carte.html#ab9c6f57de96cfec6b75eae24325aed19">~InterfaceNumCarte</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;   <span class="keyword">private</span> slots:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;       <span class="keywordtype">void</span> <a class="code" href="class_interface_num_carte.html#a708335c56efb6642ac16efb92778002d">on_pushButton_clicked</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;   signals:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;       <span class="keywordtype">void</span> <a class="code" href="class_interface_num_carte.html#aae44543fbe98d55ec8a41e9b03f44f13">askDisplayFen</a>(<span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;       <span class="keywordtype">void</span> <a class="code" href="class_interface_num_carte.html#a57be5c3bf804759934385f527c016e30">ouvrirCasier</a>(<span class="keywordtype">int</span> casierX, <span class="keywordtype">int</span> casierY);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">   40</a></span>&#160;    Ui::InterfaceNumCarte *<a class="code" href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">ui</a>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif // INTERFACENUMCARTE_H</span></div>
+<a href="interfacenumcarte_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef INTERFACENUMCARTE_H</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define INTERFACENUMCARTE_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QWidget&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QMainWindow&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QMessageBox&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;qstackedwidget.h&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="bdd_8h.html">bdd.h</a>&quot;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="materiel_8h.html">materiel.h</a>&quot;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="controleurdegache_8h.html">controleurdegache.h</a>&quot;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cameras_8h.html">cameras.h</a>&quot;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="lecteurcarte_8h.html">lecteurcarte.h</a>&quot;</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_ui.html">Ui</a> {</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">class </span><a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a>;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html">   26</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a> : <span class="keyword">public</span> QWidget</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    Q_OBJECT</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a>(QWidget *parent = <span class="keyword">nullptr</span>);</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="class_interface_num_carte.html">InterfaceNumCarte</a>();</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span> slots:</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> on_LC_nouvelle_carte();</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;signals:</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> askDisplayFen(QString _numCarte);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> ouvrirCasier(<span class="keywordtype">int</span> _casierX, <span class="keywordtype">int</span> _casierY);</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#aebdf3bb24c66c9e9b6d8174d86d02625">   42</a></span>&#160;    <a class="code" href="class_cameras.html">Cameras</a> <a class="code" href="class_interface_num_carte.html#aebdf3bb24c66c9e9b6d8174d86d02625">camera</a>;</div><div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a7d4d9cb3faace8a3eb1cd1102f281fff">   43</a></span>&#160;    <a class="code" href="class_lecteur_carte.html">LecteurCarte</a> <a class="code" href="class_interface_num_carte.html#a7d4d9cb3faace8a3eb1cd1102f281fff">LC</a>;</div><div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a3b7ab718bd4dd91fdcf66a6dcb9d836d">   44</a></span>&#160;    QString <a class="code" href="class_interface_num_carte.html#a3b7ab718bd4dd91fdcf66a6dcb9d836d">numCarte</a>;</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a6b550509bdd9963250eb8fc1486f9552">   45</a></span>&#160;    QStackedWidget *<a class="code" href="class_interface_num_carte.html#a6b550509bdd9963250eb8fc1486f9552">stack</a>;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a56825930da07da835067838f3850287f">   46</a></span>&#160;    QWidget *<a class="code" href="class_interface_num_carte.html#a56825930da07da835067838f3850287f">fenetreDeSwitch</a>;</div><div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">   47</a></span>&#160;    Ui::InterfaceNumCarte *<a class="code" href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">ui</a>;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // INTERFACENUMCARTE_H</span></div><div class="ttc" id="class_interface_num_carte_html"><div class="ttname"><a href="class_interface_num_carte.html">InterfaceNumCarte</a></div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:26</div></div>
+<div class="ttc" id="class_interface_num_carte_html_a56825930da07da835067838f3850287f"><div class="ttname"><a href="class_interface_num_carte.html#a56825930da07da835067838f3850287f">InterfaceNumCarte::fenetreDeSwitch</a></div><div class="ttdeci">QWidget * fenetreDeSwitch</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:46</div></div>
+<div class="ttc" id="class_cameras_html"><div class="ttname"><a href="class_cameras.html">Cameras</a></div><div class="ttdef"><b>Definition:</b> cameras.h:27</div></div>
+<div class="ttc" id="namespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:17</div></div>
+<div class="ttc" id="class_interface_num_carte_html_a3b7ab718bd4dd91fdcf66a6dcb9d836d"><div class="ttname"><a href="class_interface_num_carte.html#a3b7ab718bd4dd91fdcf66a6dcb9d836d">InterfaceNumCarte::numCarte</a></div><div class="ttdeci">QString numCarte</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:44</div></div>
+<div class="ttc" id="class_interface_num_carte_html_a6b550509bdd9963250eb8fc1486f9552"><div class="ttname"><a href="class_interface_num_carte.html#a6b550509bdd9963250eb8fc1486f9552">InterfaceNumCarte::stack</a></div><div class="ttdeci">QStackedWidget * stack</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:45</div></div>
+<div class="ttc" id="bdd_8h_html"><div class="ttname"><a href="bdd_8h.html">bdd.h</a></div><div class="ttdoc">Déclaration de la classe Alarme. </div></div>
+<div class="ttc" id="class_interface_num_carte_html_a19484ea04fcb6f32b7eb59ac3d2ceb4f"><div class="ttname"><a href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">InterfaceNumCarte::ui</a></div><div class="ttdeci">Ui::InterfaceNumCarte * ui</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:47</div></div>
+<div class="ttc" id="lecteurcarte_8h_html"><div class="ttname"><a href="lecteurcarte_8h.html">lecteurcarte.h</a></div></div>
+<div class="ttc" id="controleurdegache_8h_html"><div class="ttname"><a href="controleurdegache_8h.html">controleurdegache.h</a></div></div>
+<div class="ttc" id="materiel_8h_html"><div class="ttname"><a href="materiel_8h.html">materiel.h</a></div><div class="ttdoc">Déclaration de la classe Materiel. </div></div>
+<div class="ttc" id="cameras_8h_html"><div class="ttname"><a href="cameras_8h.html">cameras.h</a></div></div>
+<div class="ttc" id="class_interface_num_carte_html_a7d4d9cb3faace8a3eb1cd1102f281fff"><div class="ttname"><a href="class_interface_num_carte.html#a7d4d9cb3faace8a3eb1cd1102f281fff">InterfaceNumCarte::LC</a></div><div class="ttdeci">LecteurCarte LC</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:43</div></div>
+<div class="ttc" id="class_interface_num_carte_html_aebdf3bb24c66c9e9b6d8174d86d02625"><div class="ttname"><a href="class_interface_num_carte.html#aebdf3bb24c66c9e9b6d8174d86d02625">InterfaceNumCarte::camera</a></div><div class="ttdeci">Cameras camera</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:42</div></div>
+<div class="ttc" id="class_lecteur_carte_html"><div class="ttname"><a href="class_lecteur_carte.html">LecteurCarte</a></div><div class="ttdef"><b>Definition:</b> lecteurcarte.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_q_widget_html"><div class="ttname"><a href="class_q_widget.html">QWidget</a></div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_aae44543fbe98d55ec8a41e9b03f44f13"><div class="ttname"><a href="class_interface_num_carte.html#aae44543fbe98d55ec8a41e9b03f44f13">InterfaceNumCarte::askDisplayFen</a></div><div class="ttdeci">void askDisplayFen(int value)</div></div>
-<div class="ttc" id="abdd_8h_html"><div class="ttname"><a href="bdd_8h.html">bdd.h</a></div><div class="ttdoc">Déclaration de la classe BDD.</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_a708335c56efb6642ac16efb92778002d"><div class="ttname"><a href="class_interface_num_carte.html#a708335c56efb6642ac16efb92778002d">InterfaceNumCarte::on_pushButton_clicked</a></div><div class="ttdeci">void on_pushButton_clicked()</div><div class="ttdoc">InterfaceNumCarte::on_pushButton_clicked.</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.cpp:38</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_a19484ea04fcb6f32b7eb59ac3d2ceb4f"><div class="ttname"><a href="class_interface_num_carte.html#a19484ea04fcb6f32b7eb59ac3d2ceb4f">InterfaceNumCarte::ui</a></div><div class="ttdeci">Ui::InterfaceNumCarte * ui</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:40</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html"><div class="ttname"><a href="class_interface_num_carte.html">InterfaceNumCarte</a></div><div class="ttdef"><b>Definition:</b> interfacenumcarte.h:24</div></div>
-<div class="ttc" id="agache_8h_html"><div class="ttname"><a href="gache_8h.html">gache.h</a></div><div class="ttdoc">Déclaration de la classe Gache.</div></div>
-<div class="ttc" id="anamespace_ui_html"><div class="ttname"><a href="namespace_ui.html">Ui</a></div><div class="ttdef"><b>Definition:</b> fenetredeswitch.h:17</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_ad6645b302ab449d1cbb76d11e615674d"><div class="ttname"><a href="class_interface_num_carte.html#ad6645b302ab449d1cbb76d11e615674d">InterfaceNumCarte::InterfaceNumCarte</a></div><div class="ttdeci">InterfaceNumCarte(QWidget *parent=nullptr)</div><div class="ttdoc">InterfaceNumCarte::InterfaceNumCarte.</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.cpp:17</div></div>
-<div class="ttc" id="amateriel_8h_html"><div class="ttname"><a href="materiel_8h.html">materiel.h</a></div><div class="ttdoc">Déclaration de la classe Materiel.</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_ab9c6f57de96cfec6b75eae24325aed19"><div class="ttname"><a href="class_interface_num_carte.html#ab9c6f57de96cfec6b75eae24325aed19">InterfaceNumCarte::~InterfaceNumCarte</a></div><div class="ttdeci">~InterfaceNumCarte()</div><div class="ttdoc">InterfaceNumCarte::~InterfaceNumCarte.</div><div class="ttdef"><b>Definition:</b> interfacenumcarte.cpp:28</div></div>
-<div class="ttc" id="aclass_interface_num_carte_html_a57be5c3bf804759934385f527c016e30"><div class="ttname"><a href="class_interface_num_carte.html#a57be5c3bf804759934385f527c016e30">InterfaceNumCarte::ouvrirCasier</a></div><div class="ttdeci">void ouvrirCasier(int casierX, int casierY)</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_03a6a1b6adb2eccd789d1acf046b7dde.html">Projet_Casier_2</a></li><li class="navelem"><a class="el" href="interfacenumcarte_8h.html">interfacenumcarte.h</a></li>
+    <li class="navelem"><a class="el" href="interfacenumcarte_8h.html">interfacenumcarte.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
 </div>
 </body>

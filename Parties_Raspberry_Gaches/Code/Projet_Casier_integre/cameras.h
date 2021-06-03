@@ -18,6 +18,7 @@
 #include <QDir>
 #include <QFileInfo>
 #include "QTimer"
+#include "bdd.h"
 
 #define NBPHOTOS 5
 #define PRENOM "AXEL"
@@ -30,17 +31,19 @@ public:
     void deleteOldFiles();
     void captureImageCasiers();
     void captureImageUtilisateurs();
+    QString obtenirNomPrenom();
 
 private slots:
     void onTimerPhoto_timeout();
 
 private:
+    QString numCompte;
     QCamera *camera;
     QCamera *camera2;
     QCameraImageCapture *imageCapture;
     QCameraImageCapture *imageCapture2;
 
-    QTimer *timerPhoto;
+    BDD *maBaseDeDonnees;
 };
 
 #endif // CAMERA_H

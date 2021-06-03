@@ -109,10 +109,10 @@ Materiel *BDD::VerifObjetNonRendu(QString _numCarte)
     {
         QSqlQuery requeteDernierObjetEmpreinter;
         requeteDernierObjetEmpreinter.prepare("select ADHERENTS.numcarte, ADHERENTS.idadherent, PRETERA.idMateriel, "
-                                              "MATERIEL.nom, CASIER.positionx, CASIER.positiony, TYPE.localisationimage"
+                                              "MATERIEL.nom, CASIER.positionx, CASIER.positiony, TYPE.localisationimage "
                                               "from MATERIEL, CASIER, ADHERENTS, PRETERA, TYPE "
                                               "where ADHERENTS.numcarte = :nc and ADHERENTS.idadherent like PRETERA.idadherent "
-                                              "and PRETERA.idmateriel like MATERIEL.idmateriel and MATERIEL.idmateriel like CASIER.idmateriel"
+                                              "and PRETERA.idmateriel like MATERIEL.idmateriel and MATERIEL.idmateriel like CASIER.idmateriel "
                                               "and MATERIEL.idtype like TYPE.idtype "
                                               "and PRETERA.daterendu like :dr ");
         requeteDernierObjetEmpreinter.bindValue(":nc", _numCarte.toUtf8());
@@ -204,7 +204,7 @@ QVector<Materiel> BDD::ListeMaterielEmpreintable()
     else
     {
         QSqlQuery requete("select MATERIEL.idmateriel, MATERIEL.nom, CASIER.positionx, CASIER.positiony, TYPE.localisationimage"
-                            " from MATERIEL, CASIER, TYPE where CASIER.rendu = 1 and MATERIEL.idmateriel like CASIER.idmateriel and MATERIEL.idtype like TYPE.idtype");
+                          " from MATERIEL, CASIER, TYPE where CASIER.rendu = 1 and MATERIEL.idmateriel like CASIER.idmateriel and MATERIEL.idtype like TYPE.idtype");
         if(!requete.exec()){
             qDebug()<<"ListeMaterielEmpreintable : pb requete "<<requete.lastError();
         }
@@ -215,7 +215,6 @@ QVector<Materiel> BDD::ListeMaterielEmpreintable()
             materiel.setPositionCasierX(requete.value("positionx").toInt());
             materiel.setPositionCasierY(requete.value("positiony").toInt());
             materiel.setLocalisationImage(requete.value("localisationimage").toString());
-            qDebug()<<requete.value("localisationimage").toString();
             listeMateriel.push_back(materiel);
         }
     }
@@ -242,18 +241,12 @@ void BDD::MajBDDObjetEmpreinter(Materiel _objet, QString _numCarte)
     }
     else
     {
-        /*QSqlQuery requeteMajCasierRendu;
-        requeteMajCasierRendu.prepare("update CASIER set CASIER.rendu=0 where CASIER.idmateriel like :im ;");
-        requeteMajCasierRendu.bindValue(":im", _objet.getIdMateriel());
-        if(!requeteMajCasierRendu.exec()){
-            qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteMajCasierRendu.lastError();
-        }*/
 
         QSqlQuery requeteRecIdAdherent;
         requeteRecIdAdherent.prepare("select idadherent from ADHERENTS where ADHERENTS.numcarte like :nc ;");
         requeteRecIdAdherent.bindValue(":nc", _numCarte);
         if(!requeteRecIdAdherent.exec()){
-             qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteRecIdAdherent.lastError();
+            qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteRecIdAdherent.lastError();
         }
 
         requeteRecIdAdherent.next();
@@ -263,10 +256,31 @@ void BDD::MajBDDObjetEmpreinter(Materiel _objet, QString _numCarte)
         requeteAjoutLignePreterA.prepare("insert into PRETERA(PRETERA.idadherent, PRETERA.idmateriel, datedebut) values( :ia, :im, :dd) ;");
         requeteAjoutLignePreterA.bindValue(":ia", idAdherent);
         requeteAjoutLignePreterA.bindValue(":im", _objet.getIdMateriel());
-        requeteAjoutLignePreterA.bindValue(":dd", QDateTime::currentDateTimeUtc());
+        requeteAjoutLignePreterA.bindValue(":dd", QDateTime::currentDateTime());
         if(!requeteAjoutLignePreterA.exec()){
-             qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteAjoutLignePreterA.lastError();
+            qDebug()<<"MajBDDObjetEmpreinter : pb requete "<<requeteAjoutLignePreterA.lastError();
         }
     }
     accesBdd.close();
+}
+
+QString BDD::RecupAdherent(QString _numCarte)
+{
+    QSqlQuery requete;
+    QString nomPrenom;
+
+    requete.prepare("select nom, prenom from ADHERENTS where numcarte like :nc;");
+    requete.bindValue(":nc", _numCarte);
+    if(!requete.exec())
+    {
+        qDebug()<<"pb requete "<<requete.lastError();
+    }
+    else
+    {
+        while(requete.next())
+        {
+            nomPrenom = requete.value("nom").toString() + "-" + requete.value("prenom").toString();
+        }
+    }
+    return nomPrenom;
 }

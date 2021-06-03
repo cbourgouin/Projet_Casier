@@ -27,8 +27,6 @@ public:
     int wiegandGetPendingBitCount();
     int wiegandReadData(void* data, int dataMaxLen);
 
-signals:
-
 };
 
 #endif // WIEGAND_H

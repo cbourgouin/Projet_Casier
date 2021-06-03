@@ -27,18 +27,19 @@ class InterfaceNumCarte : public QWidget
 {
     Q_OBJECT
 
-   public:
-       explicit InterfaceNumCarte(QWidget *parent = nullptr);
-       ~InterfaceNumCarte();
+public:
+    explicit InterfaceNumCarte(QWidget *parent = nullptr);
+    ~InterfaceNumCarte();
 
-   private slots:
-       void on_LC_nouvelle_carte();
+private slots:
+    void on_LC_nouvelle_carte();
 
-   signals:
-       void askDisplayFen(QString _numCarte);
-       void ouvrirCasier(int _casierX, int _casierY);
+signals:
+    void askDisplayFen(QString _numCarte);
+    void ouvrirCasier(int _casierX, int _casierY);
 
 private:
+    Cameras camera;
     LecteurCarte LC;
     QString numCarte;
     QStackedWidget *stack;

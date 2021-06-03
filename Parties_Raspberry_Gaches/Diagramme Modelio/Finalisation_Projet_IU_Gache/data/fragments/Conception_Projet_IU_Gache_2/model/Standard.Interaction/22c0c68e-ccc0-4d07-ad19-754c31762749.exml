@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Interaction" version="4">
   <OBJECT>
     <ID name="Interaction" mc="Standard.Interaction" uid="22c0c68e-ccc0-4d07-ad19-754c31762749"/>
-    <PID name="conception_projet_iu_gache_2" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
+    <PID name="Controleur_Casier" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
     <ATTRIBUTES>
       <ATT name="IsReentrant">false</ATT>
       <ATT name="Name"><![CDATA[Interaction]]></ATT>
@@ -563,7 +563,7 @@
         <OBJECT>
           <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="453d85c7-563c-4628-bc77-07dac5bdd2c6"/>
           <ATTRIBUTES>
-            <ATT name="LineNumber">368</ATT>
+            <ATT name="LineNumber">429</ATT>
             <ATT name="Name"></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
@@ -699,61 +699,6 @@
             <LINK relation="Covered">
               <REFOBJ>
                 <ID name="controlDeGache" mc="Standard.Lifeline" uid="81a1f329-e968-4ae3-a351-17c99cb9f541"/>
-              </REFOBJ>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="9b3ce915-c2f2-4960-a108-cdd5aa3dd674"/>
-          <ATTRIBUTES>
-            <ATT name="LineNumber">402</ATT>
-            <ATT name="Name"></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Started">
-              <REFOBJ>
-                <ID name="" mc="Standard.ExecutionSpecification" uid="72797f06-5853-4454-ae15-23a35b71d652"/>
-              </REFOBJ>
-            </LINK>
-            <LINK relation="Covered">
-              <REFOBJ>
-                <ID name="timerVerif" mc="Standard.Lifeline" uid="5f4b37f9-3e27-4568-ad34-b580090cec0f"/>
-              </REFOBJ>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="cfdcc3e0-a728-4378-93e0-a032a671f056"/>
-          <ATTRIBUTES>
-            <ATT name="LineNumber">441</ATT>
-            <ATT name="Name"></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Covered">
-              <REFOBJ>
-                <ID name="timerVerif" mc="Standard.Lifeline" uid="5f4b37f9-3e27-4568-ad34-b580090cec0f"/>
-              </REFOBJ>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="" mc="Standard.ExecutionSpecification" uid="72797f06-5853-4454-ae15-23a35b71d652"/>
-          <ATTRIBUTES>
-            <ATT name="LineNumber">402</ATT>
-            <ATT name="Name"></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Finish">
-              <REFOBJ>
-                <ID name="" mc="Standard.ExecutionOccurenceSpecification" uid="cfdcc3e0-a728-4378-93e0-a032a671f056"/>
-              </REFOBJ>
-            </LINK>
-            <LINK relation="Covered">
-              <REFOBJ>
-                <ID name="timerVerif" mc="Standard.Lifeline" uid="5f4b37f9-3e27-4568-ad34-b580090cec0f"/>
               </REFOBJ>
             </LINK>
           </DEPENDENCIES>
@@ -1442,22 +1387,6 @@
           <DEPENDENCIES>
             <COMP relation="Declared">
               <OBJECT>
-                <ID name="w" mc="Standard.BindableInstance" uid="8510e087-d0f6-4981-8fc5-0ab79934bfc8"/>
-                <ATTRIBUTES>
-                  <ATT name="IsConstant">false</ATT>
-                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-                  <ATT name="Value"></ATT>
-                  <ATT name="Name"><![CDATA[w]]></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Base">
-                    <ID name="FenetreDeSwitch" mc="Standard.Class" uid="1cf207e6-53d1-49cf-bcf2-832c068bedf2"/>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
-              <OBJECT>
                 <ID name="fen2" mc="Standard.BindableInstance" uid="ef62af3f-6ecd-41c8-9974-541f8426544f"/>
                 <ATTRIBUTES>
                   <ATT name="IsConstant">false</ATT>
@@ -1566,6 +1495,22 @@
                 <DEPENDENCIES>
                   <LINK relation="Base">
                     <ID name="HautParleur" mc="Standard.Class" uid="1b013300-de0a-4e6b-885b-17ea942a5050"/>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="w" mc="Standard.BindableInstance" uid="d9a6f1a4-7d88-4b19-b9ea-4f1dddc22138"/>
+                <ATTRIBUTES>
+                  <ATT name="IsConstant">false</ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"><![CDATA[w]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Base">
+                    <ID name="FenetreDeSwitch" mc="Standard.Class" uid="1cf207e6-53d1-49cf-bcf2-832c068bedf2"/>
                   </LINK>
                 </DEPENDENCIES>
               </OBJECT>

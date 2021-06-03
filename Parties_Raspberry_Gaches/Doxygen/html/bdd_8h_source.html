@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Casier Automatique:  Fichier source de /home/cbourgouin/Documents/Projet_Casier/Parties_Raspberry_Gaches/Code/Projet_Casier_2/bdd.h</title>
+<title>Projet_Casier:  Fichier source de bdd.h</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -13,6 +13,9 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -24,31 +27,30 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="image.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Casier Automatique
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Projet_Casier
+   &#160;<span id="projectnumber">0.9</span>
    </div>
+   <div id="projectbrief">Projet commandé par la MDL du lycée Alain, permet l&#39;empreint d&#39;objet par les adhérents de la mdl</div>
   </td>
  </tr>
  </tbody>
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.8.13 -->
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
-/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Recherche');
   $(document).ready(function() { init_search(); });
 });
-/* @license-end */</script>
+</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
@@ -62,9 +64,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('bdd_8h_source.html',''); initResizable(); });
-/* @license-end */
+$(document).ready(function(){initNavTree('bdd_8h_source.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -86,56 +86,27 @@ $(document).ready(function(){initNavTree('bdd_8h_source.html',''); initResizable
 <div class="title">bdd.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="bdd_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef BDD_H</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define BDD_H</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QSqlDatabase&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QSqlQuery&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QFileInfo&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QSqlError&gt;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="materiel_8h.html">materiel.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_b_d_d.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_b_d_d.html">BDD</a></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_b_d_d.html#abc551344b2e136090b8d2d82ab6ff0f2">BDD</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_b_d_d.html#a865c7d7590e1c3f227346b1045713099">~BDD</a>();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_b_d_d.html#a1ec7b2d076c4d0c6258e14c9181aab24">VerifAdherent</a>(<span class="keywordtype">int</span> _numCarte);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_materiel.html">Materiel</a> *<a class="code" href="class_b_d_d.html#a0f7b8cc2e91363a7dd8a81ceffe59562">VerifObjetNonRendu</a>(<span class="keywordtype">int</span> _numCarte);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_b_d_d.html#a101fd2dc7b7bf8e29793cea6bc3f63a7">MajBDDObjetRendu</a>(<span class="keywordtype">int</span> _idObjet);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::vector&lt;Materiel&gt; <a class="code" href="class_b_d_d.html#a97bf0b845e03e4a519c4d3b7492cfd15">ListeMaterielEmpreintable</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_b_d_d.html#a3336861b254fc2de81bcbbc63cdf3686">MajBDDObjetEmpreinter</a>(<a class="code" href="class_materiel.html">Materiel</a> _objet, <span class="keywordtype">int</span> _numCarte);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">   33</a></span>&#160;    QSqlDatabase <a class="code" href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">accesBdd</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif // BDD_H</span></div>
+<a href="bdd_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef BDD_H</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define BDD_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;QSqlDatabase&gt;</span></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QSqlQuery&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;QSettings&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;QFileInfo&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;QApplication&gt;</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;QSqlError&gt;</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;QDate&gt;</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="materiel_8h.html">materiel.h</a>&quot;</span></div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_b_d_d.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_b_d_d.html">BDD</a></div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_b_d_d.html#abc551344b2e136090b8d2d82ab6ff0f2">BDD</a>();</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_b_d_d.html#a865c7d7590e1c3f227346b1045713099">~BDD</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_b_d_d.html#abc714983185305be9d9c310f88a178fe">VerifAdherent</a>(QString _numCarte);</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_materiel.html">Materiel</a> *<a class="code" href="class_b_d_d.html#a3c75a9fdff0ff720d14d6181e97aac71">VerifObjetNonRendu</a>(QString _numCarte);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_b_d_d.html#a101fd2dc7b7bf8e29793cea6bc3f63a7">MajBDDObjetRendu</a>(<span class="keywordtype">int</span> _idObjet);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    QVector&lt;Materiel&gt; <a class="code" href="class_b_d_d.html#ae26551b70167f0b2741d8a34e8fd4085">ListeMaterielEmpreintable</a>();</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_b_d_d.html#a4df77b6b4771145e2b13f20f6f9b649f">MajBDDObjetEmpreinter</a>(<a class="code" href="class_materiel.html">Materiel</a> _objet, QString _numCarte);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    QString <a class="code" href="class_b_d_d.html#a882636b7616e0897a8e78284bb9736eb">RecupAdherent</a>(QString _numCarte);</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">   36</a></span>&#160;    QSqlDatabase <a class="code" href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">accesBdd</a>;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif // BDD_H</span></div><div class="ttc" id="class_b_d_d_html_ae26551b70167f0b2741d8a34e8fd4085"><div class="ttname"><a href="class_b_d_d.html#ae26551b70167f0b2741d8a34e8fd4085">BDD::ListeMaterielEmpreintable</a></div><div class="ttdeci">QVector&lt; Materiel &gt; ListeMaterielEmpreintable()</div><div class="ttdoc">BDD::ListeMaterielEmpreintable. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:197</div></div>
+<div class="ttc" id="class_b_d_d_html"><div class="ttname"><a href="class_b_d_d.html">BDD</a></div><div class="ttdef"><b>Definition:</b> bdd.h:23</div></div>
+<div class="ttc" id="class_b_d_d_html_a882636b7616e0897a8e78284bb9736eb"><div class="ttname"><a href="class_b_d_d.html#a882636b7616e0897a8e78284bb9736eb">BDD::RecupAdherent</a></div><div class="ttdeci">QString RecupAdherent(QString _numCarte)</div><div class="ttdef"><b>Definition:</b> bdd.cpp:267</div></div>
+<div class="ttc" id="class_b_d_d_html_a3c75a9fdff0ff720d14d6181e97aac71"><div class="ttname"><a href="class_b_d_d.html#a3c75a9fdff0ff720d14d6181e97aac71">BDD::VerifObjetNonRendu</a></div><div class="ttdeci">Materiel * VerifObjetNonRendu(QString _numCarte)</div><div class="ttdoc">BDD::VerifObjetNonRendu. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:91</div></div>
+<div class="ttc" id="materiel_8h_html"><div class="ttname"><a href="materiel_8h.html">materiel.h</a></div><div class="ttdoc">Déclaration de la classe Materiel. </div></div>
+<div class="ttc" id="class_b_d_d_html_a865c7d7590e1c3f227346b1045713099"><div class="ttname"><a href="class_b_d_d.html#a865c7d7590e1c3f227346b1045713099">BDD::~BDD</a></div><div class="ttdeci">~BDD()</div><div class="ttdoc">BDD::~BDD. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:44</div></div>
+<div class="ttc" id="class_b_d_d_html_a101fd2dc7b7bf8e29793cea6bc3f63a7"><div class="ttname"><a href="class_b_d_d.html#a101fd2dc7b7bf8e29793cea6bc3f63a7">BDD::MajBDDObjetRendu</a></div><div class="ttdeci">void MajBDDObjetRendu(int _idObjet)</div><div class="ttdoc">BDD::MajBDDObjetRendu. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:147</div></div>
+<div class="ttc" id="class_b_d_d_html_abc551344b2e136090b8d2d82ab6ff0f2"><div class="ttname"><a href="class_b_d_d.html#abc551344b2e136090b8d2d82ab6ff0f2">BDD::BDD</a></div><div class="ttdeci">BDD()</div><div class="ttdoc">BDD::BDD. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:17</div></div>
+<div class="ttc" id="class_b_d_d_html_a4df77b6b4771145e2b13f20f6f9b649f"><div class="ttname"><a href="class_b_d_d.html#a4df77b6b4771145e2b13f20f6f9b649f">BDD::MajBDDObjetEmpreinter</a></div><div class="ttdeci">void MajBDDObjetEmpreinter(Materiel _objet, QString _numCarte)</div><div class="ttdoc">BDD::MajBDDObjetEmpreinter. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:233</div></div>
+<div class="ttc" id="class_b_d_d_html_a9ac5c80c64c349082a706777a9f64bdf"><div class="ttname"><a href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">BDD::accesBdd</a></div><div class="ttdeci">QSqlDatabase accesBdd</div><div class="ttdef"><b>Definition:</b> bdd.h:36</div></div>
+<div class="ttc" id="class_b_d_d_html_abc714983185305be9d9c310f88a178fe"><div class="ttname"><a href="class_b_d_d.html#abc714983185305be9d9c310f88a178fe">BDD::VerifAdherent</a></div><div class="ttdeci">bool VerifAdherent(QString _numCarte)</div><div class="ttdoc">BDD::VerifAdherent. </div><div class="ttdef"><b>Definition:</b> bdd.cpp:57</div></div>
+<div class="ttc" id="class_materiel_html"><div class="ttname"><a href="class_materiel.html">Materiel</a></div><div class="ttdef"><b>Definition:</b> materiel.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_b_d_d_html_a101fd2dc7b7bf8e29793cea6bc3f63a7"><div class="ttname"><a href="class_b_d_d.html#a101fd2dc7b7bf8e29793cea6bc3f63a7">BDD::MajBDDObjetRendu</a></div><div class="ttdeci">void MajBDDObjetRendu(int _idObjet)</div><div class="ttdoc">BDD::MajBDDObjetRendu.</div><div class="ttdef"><b>Definition:</b> bdd.cpp:128</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a865c7d7590e1c3f227346b1045713099"><div class="ttname"><a href="class_b_d_d.html#a865c7d7590e1c3f227346b1045713099">BDD::~BDD</a></div><div class="ttdeci">~BDD()</div></div>
-<div class="ttc" id="aclass_b_d_d_html"><div class="ttname"><a href="class_b_d_d.html">BDD</a></div><div class="ttdef"><b>Definition:</b> bdd.h:22</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a1ec7b2d076c4d0c6258e14c9181aab24"><div class="ttname"><a href="class_b_d_d.html#a1ec7b2d076c4d0c6258e14c9181aab24">BDD::VerifAdherent</a></div><div class="ttdeci">bool VerifAdherent(int _numCarte)</div><div class="ttdoc">BDD::VerifAdherent.</div><div class="ttdef"><b>Definition:</b> bdd.cpp:46</div></div>
-<div class="ttc" id="amateriel_8h_html"><div class="ttname"><a href="materiel_8h.html">materiel.h</a></div><div class="ttdoc">Déclaration de la classe Materiel.</div></div>
-<div class="ttc" id="aclass_b_d_d_html_abc551344b2e136090b8d2d82ab6ff0f2"><div class="ttname"><a href="class_b_d_d.html#abc551344b2e136090b8d2d82ab6ff0f2">BDD::BDD</a></div><div class="ttdeci">BDD()</div><div class="ttdoc">BDD::BDD.</div><div class="ttdef"><b>Definition:</b> bdd.cpp:17</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a0f7b8cc2e91363a7dd8a81ceffe59562"><div class="ttname"><a href="class_b_d_d.html#a0f7b8cc2e91363a7dd8a81ceffe59562">BDD::VerifObjetNonRendu</a></div><div class="ttdeci">Materiel * VerifObjetNonRendu(int _numCarte)</div><div class="ttdoc">BDD::VerifObjetNonRendu.</div><div class="ttdef"><b>Definition:</b> bdd.cpp:78</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a3336861b254fc2de81bcbbc63cdf3686"><div class="ttname"><a href="class_b_d_d.html#a3336861b254fc2de81bcbbc63cdf3686">BDD::MajBDDObjetEmpreinter</a></div><div class="ttdeci">void MajBDDObjetEmpreinter(Materiel _objet, int _numCarte)</div><div class="ttdoc">BDD::MajBDDObjetEmpreinter.</div><div class="ttdef"><b>Definition:</b> bdd.cpp:181</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a97bf0b845e03e4a519c4d3b7492cfd15"><div class="ttname"><a href="class_b_d_d.html#a97bf0b845e03e4a519c4d3b7492cfd15">BDD::ListeMaterielEmpreintable</a></div><div class="ttdeci">std::vector&lt; Materiel &gt; ListeMaterielEmpreintable()</div><div class="ttdef"><b>Definition:</b> bdd.cpp:146</div></div>
-<div class="ttc" id="aclass_materiel_html"><div class="ttname"><a href="class_materiel.html">Materiel</a></div><div class="ttdef"><b>Definition:</b> materiel.h:13</div></div>
-<div class="ttc" id="aclass_b_d_d_html_a9ac5c80c64c349082a706777a9f64bdf"><div class="ttname"><a href="class_b_d_d.html#a9ac5c80c64c349082a706777a9f64bdf">BDD::accesBdd</a></div><div class="ttdeci">QSqlDatabase accesBdd</div><div class="ttdef"><b>Definition:</b> bdd.h:33</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_23fdee2f6995db16c755697cdf620cf4.html">Code</a></li><li class="navelem"><a class="el" href="dir_03a6a1b6adb2eccd789d1acf046b7dde.html">Projet_Casier_2</a></li><li class="navelem"><a class="el" href="bdd_8h.html">bdd.h</a></li>
+    <li class="navelem"><a class="el" href="bdd_8h.html">bdd.h</a></li>
     <li class="footer">Généré par
     <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.13 </li>
   </ul>
 </div>
 </body>

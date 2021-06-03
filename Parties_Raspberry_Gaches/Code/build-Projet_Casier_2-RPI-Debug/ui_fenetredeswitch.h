@@ -53,7 +53,7 @@ public:
 };
 
 namespace Ui {
-    class fenetreDeSwitch: public Ui_fenetreDeSwitch {};
+    class FenetreDeSwitch: public Ui_fenetreDeSwitch {};
 } // namespace Ui
 
 QT_END_NAMESPACE

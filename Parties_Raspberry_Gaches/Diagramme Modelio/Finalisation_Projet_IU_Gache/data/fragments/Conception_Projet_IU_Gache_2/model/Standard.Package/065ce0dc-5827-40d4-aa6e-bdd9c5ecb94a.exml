@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="conception_projet_iu_gache_2" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Controleur_Casier" version="4">
   <OBJECT>
-    <ID name="conception_projet_iu_gache_2" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
+    <ID name="Controleur_Casier" mc="Standard.Package" uid="065ce0dc-5827-40d4-aa6e-bdd9c5ecb94a"/>
     <PID name="Conception_Projet_IU_Gache_2" mc="Standard.Project" uid="1d573d30-ac50-4059-bbbd-99f33e1de92c"/>
     <ATTRIBUTES>
       <ATT name="IsInstantiable">false</ATT>
@@ -9,12 +9,11 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[conception_projet_iu_gache_2]]></ATT>
+      <ATT name="Name"><![CDATA[Controleur_Casier]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedBehavior">
-        <COMPID name="Choisir un matériel à emprunter ou à restituer" mc="Standard.Interaction" uid="658d8ac6-1e24-4ebc-b232-b107966fd4e7"/>
         <COMPID name="Manoeuvrer la gâche d'un casier" mc="Standard.Interaction" uid="1afaede6-57e6-4b3b-9346-1e520a327496"/>
         <COMPID name="Interaction" mc="Standard.Interaction" uid="22c0c68e-ccc0-4d07-ad19-754c31762749"/>
       </COMP>
@@ -30,9 +29,12 @@
         <COMPID name="IoPi" mc="Standard.Class" uid="ee1eb004-571a-4ba0-9248-5a6418a5fb65"/>
         <COMPID name="InterfaceNumCarte" mc="Standard.Class" uid="a8cf4a02-7dfd-4bcd-994b-cbca81dd5e5c"/>
         <COMPID name="ControleurDeGache" mc="Standard.Class" uid="93a49b9c-d523-48c1-bd98-3c1a4172e6dd"/>
+        <COMPID name="Choisir un matériel à emprunter ou à restituer" mc="Standard.UseCase" uid="a1ff01f1-f85d-4b93-a460-d5189f1b5132"/>
+        <COMPID name="Materiel" mc="Standard.Class" uid="809dddd3-9506-4293-b293-0022fe9c510b"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="conception_projet_iu_gache_2 Class diagram" mc="Standard.ClassDiagram" uid="7f073e79-dc07-46d1-8c4d-83ccb7c56d33"/>
+        <COMPID name="Diagramme de cas d'utilisation conception_projet_iu_gache_2" mc="Standard.UseCaseDiagram" uid="b8c04768-e75c-4cbb-96ab-5bd0f620eaf8"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>

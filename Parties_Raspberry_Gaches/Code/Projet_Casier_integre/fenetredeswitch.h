@@ -1,6 +1,6 @@
 /**
   @file fenetredeswitch.h
-  @brief Déclaration de la classe visuel fenetreDeSwitch
+  @brief Déclaration de la classe visuel FenetreDeSwitch
   @author Charly Bourgouin
   @date 05/05/2020
   */
@@ -15,7 +15,7 @@
 #include "interfacenumcarte.h"
 
 namespace Ui {
-class fenetreDeSwitch;
+class FenetreDeSwitch;
 }
 
 class FenetreDeSwitch : public QMainWindow
@@ -28,11 +28,11 @@ public:
 
 public slots:
     void slotDisplayFen1();
-    void slotDisplayFen2(QString _numCarte);
+    void slotDisplayFen2(const QString &_numCarte);
     void ouvrirCasier(int _x, int  _y);
 
 private:
-    Ui::fenetreDeSwitch *ui;
+    Ui::FenetreDeSwitch *ui;
     QStackedWidget *stack; /// Stack des widgets a afficher
     InterfaceNumCarte *fen1; /// Affichage des boutons de selection des casiers
     InterfaceDesCasiers *fen2; /// Affichage d'entrée du numero de la carte de l'utilisateur

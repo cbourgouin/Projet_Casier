@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>Ballon.jpg</file>
+        <file>Calculatrice.jpg</file>
+        <file>alarme-de-reveil-standard-son.mp3</file>
+    </qresource>
+    <qresource prefix="/mp3"/>
+</RCC>

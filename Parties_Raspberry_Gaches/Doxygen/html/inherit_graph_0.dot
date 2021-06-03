@@ -1,8 +1,7 @@
 digraph "Graphe hiérarchique des classes"
 {
- // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="ABElectronics_CPP_Libraries\l::IoPi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html",tooltip=" "];
+  Node0 [label="ABElectronics_CPP_Libraries\l::IoPi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_a_b_electronics___c_p_p___libraries_1_1_io_pi.html"];
 }

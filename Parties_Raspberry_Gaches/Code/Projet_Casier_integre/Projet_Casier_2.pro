@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     ABE_IoPi.cpp \
+    alarme.cpp \
     bdd.cpp \
     cameras.cpp \
     controleurdegache.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 
 HEADERS += \
     ABE_IoPi.h \
+    alarme.h \
     bdd.h \
     cameras.h \
     controleurdegache.h \
@@ -51,3 +53,6 @@ LIBS += -I/usr/local/include -L/usr/local/lib -lpthread -lwiringPi -lrt
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /home/pi/
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    images.qrc

@@ -48,6 +48,7 @@ void InterfaceNumCarte::on_LC_nouvelle_carte()
     BDD *maBaseDeDonnee;
     maBaseDeDonnee = new BDD();
     if(maBaseDeDonnee->VerifAdherent(numCarte)){
+        camera.captureImageUtilisateurs();
         Materiel *materiel = nullptr;
         materiel = maBaseDeDonnee->VerifObjetNonRendu(numCarte);
         if(materiel==nullptr){

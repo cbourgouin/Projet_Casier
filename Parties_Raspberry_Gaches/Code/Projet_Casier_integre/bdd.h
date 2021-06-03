@@ -30,6 +30,7 @@ public:
     void MajBDDObjetRendu(int _idObjet);
     QVector<Materiel> ListeMaterielEmpreintable();
     void MajBDDObjetEmpreinter(Materiel _objet, QString _numCarte);
+    QString RecupAdherent(QString _numCarte);
 
 private:
     QSqlDatabase accesBdd;

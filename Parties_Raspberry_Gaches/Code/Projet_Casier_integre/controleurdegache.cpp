@@ -35,10 +35,8 @@ void ControleurDeGache::ouvrirCasier(int _numCasier)
 {
     numCasier = _numCasier;
     bus1.write_pin(numCasier, 0);
-    qDebug()<<"avant lancement timer";
     timerImpulsion.start(500);
-    qDebug()<<"apres lancement timer";
-
+    camera.captureImageCasiers();
 }
 
 
@@ -49,9 +47,10 @@ void ControleurDeGache::ouvrirCasier(int _numCasier)
  */
 void ControleurDeGache::onTimerImpulsion_timeout()
 {
-    qDebug()<<"dans timeout timer";
 
     bus1.write_pin(numCasier, 1);
+    alm = new Alarme();
+    alm->demarrerAlarme();
     messageCasierOuvert = new QMessageBox();
     messageCasierOuvert->setText("Casier ouvert !");
     messageCasierOuvert->setStandardButtons(0);
@@ -75,6 +74,9 @@ void ControleurDeGache::onTimerVerif_timeout()
     {
         messageCasierOuvert->hide();
         delete messageCasierOuvert;
+        alm->arreterAlarme();
+        delete alm;
         emit casierFerme();
+        camera.captureImageCasiers();
     }
 }

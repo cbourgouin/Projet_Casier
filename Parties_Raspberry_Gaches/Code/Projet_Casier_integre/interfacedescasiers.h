@@ -12,8 +12,10 @@
 #include <QPushButton>
 #include <QGridLayout>
 #include <QLayoutItem>
+#include <QPixmap>
 #include <vector>
 
+#include "cameras.h"
 #include "bdd.h"
 #include "controleurdegache.h"
 
@@ -31,7 +33,7 @@ public:
     InterfaceDesCasiers(QWidget *parent = nullptr);
     ~InterfaceDesCasiers();
     void ouvrirCasier(int _x, int _y);
-    void setNumCarte(QString _numCarte);
+    void setNumCarte(const QString &_numCarte);
 
 private slots:
     void onpushButtonMaterielsclicked();
@@ -47,6 +49,8 @@ private:
     int numCasier;
     int positionXObjetRendu;
     int positionYObjetRendu;
+    int tailleDesBoutons;
+    Cameras camera;
     Protocol pc;
     QString numCarte;
     QVector<Materiel> listeMateriel;

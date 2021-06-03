@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gache_171',['Gache',['../class_gache.html',1,'']]]
+  ['cameras',['Cameras',['../class_cameras.html',1,'']]],
+  ['controleurdegache',['ControleurDeGache',['../class_controleur_de_gache.html',1,'']]]
 ];
